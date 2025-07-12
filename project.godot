@@ -11,5 +11,7 @@ config_version=5
 [application]
 
 config/name="intern_of_alchemist"
+config/tags=PackedStringArray("gamejam", "разработка")
+run/main_scene="uid://blnydnqk036lx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

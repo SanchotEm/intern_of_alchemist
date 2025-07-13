@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=9 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
 [ext_resource type="PackedScene" uid="uid://dsjertmptbxpt" path="res://Base/base_item.tscn" id="3_lo0hp"]
+[ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
+[ext_resource type="Script" uid="uid://7ahbhb8ok21u" path="res://UI/VolumeControl.gd" id="4_otdql"]
+[ext_resource type="Texture2D" uid="uid://cf4l3e4vy7ukc" path="res://Resources/Icons/VolumeSpritePressed-0001.png" id="5_swbce"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lo0hp"]
 
@@ -42,3 +45,114 @@ bias = 0.558
 disable_collision = false
 
 [node name="Level" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="UI"]
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.156863, 0.156863, 0.156863, 0.321569)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_bottom = 183.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TopBarUIContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 2
+
+[node name="VolumeControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+layout_mode = 2
+script = ExtResource("4_otdql")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl"]
+layout_mode = 2
+offset_left = -240.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 173.0
+alignment = 1
+
+[node name="VolumeButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_1h10i")
+texture_pressed = ExtResource("5_swbce")
+
+[node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+
+[node name="MainLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main"
+
+[node name="MainVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SFX"
+
+[node name="SFXVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Narrator"
+
+[node name="NarratorVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0

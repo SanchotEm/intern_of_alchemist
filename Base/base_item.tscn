@@ -1,30 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsjertmptbxpt"]
 
 [ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/base_item.gd" id="1_r6ri3"]
-[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/item_data.gd" id="2_l10xi"]
-[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://1194709733966368929.png" id="3_new0r"]
+[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://Resources/1194709733966368929.png" id="2_l10xi"]
 
-[sub_resource type="Resource" id="Resource_56rss"]
-script = ExtResource("2_l10xi")
-item_name = ""
-description = ""
-sprite = ExtResource("3_new0r")
-tags = Array[String]([])
-metadata/_custom_type_script = "uid://dluypacfui4h"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56rss"]
+size = Vector2(84, 98)
 
-[node name="base_item" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_new0r"]
+size = Vector2(112, 128)
+
+[node name="base_item" type="RigidBody2D"]
+collision_layer = 5
+collision_mask = 5
+mass = 1000.0
 script = ExtResource("1_r6ri3")
-data = SubResource("Resource_56rss")
 
-[node name="TextureButton" type="TextureButton" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="item_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_l10xi")
+
+[node name="Item_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_56rss")
+debug_color = Color(0, 0.6, 0.701961, 0.843137)
+
+[node name="input_collision" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="input_collision"]
+shape = SubResource("RectangleShape2D_new0r")
+debug_color = Color(1, 0.933333, 0, 0.368627)

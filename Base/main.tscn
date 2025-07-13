@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=12 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
 [ext_resource type="Script" uid="uid://7ahbhb8ok21u" path="res://UI/VolumeControl.gd" id="4_otdql"]
 [ext_resource type="Texture2D" uid="uid://cf4l3e4vy7ukc" path="res://Resources/Icons/VolumeSpritePressed-0001.png" id="5_swbce"]
+[ext_resource type="Texture2D" uid="uid://depdj7kbkpgu" path="res://Resources/Icons/HelpSprite-0001.png" id="7_3tpw1"]
+[ext_resource type="Script" uid="uid://b4873n8i6s0vb" path="res://UI/HelpControl.gd" id="7_u7upk"]
+[ext_resource type="Texture2D" uid="uid://blpqswr63jyas" path="res://Resources/Icons/HelpSpritePressed-0001.png" id="8_u7upk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lo0hp"]
 
@@ -59,12 +62,10 @@ mouse_filter = 2
 color = Color(0.156863, 0.156863, 0.156863, 0.321569)
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -250.0
-offset_bottom = 183.0
-grow_horizontal = 0
+offset_bottom = 20.0
+grow_horizontal = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -72,23 +73,33 @@ theme_override_constants/margin_bottom = 10
 
 [node name="TopBarUIContainer" type="HBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
 size_flags_vertical = 2
+alignment = 2
 
 [node name="VolumeControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+custom_minimum_size = Vector2(230, 163)
 layout_mode = 2
 script = ExtResource("4_otdql")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl"]
-layout_mode = 2
-offset_left = -240.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 173.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -81.5
+offset_right = 115.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="VolumeButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_1h10i")
@@ -156,3 +167,22 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
+
+[node name="HelpControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("7_u7upk")
+
+[node name="HelpButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/HelpControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("7_3tpw1")
+texture_pressed = ExtResource("8_u7upk")
+stretch_mode = 3

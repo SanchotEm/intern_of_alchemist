@@ -11,5 +11,33 @@ config_version=5
 [application]
 
 config/name="intern_of_alchemist"
+config/tags=PackedStringArray("gamejam", "разработка")
+run/main_scene="uid://blnydnqk036lx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Interface="*res://Base/interface.gd"
+
+[display]
+
+window/vsync/vsync_mode=0
+
+[editor]
+
+movie_writer/movie_file="A:/Игродел/WildJam83/intern_of_alchemist/test.avi"
+movie_writer/disable_vsync=true
+
+[input]
+
+LMB={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+RMB={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}

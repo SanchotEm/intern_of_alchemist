@@ -12,6 +12,7 @@ var sliders_visible := false
 func _ready() -> void:
 	# Initialization
 	volume_sliders.modulate.a = 0.0
+	volume_sliders.visible = false
 	_setup_sliders()
 	_connect_signals()
 	_apply_initial_volumes()
@@ -46,6 +47,7 @@ func _apply_initial_volumes() -> void:
 func _on_volume_button_pressed() -> void:
 	# Toggle slider visibility
 	sliders_visible = not sliders_visible
+	volume_sliders.visible = sliders_visible 
 	volume_sliders.modulate.a = 1.0 if sliders_visible else 0.0
 	volume_button.button_pressed = sliders_visible
 

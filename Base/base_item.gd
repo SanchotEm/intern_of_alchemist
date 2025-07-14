@@ -35,14 +35,14 @@ func _ready() -> void:
 	let_me_down.connect(player.release.bind(self))
 	input_collision.input_event.connect(got_input)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !drag_mode and pressed_pos:
 		print((get_global_mouse_position()-pressed_pos).length())
 		if (get_global_mouse_position()-pressed_pos).length()>20:
 			drag_mode=true
 			pressed_pos = Vector2(0,0)
 
-func got_input(viewport: Node, event: InputEvent, shape_idx: int):
+func got_input(_viewport: Node, event: InputEvent, _shape_idx: int):
 	
 	if event.is_action_pressed("LMB"):
 		print(ItemStates.find_key(current_state))

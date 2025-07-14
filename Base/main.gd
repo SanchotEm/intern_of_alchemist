@@ -6,7 +6,7 @@ var game_state : GameStates = GameStates.LAUNCH
 var test_count : int = 0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_game_cycle()
 
 func _ready() -> void:

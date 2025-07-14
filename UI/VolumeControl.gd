@@ -45,9 +45,9 @@ func _on_volume_button_pressed() -> void:
 	_toggle_sliders_visibility(sliders_visible)
 	volume_button.button_pressed = sliders_visible
 
-func _toggle_sliders_visibility(visible: bool) -> void:
+func _toggle_sliders_visibility(should_show: bool) -> void:
 	var tween = create_tween()
-	if visible:
+	if should_show:
 		volume_sliders.visible = true
 		tween.tween_property(volume_sliders, "modulate:a", 1.0, 0.3).set_trans(Tween.TRANS_SINE)
 	else:

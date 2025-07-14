@@ -5,6 +5,7 @@ var game_state : GameStates = GameStates.LAUNCH
 var test_count : int = 0
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 func _process(delta: float) -> void:
 	_game_cycle()

@@ -13,6 +13,8 @@ var current_state := ItemStates.NONE
 @onready var sprite : Sprite2D = $item_sprite
 @onready var input_collision: Area2D = $input_collision
 @onready var item_collision: CollisionShape2D = $Item_collision
+@onready var pin: PinJoint2D = $PinJoint2D
+
 
 @export var item_name :String
 @export var description :String
@@ -23,6 +25,7 @@ var drag_mode: bool = false
 var pressed_pos: Vector2
 func _ready() -> void:
 	Interface.items.append(self)
+	pin.set_node_a(get_path())
 	player = Interface.player
 	give_me_up.connect(player.pick.bind(self))
 	let_me_down.connect(player.release.bind(self))
@@ -53,3 +56,16 @@ func got_input(viewport: Node, event: InputEvent, shape_idx: int):
 			drag_mode = false
 	pass
 	
+func attach_to(target:Node2D, connection_point: Vector2 = get_global_mouse_position()):
+	if _is_attached():
+		detach()
+	pin.global_position = connection_point
+	pin.set_node_b(target.get_path())
+	Interface.play_audio(Interface.AudioPlayers.SFX, load("uid://bgs8a5isxl01b"))
+	pass
+func _is_attached() -> bool:
+	return !pin.node_b.is_empty()
+func detach():
+	pin.set_node_b("")
+	Interface.play_audio(Interface.AudioPlayers.SFX, load("uid://bgs8a5isxl01b"))
+	pass

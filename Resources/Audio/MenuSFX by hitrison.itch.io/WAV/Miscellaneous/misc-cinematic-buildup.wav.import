@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3ir3kf2fjvcb"
+path="res://.godot/imported/misc-cinematic-buildup.wav-36e236ab3b43cf11465bc4df4445f0f5.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Miscellaneous/misc-cinematic-buildup.wav"
+dest_files=["res://.godot/imported/misc-cinematic-buildup.wav-36e236ab3b43cf11465bc4df4445f0f5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

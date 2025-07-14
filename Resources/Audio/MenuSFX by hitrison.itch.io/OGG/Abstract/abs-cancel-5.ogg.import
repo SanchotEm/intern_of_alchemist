@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dnnxhbqr4t5be"
+path="res://.godot/imported/abs-cancel-5.ogg-682620b9face5413eb5b4a33167569de.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Abstract/abs-cancel-5.ogg"
+dest_files=["res://.godot/imported/abs-cancel-5.ogg-682620b9face5413eb5b4a33167569de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

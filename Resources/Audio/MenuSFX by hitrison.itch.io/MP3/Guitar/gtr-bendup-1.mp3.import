@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cns7r45eljd16"
+path="res://.godot/imported/gtr-bendup-1.mp3-b27b6678b7d93f3a717d583ffca9bf4f.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Guitar/gtr-bendup-1.mp3"
+dest_files=["res://.godot/imported/gtr-bendup-1.mp3-b27b6678b7d93f3a717d583ffca9bf4f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

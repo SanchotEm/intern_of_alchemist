@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsn28akw1rdhm"
+path="res://.godot/imported/abs-confirm-3-alt.wav-f14c58f5d5558d1b7f210f5d2eb3e384.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Abstract/abs-confirm-3-alt.wav"
+dest_files=["res://.godot/imported/abs-confirm-3-alt.wav-f14c58f5d5558d1b7f210f5d2eb3e384.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

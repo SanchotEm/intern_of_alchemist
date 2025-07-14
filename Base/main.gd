@@ -1,26 +1,24 @@
+## Main.gd - Script on root node
 extends Node2D
 
 enum GameStates {LAUNCH, MENU, GAME, EXIT}
 var game_state : GameStates = GameStates.LAUNCH
 var test_count : int = 0
+
+
 func _process(delta: float) -> void:
 	_game_cycle()
 
-#func _ready() -> void:
-	#var timer = get_tree().create_timer(5)
-	#timer.timeout.connect(_incriment)
-func _incriment():
-	
-	test_count += 1
-	print(test_count)
-	var timer = get_tree().create_timer(5)
-	timer.timeout.connect(_incriment)
+func _ready() -> void:
+	Interface.register_player(Interface.AudioPlayerType.SFX, %SFXPlayer)
+	Interface.register_player(Interface.AudioPlayerType.MUSIC, %MusicPlayer)
+	Interface.register_player(Interface.AudioPlayerType.NARRATOR, %NarratorPlayer)
+
+
 func _game_cycle():
 	match game_state:
 		GameStates.LAUNCH:
-			if test_count >= 3:
-				game_state = GameStates.EXIT
-				return
+				pass
 		GameStates.EXIT:
 			get_tree().quit()
 	pass

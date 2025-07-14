@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://upi7tstl8w6p"
+path="res://.godot/imported/gtr-pointer-2.mp3-5fc9107fa9b3753fa40f0c29e6cb00a6.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Guitar/gtr-pointer-2.mp3"
+dest_files=["res://.godot/imported/gtr-pointer-2.mp3-5fc9107fa9b3753fa40f0c29e6cb00a6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

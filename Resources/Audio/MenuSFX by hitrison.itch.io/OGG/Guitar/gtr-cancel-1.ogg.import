@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bbegbwqo2jipq"
+path="res://.godot/imported/gtr-cancel-1.ogg-0f02174b5063ee1fe819bbb93b80f25a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Guitar/gtr-cancel-1.ogg"
+dest_files=["res://.godot/imported/gtr-cancel-1.ogg-0f02174b5063ee1fe819bbb93b80f25a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

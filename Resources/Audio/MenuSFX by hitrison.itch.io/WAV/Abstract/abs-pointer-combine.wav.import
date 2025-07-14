@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dlogrernvmj31"
+path="res://.godot/imported/abs-pointer-combine.wav-d2e96d98b8d20e2e56a25f617794417c.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Abstract/abs-pointer-combine.wav"
+dest_files=["res://.godot/imported/abs-pointer-combine.wav-d2e96d98b8d20e2e56a25f617794417c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

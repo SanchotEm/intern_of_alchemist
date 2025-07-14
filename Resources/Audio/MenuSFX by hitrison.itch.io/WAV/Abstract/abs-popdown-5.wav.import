@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://doomtufvj1ywe"
+path="res://.godot/imported/abs-popdown-5.wav-ba2010fb77e35ed38b9148e24c2c5005.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Abstract/abs-popdown-5.wav"
+dest_files=["res://.godot/imported/abs-popdown-5.wav-ba2010fb77e35ed38b9148e24c2c5005.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

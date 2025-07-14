@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://20ejp0l63tmj"
+path="res://.godot/imported/abs-popup-6-verbed.mp3-13bf6c4a891176ada7e627e5c618cfc5.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-popup-6-verbed.mp3"
+dest_files=["res://.godot/imported/abs-popup-6-verbed.mp3-13bf6c4a891176ada7e627e5c618cfc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

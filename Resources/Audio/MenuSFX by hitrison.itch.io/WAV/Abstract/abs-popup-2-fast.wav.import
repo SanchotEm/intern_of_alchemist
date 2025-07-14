@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cf6cpt8tsqp4m"
+path="res://.godot/imported/abs-popup-2-fast.wav-f89dcd1759cb67ade3ed4ae7fc0f74a5.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Abstract/abs-popup-2-fast.wav"
+dest_files=["res://.godot/imported/abs-popup-2-fast.wav-f89dcd1759cb67ade3ed4ae7fc0f74a5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

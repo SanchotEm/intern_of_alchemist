@@ -1,68 +1,74 @@
 ## Volume Control UI
 extends Control
 
+enum AudioSlider {MAIN, SFX, NARRATOR, MUSIC}
+
+@onready var audio_sliders := {
+	AudioSlider.MAIN: {
+		"node": %MainVolumeVSlider,
+		"bus_index": AudioServer.get_bus_index("Master"),
+		"default": GameConstants.DEFAULT_MAIN_VOLUME
+	},
+	AudioSlider.SFX: {
+		"node": %SFXVolumeVSlider,
+		"bus_index": AudioServer.get_bus_index("SFX"),
+		"default": GameConstants.DEFAULT_SFX_VOLUME
+	},
+	AudioSlider.NARRATOR: {
+		"node": %NarratorVolumeVSlider,
+		"bus_index": AudioServer.get_bus_index("Narrator"),
+		"default": GameConstants.DEFAULT_NARRATOR_VOLUME
+	},
+	AudioSlider.MUSIC: {
+		"node": %MusicVolumeVSlider,
+		"bus_index": AudioServer.get_bus_index("Music"),
+		"default": GameConstants.DEFAULT_MUSIC_VOLUME  
+	}
+}
 @onready var volume_button: TextureButton = %VolumeButton
 @onready var volume_sliders: HBoxContainer = %VolumeSlidersHBoxContainer
+
 @onready var main_slider: VSlider = %MainVolumeVSlider
 @onready var sfx_slider: VSlider = %SFXVolumeVSlider
 @onready var narrator_slider: VSlider = %NarratorVolumeVSlider
 
-var sliders_visible := false
+var sliders_visible := false 
 
 func _ready() -> void:
-	# Initialization
+	volume_sliders.visible = false
 	volume_sliders.modulate.a = 0.0
-	_setup_sliders()
-	_connect_signals()
-	_apply_initial_volumes()
-
-func _setup_sliders() -> void:
-	# Slider configuration from GameConstants
-	main_slider.min_value = GameConstants.MIN_VOLUME_VALUE
-	main_slider.max_value = GameConstants.MAX_VOLUME_VALUE
-	main_slider.value = GameConstants.DEFAULT_MAIN_VOLUME
-
-	sfx_slider.min_value = GameConstants.MIN_VOLUME_VALUE
-	sfx_slider.max_value = GameConstants.MAX_VOLUME_VALUE
-	sfx_slider.value = GameConstants.DEFAULT_SFX_VOLUME
-
-	narrator_slider.min_value = GameConstants.MIN_VOLUME_VALUE
-	narrator_slider.max_value = GameConstants.MAX_VOLUME_VALUE
-	narrator_slider.value = GameConstants.DEFAULT_NARRATOR_VOLUME
-
-func _connect_signals() -> void:
-	# Signal connections
 	volume_button.pressed.connect(_on_volume_button_pressed)
-	main_slider.value_changed.connect(_on_main_volume_value_changed)
-	sfx_slider.value_changed.connect(_on_sfx_volume_value_changed)
-	narrator_slider.value_changed.connect(_on_narrator_volume_value_changed)
-
-func _apply_initial_volumes() -> void:
-	# Initial volume application
-	_on_main_volume_value_changed(main_slider.value)
-	_on_sfx_volume_value_changed(sfx_slider.value)
-	_on_narrator_volume_value_changed(narrator_slider.value)
+	_setup_sliders()
 
 func _on_volume_button_pressed() -> void:
-	# Toggle slider visibility
 	sliders_visible = not sliders_visible
-	volume_sliders.modulate.a = 1.0 if sliders_visible else 0.0
+	_toggle_sliders_visibility(sliders_visible)
 	volume_button.button_pressed = sliders_visible
 
-func _on_main_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Master"),
-		linear_to_db(value / 100.0)
-	)
+func _toggle_sliders_visibility(visible: bool) -> void:
+	var tween = create_tween()
+	if visible:
+		volume_sliders.visible = true
+		tween.tween_property(volume_sliders, "modulate:a", 1.0, 0.3).set_trans(Tween.TRANS_SINE)
+	else:
+		tween.tween_property(volume_sliders, "modulate:a", 0.0, 0.3).set_trans(Tween.TRANS_SINE)
+		await tween.finished
+		volume_sliders.visible = false
 
-func _on_sfx_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("SFX"),
-		linear_to_db(value / 100.0)
-	)
+func _setup_sliders() -> void:
+	for slider_type in audio_sliders:
+		var config = audio_sliders[slider_type]
+		var slider: VSlider = config["node"]
+		
+		slider.min_value = GameConstants.MIN_VOLUME_VALUE
+		slider.max_value = GameConstants.MAX_VOLUME_VALUE
+		slider.value = config["default"]
+		slider.value_changed.connect(_on_volume_changed.bind(slider_type))
+		_set_bus_volume(config["bus_index"], slider.value)
 
-func _on_narrator_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Narrator"),
-		linear_to_db(value / 100.0)
-	)
+func _on_volume_changed(value: float, slider_type: AudioSlider) -> void:
+	var bus_index = audio_sliders[slider_type]["bus_index"]
+	_set_bus_volume(bus_index, value)
+	
+func _set_bus_volume(bus_index: int, value: float) -> void:
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value / 100.0))

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2st4tro3x5g3"
+path="res://.godot/imported/gtr-pointer-3.wav-f6ffca82c561fd5d499e4e73d32cf0ab.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Guitar/gtr-pointer-3.wav"
+dest_files=["res://.godot/imported/gtr-pointer-3.wav-f6ffca82c561fd5d499e4e73d32cf0ab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qjmi0n25aa4n"
+path="res://.godot/imported/abs-cancel-6.wav-89eae03f347900ad7b65b205d910b2bc.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Abstract/abs-cancel-6.wav"
+dest_files=["res://.godot/imported/abs-cancel-6.wav-89eae03f347900ad7b65b205d910b2bc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

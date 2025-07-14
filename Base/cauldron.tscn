@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://csgcw8ndkwkyy"]
+
+[ext_resource type="Script" uid="uid://c1ughd7f1mndp" path="res://cauldron.gd" id="1_fhhbu"]
+[ext_resource type="Texture2D" uid="uid://cphnilhw61cne" path="res://Resources/Placeholders/placeholder-cauldron.png" id="2_gw8t2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mkoy"]
+size = Vector2(357, 130)
+
+[node name="Cauldron" type="Node2D"]
+script = ExtResource("1_fhhbu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gw8t2")
+
+[node name="soup" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="soup"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_5mkoy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-185, -156, -228, -47, -179, 256, 199, 236, 230, -23, 181, -153, 230, -237, 162, -259, 129, -155, 164, -56, 137, 168, -118, 179, -155, 60, -171, -45, -138, -149, -157, -252, -228, -230)

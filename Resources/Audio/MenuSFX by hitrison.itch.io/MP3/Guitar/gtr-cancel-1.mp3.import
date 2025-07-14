@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://i4tcjdgxpx4h"
+path="res://.godot/imported/gtr-cancel-1.mp3-edd2c2ef7a13e26afacaead49b4217a5.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Guitar/gtr-cancel-1.mp3"
+dest_files=["res://.godot/imported/gtr-cancel-1.mp3-edd2c2ef7a13e26afacaead49b4217a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

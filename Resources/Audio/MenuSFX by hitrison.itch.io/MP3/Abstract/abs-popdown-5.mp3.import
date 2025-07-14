@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4g1ix07oht5p"
+path="res://.godot/imported/abs-popdown-5.mp3-7bf85ba251bd4a9bc0aeaa262675f646.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-popdown-5.mp3"
+dest_files=["res://.godot/imported/abs-popdown-5.mp3-7bf85ba251bd4a9bc0aeaa262675f646.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

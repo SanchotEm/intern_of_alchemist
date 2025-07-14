@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bhhn1wcuserwy"
+path="res://.godot/imported/gtr-slideup-1.ogg-884f2af265b7087345d23770d5bb03ac.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Guitar/gtr-slideup-1.ogg"
+dest_files=["res://.godot/imported/gtr-slideup-1.ogg-884f2af265b7087345d23770d5bb03ac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

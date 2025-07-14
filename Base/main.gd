@@ -13,11 +13,12 @@ func _ready() -> void:
 	var timer = get_tree().create_timer(2)
 	timer.timeout.connect(_incriment)
 func _incriment():
-	
-	test_count += 1
+	var buses = ["Master", "SFX", "Narrator"]
+	audio_stream_player.set_bus(buses[test_count])
 	audio_stream_player.play()
 	print(test_count)
-	var timer = get_tree().create_timer(2)
+	test_count = (test_count+1)%buses.size()
+	var timer = get_tree().create_timer(0.5)
 	timer.timeout.connect(_incriment)
 func _game_cycle():
 	match game_state:

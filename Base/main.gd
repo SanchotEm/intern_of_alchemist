@@ -10,7 +10,11 @@ var test_count : int = 0
 func _process(delta: float) -> void:
 	_game_cycle()
 
+
+
 func _ready() -> void:
+	var test = Expression.new()
+	test.parse("get_tree().quit()")
 	var timer = get_tree().create_timer(2)
 	timer.timeout.connect(_incriment)
 func _incriment():
@@ -24,6 +28,8 @@ func _incriment():
 func _game_cycle():
 	match game_state:
 		GameStates.LAUNCH:
+			if Input.is_action_just_pressed("Settings"):
+				print("settings")
 			#if test_count >= 3:
 				#game_state = GameStates.EXIT
 				#return

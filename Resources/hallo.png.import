@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwrm6jh2sex2i"
-path="res://.godot/imported/NYC_Panorama_edit2.jpg-629fb70498871427e1419241d5b5ce20.ctex"
+uid="uid://cs0qcrbr4k7hn"
+path="res://.godot/imported/hallo.png-81b4dd2d6197011295149d3b5aaa9865.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/NYC_Panorama_edit2.jpg"
-dest_files=["res://.godot/imported/NYC_Panorama_edit2.jpg-629fb70498871427e1419241d5b5ce20.ctex"]
+source_file="res://Resources/hallo.png"
+dest_files=["res://.godot/imported/hallo.png-81b4dd2d6197011295149d3b5aaa9865.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=20 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
@@ -13,10 +13,15 @@
 [ext_resource type="AudioStream" uid="uid://xxanksxoq6wy" path="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-cancel-1.mp3" id="10_q0fe0"]
 [ext_resource type="AudioStream" uid="uid://cqoapxwd0xhup" path="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-cancel-2.mp3" id="11_6c3lq"]
 [ext_resource type="AudioStream" uid="uid://kh4yqnawh6y4" path="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-cancel-3-alt.mp3" id="12_87cgt"]
+[ext_resource type="PackedScene" uid="uid://cfo2egl7inyse" path="res://Base/potion1.tscn" id="14_x1fjo"]
+[ext_resource type="PackedScene" uid="uid://bogunqnhmx5ht" path="res://Base/potion2.tscn" id="15_llarn"]
+[ext_resource type="PackedScene" uid="uid://crcexqdtm1rrw" path="res://Base/potion3.tscn" id="16_wxmdi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lo0hp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lo0hp"]
+normal = Vector2(0.0073913, -0.999973)
+distance = -39.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6c3lq"]
 playback_mode = 2
@@ -48,6 +53,16 @@ position = Vector2(0, 111)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_lo0hp")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/StaticBody2D"]
+position = Vector2(536, 0)
+rotation = -1.57079
+shape = SubResource("WorldBoundaryShape2D_lo0hp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/StaticBody2D"]
+position = Vector2(-536, 0)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_lo0hp")
+
 [node name="Scene" type="Node2D" parent="."]
 
 [node name="base_item" parent="." instance=ExtResource("3_lo0hp")]
@@ -63,6 +78,7 @@ disable_collision = false
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Background" type="ColorRect" parent="UI"]
+visible = false
 y_sort_enabled = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,6 +138,7 @@ alignment = 1
 
 [node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
@@ -231,3 +248,12 @@ parameters/looping = true
 stream = SubResource("AudioStreamRandomizer_6c3lq")
 max_polyphony = 5
 bus = &"Narrator"
+
+[node name="base_item2" parent="." instance=ExtResource("14_x1fjo")]
+position = Vector2(-433, -29)
+
+[node name="base_item3" parent="." instance=ExtResource("15_llarn")]
+position = Vector2(-211, -15)
+
+[node name="base_item4" parent="." instance=ExtResource("16_wxmdi")]
+position = Vector2(249, -3)

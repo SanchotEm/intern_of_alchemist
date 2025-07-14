@@ -23,7 +23,7 @@ func pick(item: Item):
 	item.current_state = item.ItemStates.HOLDED
 	pass
 
-func release() -> Item:
+func release(item: Item) -> Item:
 	var released_item
 	if hand_status == HandStatus.WITH_ITEM:
 		joint.set_node_b("")

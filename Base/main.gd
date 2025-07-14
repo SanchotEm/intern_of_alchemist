@@ -1,3 +1,4 @@
+## Main.gd - Script on root node
 extends Node2D
 
 enum GameStates {LAUNCH, MENU, GAME, EXIT}
@@ -9,9 +10,9 @@ func _process(delta: float) -> void:
 	_game_cycle()
 
 func _ready() -> void:
-	Interface.music_player = %MusicPlayer
-	Interface.sfx_player = %SFXPlayer
-	Interface.narrator_player = %NarratorPlayer
+	Interface.register_player(Interface.AudioPlayerType.SFX, %SFXPlayer)
+	Interface.register_player(Interface.AudioPlayerType.MUSIC, %MusicPlayer)
+	Interface.register_player(Interface.AudioPlayerType.NARRATOR, %NarratorPlayer)
 
 
 func _game_cycle():

@@ -207,7 +207,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(70, 24)
 layout_mode = 2
 
-[node name="SFXLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
+[node name="NarratorLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Narrator"
@@ -226,7 +226,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(70, 24)
 layout_mode = 2
 
-[node name="SFXLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
+[node name="MusicLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Music"

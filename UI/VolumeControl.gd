@@ -6,13 +6,16 @@ extends Control
 enum AudioSlider {MAIN, SFX, NARRATOR}
 @onready var audio_sliders : Dictionary = {
 	AudioSlider.MAIN : {
-		"Node":%MainVolumeVSlider, "AudioBusIndex":AudioServer.get_bus_index("Master")
+		"Node":%MainVolumeVSlider,
+		"AudioBusIndex":AudioServer.get_bus_index("Master")
 		},
 	AudioSlider.SFX : {
-		"Node":%SFXVolumeVSlider, "AudioBusIndex":AudioServer.get_bus_index("SFX")
+		"Node":%SFXVolumeVSlider,
+		"AudioBusIndex":AudioServer.get_bus_index("SFX")
 		},
 	AudioSlider.NARRATOR : {
-		"Node":%NarratorVolumeVSlider, "AudioBusIndex":AudioServer.get_bus_index("Narrator")
+		"Node":%NarratorVolumeVSlider,
+		"AudioBusIndex":AudioServer.get_bus_index("Narrator")
 		},
 	}
 @onready var volume_button: TextureButton = %VolumeButton
@@ -35,7 +38,9 @@ func _ready() -> void:
 
 #universal change_volume method for any volume slider we would add/ would change
 func change_volume(value: float, slider:AudioSlider):
-	AudioServer.set_bus_volume_db(audio_sliders[slider]["AudioBusIndex"],linear_to_db(value / 100.0))
+	AudioServer.set_bus_volume_db(
+		audio_sliders[slider]["AudioBusIndex"],
+		linear_to_db(value / 100.0))
 	pass
 func _on_volume_button_pressed() -> void:
 	# Toggle slider visibility
@@ -44,7 +49,7 @@ func _on_volume_button_pressed() -> void:
 	volume_sliders.modulate.a = 1.0 if sliders_visible else 0.0
 	volume_button.button_pressed = sliders_visible
 func _setup_sliders() -> void:
-	#better aproach
+	#better approach
 	for slider in audio_sliders.keys():
 		var node = audio_sliders[slider]["Node"]
 		node.min_value = GameConstants.MIN_VOLUME_VALUE

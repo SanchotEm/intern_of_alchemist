@@ -28,8 +28,7 @@ enum AudioSlider {MAIN, SFX, NARRATOR, MUSIC}
 @onready var sfx_slider: VSlider = %SFXVolumeVSlider
 @onready var narrator_slider: VSlider = %NarratorVolumeVSlider
 
-var sliders_visible := false
-
+var sliders_visible := false 
 func _ready() -> void:
 	# Initialization
 	volume_sliders.modulate.a = 0.0 # why changing alpha channel?

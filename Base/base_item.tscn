@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsjertmptbxpt"]
 
 [ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/base_item.gd" id="1_r6ri3"]
-[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://Resources/1194709733966368929.png" id="2_l10xi"]
+[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://Resources/hallo.png" id="2_l10xi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56rss"]
 size = Vector2(84, 98)
@@ -14,6 +14,7 @@ collision_layer = 5
 collision_mask = 5
 mass = 1000.0
 script = ExtResource("1_r6ri3")
+tags = Array[String](["dummy"])
 
 [node name="item_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_l10xi")
@@ -28,3 +29,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="input_collision"]
 shape = SubResource("RectangleShape2D_new0r")
 debug_color = Color(1, 0.933333, 0, 0.368627)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")

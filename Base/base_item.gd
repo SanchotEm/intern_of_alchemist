@@ -23,6 +23,10 @@ var current_state := ItemStates.NONE
 
 var drag_mode: bool = false
 var pressed_pos: Vector2
+
+# Constant for SFX
+const ATTACH_SOUND: AudioStream = preload("uid://bgs8a5isxl01b")
+
 func _ready() -> void:
 	Interface.items.append(self)
 	pin.set_node_a(get_path())
@@ -31,14 +35,14 @@ func _ready() -> void:
 	let_me_down.connect(player.release.bind(self))
 	input_collision.input_event.connect(got_input)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !drag_mode and pressed_pos:
 		print((get_global_mouse_position()-pressed_pos).length())
 		if (get_global_mouse_position()-pressed_pos).length()>20:
 			drag_mode=true
 			pressed_pos = Vector2(0,0)
 
-func got_input(viewport: Node, event: InputEvent, shape_idx: int):
+func got_input(_viewport: Node, event: InputEvent, _shape_idx: int):
 	
 	if event.is_action_pressed("LMB"):
 		print(ItemStates.find_key(current_state))
@@ -61,11 +65,13 @@ func attach_to(target:Node2D, connection_point: Vector2 = get_global_mouse_posit
 		detach()
 	pin.global_position = connection_point
 	pin.set_node_b(target.get_path())
-	Interface.play_audio(Interface.AudioPlayers.SFX, load("uid://bgs8a5isxl01b"))
+	Interface.play_audio(Interface.AudioPlayerType.SFX, ATTACH_SOUND)
 	pass
+
 func _is_attached() -> bool:
 	return !pin.node_b.is_empty()
+
 func detach():
 	pin.set_node_b("")
-	Interface.play_audio(Interface.AudioPlayers.SFX, load("uid://bgs8a5isxl01b"))
+	Interface.play_audio(Interface.AudioPlayerType.SFX, ATTACH_SOUND)
 	pass

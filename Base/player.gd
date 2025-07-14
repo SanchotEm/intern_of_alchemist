@@ -20,7 +20,7 @@ func pick(item: Item):
 	item.current_state = item.ItemStates.HOLDED
 	pass
 
-func release(item: Item) -> Item:
+func release(_item: Item) -> Item:
 	var released_item
 	if hand_status == HandStatus.WITH_ITEM:
 		hand_status = HandStatus.EMPTY
@@ -34,5 +34,5 @@ func _hand_updates():
 	grabler.global_position = get_global_mouse_position()
 		
 	pass
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_hand_updates()

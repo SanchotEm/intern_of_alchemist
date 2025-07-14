@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://l6c0qt60s47u"
+path="res://.godot/imported/misc-bassdrop.mp3-8eabf7c9785a4439c6ec0183d2e5dea7.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Miscellaneous/misc-bassdrop.mp3"
+dest_files=["res://.godot/imported/misc-bassdrop.mp3-8eabf7c9785a4439c6ec0183d2e5dea7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

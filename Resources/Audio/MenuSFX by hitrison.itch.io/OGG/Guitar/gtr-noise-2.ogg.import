@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcenwo1uvqji3"
+path="res://.godot/imported/gtr-noise-2.ogg-a833990d2c47a3e07ea45b8c7b300f33.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Guitar/gtr-noise-2.ogg"
+dest_files=["res://.godot/imported/gtr-noise-2.ogg-a833990d2c47a3e07ea45b8c7b300f33.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

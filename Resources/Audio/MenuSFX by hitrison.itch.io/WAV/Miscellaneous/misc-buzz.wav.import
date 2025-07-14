@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhm4c5t46t4hu"
+path="res://.godot/imported/misc-buzz.wav-90e17353d7685bb65408bc867fd155fe.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Miscellaneous/misc-buzz.wav"
+dest_files=["res://.godot/imported/misc-buzz.wav-90e17353d7685bb65408bc867fd155fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

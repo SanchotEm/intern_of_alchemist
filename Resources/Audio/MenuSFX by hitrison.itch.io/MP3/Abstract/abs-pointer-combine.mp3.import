@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcd0a4ws1cf5j"
+path="res://.godot/imported/abs-pointer-combine.mp3-4fb6d12dd826d8e565ba3fdee24981b0.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-pointer-combine.mp3"
+dest_files=["res://.godot/imported/abs-pointer-combine.mp3-4fb6d12dd826d8e565ba3fdee24981b0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://be0cfuh6uc5p0"
+path="res://.godot/imported/misc-explode-retro-2.mp3-e5916d48b66c1e4e2ba1fe60cc3c26af.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Miscellaneous/misc-explode-retro-2.mp3"
+dest_files=["res://.godot/imported/misc-explode-retro-2.mp3-e5916d48b66c1e4e2ba1fe60cc3c26af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

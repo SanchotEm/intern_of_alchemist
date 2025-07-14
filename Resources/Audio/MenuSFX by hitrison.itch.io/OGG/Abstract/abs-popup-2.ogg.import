@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b50srrofcfbhk"
+path="res://.godot/imported/abs-popup-2.ogg-2ff70e13262c2f354dfcd2ba7dced43a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Abstract/abs-popup-2.ogg"
+dest_files=["res://.godot/imported/abs-popup-2.ogg-2ff70e13262c2f354dfcd2ba7dced43a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

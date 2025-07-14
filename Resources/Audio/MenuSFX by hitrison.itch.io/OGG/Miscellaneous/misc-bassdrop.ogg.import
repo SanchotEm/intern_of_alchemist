@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0107ljs2ars1"
+path="res://.godot/imported/misc-bassdrop.ogg-ea1b2e41391802968796b6421996865e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Miscellaneous/misc-bassdrop.ogg"
+dest_files=["res://.godot/imported/misc-bassdrop.ogg-ea1b2e41391802968796b6421996865e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

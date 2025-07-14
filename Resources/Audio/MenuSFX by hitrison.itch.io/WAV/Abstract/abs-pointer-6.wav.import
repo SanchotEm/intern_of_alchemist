@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdj8vrod4teyn"
+path="res://.godot/imported/abs-pointer-6.wav-41241f5142f3fceef5b3485510930108.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Abstract/abs-pointer-6.wav"
+dest_files=["res://.godot/imported/abs-pointer-6.wav-41241f5142f3fceef5b3485510930108.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

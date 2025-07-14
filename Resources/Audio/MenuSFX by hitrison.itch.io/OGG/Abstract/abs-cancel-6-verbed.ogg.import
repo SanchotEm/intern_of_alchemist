@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b7hk0l3axm2ib"
+path="res://.godot/imported/abs-cancel-6-verbed.ogg-b76b78f23fc3324b6eacca75348d12b5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Abstract/abs-cancel-6-verbed.ogg"
+dest_files=["res://.godot/imported/abs-cancel-6-verbed.ogg-b76b78f23fc3324b6eacca75348d12b5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

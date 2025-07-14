@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdi2n5tvu8vsq"
+path="res://.godot/imported/gtr-noise-3.mp3-8748722221c0bd5f1ec818afd3dbf3bd.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Guitar/gtr-noise-3.mp3"
+dest_files=["res://.godot/imported/gtr-noise-3.mp3-8748722221c0bd5f1ec818afd3dbf3bd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

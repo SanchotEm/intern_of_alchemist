@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cx1gagxl0t5q7"
+path="res://.godot/imported/gtr-pointer-2.ogg-1d7cce718ea76d78b82e3cb9420cf23b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Guitar/gtr-pointer-2.ogg"
+dest_files=["res://.godot/imported/gtr-pointer-2.ogg-1d7cce718ea76d78b82e3cb9420cf23b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

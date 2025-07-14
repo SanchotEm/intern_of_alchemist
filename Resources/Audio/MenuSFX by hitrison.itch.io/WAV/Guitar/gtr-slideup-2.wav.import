@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyk0a45rcpajm"
+path="res://.godot/imported/gtr-slideup-2.wav-050ddb9800441e2e0ba7e40986c7269d.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/MenuSFX by hitrison.itch.io/WAV/Guitar/gtr-slideup-2.wav"
+dest_files=["res://.godot/imported/gtr-slideup-2.wav-050ddb9800441e2e0ba7e40986c7269d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -3,7 +3,7 @@ extends Control
 
 
 #i group all sliders under enumeration, cuz we actually are using the same methods on them all
-enum AudioSlider {MAIN, SFX, NARRATOR}
+enum AudioSlider {MAIN, SFX, NARRATOR, MUSIC}
 @onready var audio_sliders : Dictionary = {
 	AudioSlider.MAIN : {
 		"Node":%MainVolumeVSlider,
@@ -17,6 +17,10 @@ enum AudioSlider {MAIN, SFX, NARRATOR}
 		"Node":%NarratorVolumeVSlider,
 		"AudioBusIndex":AudioServer.get_bus_index("Narrator")
 		},
+	AudioSlider.MUSIC : {
+		"Node":%MusicVolumeVSlider,
+		"AudioBusIndex":AudioServer.get_bus_index("Music")
+	}
 	}
 @onready var volume_button: TextureButton = %VolumeButton
 @onready var volume_sliders: HBoxContainer = %VolumeSlidersHBoxContainer

@@ -19,7 +19,7 @@ func setup(recipe_data: Dictionary, id: String):
 	if not icon_path.is_empty() and FileAccess.file_exists(icon_path):
 		recipe_texture_rect.texture = load(icon_path)
 	else:
-		push_warning("Icon texture not found: %s" % icon_path)
+		push_error("Icon texture not found: %s" % icon_path)
 	select_recipe_button.pressed.connect(_on_select_button_pressed)
 
 func _on_select_button_pressed():

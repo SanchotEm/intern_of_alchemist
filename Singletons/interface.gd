@@ -5,6 +5,7 @@ var player
 var items: Array[Item] = []
 # Small typo corrected
 var recipes : Dictionary = {}
+
 #region Audio Control
 enum AudioPlayerType {SFX, MUSIC, NARRATOR}
 

@@ -2,6 +2,7 @@
 	"glowmelt": {
 		"name": "Glowmelt",
 		"description": "A faint, stubborn glow meant to shove back the dark. Don't expect it to light your whole bloody workshop!",
+		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Glowmelt.png",
 		"ui_effects": {
 			"positive": "Room brightens slightly & saturation increase.",
 			"negative": "Room darkens & interactables become difficult to see."
@@ -12,6 +13,7 @@
 	"swift_hand": {
 		"name": "Swift Hand",
 		"description": "A quick tap sends your ingredients straight into the cauldron. Saves your hands the extra work!",
+		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Swift_Hand.png",
 		"ui_effects": {
 			"positive": "Selecting ingredients automatically adds them to the current recipe.",
 			"negative": "Reverse Mouse Controls."
@@ -22,6 +24,7 @@
 	"invisibility": {
 		"name": "Invisibility",
 		"description": "Makes you fade just enough to slip by unnoticed.",
+		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Invisibility.png",
 		"ui_effects": {
 			"positive": "Mentor/Narrator believes you to be gone, decreases remarks or criticisms from narrator.",
 			"negative": "The room becomes over-bright and saturated making it slightly uncomfortable."
@@ -32,6 +35,7 @@
 	"tattle_tonic": {
 		"name": "Tattle Tonic",
 		"description": "Catch whispers lurking in the air, if you've got the senses to listen to them!",
+		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Tatle_Tonic.png",
 		"ui_effects": {
 			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
 			"negative": "All game audio becomes muffled."

@@ -64,6 +64,7 @@ max_polyphony = 5
 bus = &"SFX"
 
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(-581, -316)
 script = ExtResource("2_n3y37")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -76,11 +77,12 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_lo0hp")
 
 [node name="Scene" type="Node2D" parent="."]
+position = Vector2(-581, -316)
 
 [node name="Environment" type="Node" parent="Scene"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene/Environment"]
-position = Vector2(0, 111)
+position = Vector2(-581, -205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_lo0hp")
@@ -101,11 +103,13 @@ position = Vector2(45, 192)
 scale = Vector2(-1556.96, 302.987)
 texture = SubResource("PlaceholderTexture2D_7ly7r")
 
-[node name="Cauldron" parent="Scene/Environment/StaticBody2D" instance=ExtResource("3_mrrah")]
-position = Vector2(369, -76)
-scale = Vector2(0.512881, 0.512881)
-
 [node name="Level" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-581, -316)
+
+[node name="Marker2D" type="Marker2D" parent="Level"]
+unique_name_in_owner = true
+position = Vector2(-11, -197)
 
 [node name="DeskSprite2D" type="Sprite2D" parent="Level"]
 position = Vector2(89, 254)
@@ -115,6 +119,15 @@ texture = ExtResource("4_6c3lq")
 [node name="MentorSprite2D" type="Sprite2D" parent="Level"]
 position = Vector2(-394, -58)
 texture = ExtResource("6_87cgt")
+
+[node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
+position = Vector2(369, 35)
+scale = Vector2(0.512881, 0.512881)
+
+[node name="base_item" parent="Level" instance=ExtResource("3_lo0hp")]
+
+[node name="base_item2" parent="Level" instance=ExtResource("3_lo0hp")]
+position = Vector2(128, 68)
 
 [node name="Grimoire-placeholder" type="Sprite2D" parent="Level"]
 position = Vector2(-177, 65)
@@ -127,14 +140,6 @@ script = ExtResource("8_llarn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Grimoire-placeholder/Area2D"]
 position = Vector2(-1.42859, -2.85715)
 shape = SubResource("RectangleShape2D_wxmdi")
-
-[node name="base_item" parent="." instance=ExtResource("3_lo0hp")]
-position = Vector2(3, -1)
-scale = Vector2(0.604146, 0.604146)
-
-[node name="base_item2" parent="." instance=ExtResource("3_lo0hp")]
-position = Vector2(128, 68)
-scale = Vector2(0.420556, 0.420556)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -418,11 +423,23 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="DevFunctionsXButton" type="TextureButton" parent="UI/DevModeCenterContainer/PanelContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="ColorRect" type="ColorRect" parent="UI/DevModeCenterContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="DevFunctionsXButton" type="TextureButton" parent="UI/DevModeCenterContainer/PanelContainer/HBoxContainer/ColorRect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 10
+action_mode = 0
 texture_normal = ExtResource("12_wxmdi")
 ignore_texture_size = true
 stretch_mode = 5

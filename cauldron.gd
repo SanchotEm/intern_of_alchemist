@@ -2,44 +2,29 @@ extends Node2D
 
 @onready var soup: Area2D = $soup
 
-var recipies = {
-	"dummy" : 
-		{
-		"tags":["dummy","dummy"],
-		"method" : dummy
-		},
-	}
 var ingredients :Array[String] = []
 func _ready() -> void:
-	soup.body_entered.connect(add_to_soup)
+	soup.body_entered.connect(_add_to_soup)
 
-func add_to_soup(ingredient:Node2D):
-	print(ingredient)
+func _add_to_soup(ingredient:Node2D):
 	if ingredient is Item:
-		print(ingredient is Item)
 		ingredients.append_array(ingredient.tags)
-		print(ingredients)
-	check_soup()
+		ingredient.queue_free()
+	_check_soup()
 	pass
 
-func check_soup():
-	for recipe in recipies:
-		var count :int = 0
-		var we_have = ingredients.duplicate()
-		var needed: Array = recipies[recipe]["tags"].duplicate()
-		var confirmed :Array = []
-		for ingredient in needed:
-			if we_have.has(ingredient):
-				confirmed.append(ingredient)
-				we_have.remove_at(we_have.find(ingredient))
-				count +=1
-		if needed.size()==count:
-			create(recipe)
+func _check_soup():
+	if Interface.match_recipe(ingredients):
+			_create(Interface.match_recipe(ingredients))
 	pass
-func create(recipe):
-	for i in recipies[recipe]["tags"]:
+func _create(recipe):
+	print(recipe["name"])
+	for i in recipe["tags"]:
 		ingredients.erase(i)
-	recipies[recipe]["method"].call()
+	var outcome = Callable.create(self, recipe["method"])
+	outcome.call()
 	pass
 func dummy():
 	get_tree().quit()
+func get_content()->Array[String]:
+	return ingredients

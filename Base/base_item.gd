@@ -26,7 +26,6 @@ var pressed_pos: Vector2
 
 # Constant for SFX
 const ATTACH_SOUND: AudioStream = preload("uid://bgs8a5isxl01b")
-
 func _ready() -> void:
 	Interface.items.append(self)
 	pin.set_node_a(get_path())

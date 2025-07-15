@@ -35,7 +35,7 @@
 	"tattle_tonic": {
 		"name": "Tattle Tonic",
 		"description": "Catch whispers lurking in the air, if you've got the senses to listen to them!",
-		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Tatle_Tonic.png",
+		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Tattle_Tonic.png",
 		"ui_effects": {
 			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
 			"negative": "All game audio becomes muffled."

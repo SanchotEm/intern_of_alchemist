@@ -18,6 +18,7 @@ func pick(item: Item):
 	hand.attach_to(grabler)
 	hand_status = HandStatus.WITH_ITEM
 	item.current_state = item.ItemStates.HOLDED
+	SignalBus.stat_incremented.emit("items_picked_up",1)
 	pass
 
 func release(_item: Item) -> Item:

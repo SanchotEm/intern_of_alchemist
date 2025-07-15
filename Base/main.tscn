@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=30 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
@@ -19,9 +19,11 @@
 [ext_resource type="AudioStream" uid="uid://cr04tu13u3wfu" path="res://Resources/Audio/test_music.mp3" id="10_87cgt"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
+[ext_resource type="Script" uid="uid://cehqcenuffuh8" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
 [ext_resource type="Script" uid="uid://c41kgvuuck1eu" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
+[ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6c3lq"]
 
@@ -192,7 +194,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Scroll of Recipes"
 
-[node name="XButton" type="TextureButton" parent="UI/ScrollUIControl"]
+[node name="ScrollXButton" type="TextureButton" parent="UI/ScrollUIControl"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 896.0
@@ -218,6 +220,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 theme_override_constants/separation = 10
 alignment = 2
+
+[node name="DevMoveControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+script = ExtResource("14_4dgd5")
+
+[node name="DevModeButton" type="Button" parent="UI/MarginContainer/TopBarUIContainer/DevMoveControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "DEV MODE"
 
 [node name="VolumeControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -256,6 +270,7 @@ alignment = 1
 
 [node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
@@ -386,5 +401,51 @@ texture_normal = ExtResource("13_gj25o")
 [node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("14_oqvj5")
+
+[node name="DevModeCenterContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("24_4dgd5")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/DevModeCenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DevModeCenterContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="DevFunctionsXButton" type="TextureButton" parent="UI/DevModeCenterContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("12_wxmdi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DevModeCenterContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DevModeCenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DevModeCenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Dev Functions"
+
+[node name="SpawnItemButton" type="Button" parent="UI/DevModeCenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Spawn Item"
 
 [connection signal="input_event" from="Level/Grimoire-placeholder/Area2D" to="Level/Grimoire-placeholder" method="_on_area_2d_input_event"]

@@ -44,105 +44,6 @@ size = Vector2(408.571, 400)
 [node name="main" type="Node2D"]
 script = ExtResource("1_hljll")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("2_ekk2t")
-bus = &"Music"
-parameters/looping = true
-script = ExtResource("3_fx5w4")
-
-[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = SubResource("AudioStreamPolyphonic_6c3lq")
-autoplay = true
-max_polyphony = 5
-bus = &"SFX"
-
-[node name="NarratorPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = SubResource("AudioStreamPolyphonic_6c3lq")
-autoplay = true
-max_polyphony = 5
-bus = &"SFX"
-
-[node name="Player" type="Node2D" parent="."]
-position = Vector2(-581, -316)
-script = ExtResource("2_n3y37")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="Grabler" type="StaticBody2D" parent="Player"]
-position = Vector2(1, -1)
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Grabler"]
-shape = SubResource("CircleShape2D_lo0hp")
-
-[node name="Scene" type="Node2D" parent="."]
-position = Vector2(-581, -316)
-
-[node name="Environment" type="Node" parent="Scene"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Scene/Environment"]
-position = Vector2(-581, -205)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_lo0hp")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
-position = Vector2(536, 0)
-rotation = -1.57079
-shape = SubResource("WorldBoundaryShape2D_lo0hp")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
-position = Vector2(-536, 0)
-rotation = 1.57079
-shape = SubResource("WorldBoundaryShape2D_lo0hp")
-
-[node name="Sprite2D" type="Sprite2D" parent="Scene/Environment/StaticBody2D"]
-visible = false
-position = Vector2(45, 192)
-scale = Vector2(-1556.96, 302.987)
-texture = SubResource("PlaceholderTexture2D_7ly7r")
-
-[node name="Level" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-581, -316)
-
-[node name="Marker2D" type="Marker2D" parent="Level"]
-unique_name_in_owner = true
-position = Vector2(-11, -197)
-
-[node name="DeskSprite2D" type="Sprite2D" parent="Level"]
-position = Vector2(89, 254)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_6c3lq")
-
-[node name="MentorSprite2D" type="Sprite2D" parent="Level"]
-position = Vector2(-394, -58)
-texture = ExtResource("6_87cgt")
-
-[node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
-position = Vector2(369, 35)
-scale = Vector2(0.512881, 0.512881)
-
-[node name="base_item" parent="Level" instance=ExtResource("3_lo0hp")]
-
-[node name="base_item2" parent="Level" instance=ExtResource("3_lo0hp")]
-position = Vector2(128, 68)
-
-[node name="Grimoire-placeholder" type="Sprite2D" parent="Level"]
-position = Vector2(-177, 65)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("7_x1fjo")
-script = ExtResource("8_llarn")
-
-[node name="Area2D" type="Area2D" parent="Level/Grimoire-placeholder"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Grimoire-placeholder/Area2D"]
-position = Vector2(-1.42859, -2.85715)
-shape = SubResource("RectangleShape2D_wxmdi")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Background" type="ColorRect" parent="UI"]
@@ -546,5 +447,104 @@ text = "Dev Functions"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Spawn Item"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_ekk2t")
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("3_fx5w4")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_6c3lq")
+autoplay = true
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="NarratorPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_6c3lq")
+autoplay = true
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(-581, -316)
+script = ExtResource("2_n3y37")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Grabler" type="StaticBody2D" parent="Player"]
+position = Vector2(1, -1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Grabler"]
+shape = SubResource("CircleShape2D_lo0hp")
+
+[node name="Scene" type="Node2D" parent="."]
+position = Vector2(-581, -316)
+
+[node name="Environment" type="Node" parent="Scene"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scene/Environment"]
+position = Vector2(-581, -205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lo0hp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
+position = Vector2(536, 0)
+rotation = -1.57079
+shape = SubResource("WorldBoundaryShape2D_lo0hp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
+position = Vector2(-536, 0)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_lo0hp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/Environment/StaticBody2D"]
+visible = false
+position = Vector2(45, 192)
+scale = Vector2(-1556.96, 302.987)
+texture = SubResource("PlaceholderTexture2D_7ly7r")
+
+[node name="Level" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-581, -316)
+
+[node name="Marker2D" type="Marker2D" parent="Level"]
+unique_name_in_owner = true
+position = Vector2(-11, -197)
+
+[node name="DeskSprite2D" type="Sprite2D" parent="Level"]
+position = Vector2(89, 254)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6c3lq")
+
+[node name="MentorSprite2D" type="Sprite2D" parent="Level"]
+position = Vector2(-394, -58)
+texture = ExtResource("6_87cgt")
+
+[node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
+position = Vector2(369, 35)
+scale = Vector2(0.512881, 0.512881)
+
+[node name="base_item" parent="Level" instance=ExtResource("3_lo0hp")]
+
+[node name="base_item2" parent="Level" instance=ExtResource("3_lo0hp")]
+position = Vector2(128, 68)
+
+[node name="Grimoire-placeholder" type="Sprite2D" parent="Level"]
+position = Vector2(-177, 65)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_x1fjo")
+script = ExtResource("8_llarn")
+
+[node name="Area2D" type="Area2D" parent="Level/Grimoire-placeholder"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Grimoire-placeholder/Area2D"]
+position = Vector2(-1.42859, -2.85715)
+shape = SubResource("RectangleShape2D_wxmdi")
 
 [connection signal="input_event" from="Level/Grimoire-placeholder/Area2D" to="Level/Grimoire-placeholder" method="_on_area_2d_input_event"]

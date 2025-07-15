@@ -39,7 +39,7 @@ func _ready() -> void:
 	volume_sliders.modulate.a = 0.0
 	volume_button.pressed.connect(_on_volume_button_pressed)
 	_setup_sliders()
-	SignalBus.emit_signal("volume_system_ready")
+	SignalBus.call_deferred("emit_signal", "volume_system_ready")
 
 func _on_volume_button_pressed() -> void:
 	sliders_visible = not sliders_visible

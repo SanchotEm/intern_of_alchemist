@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://be26rmrpdq3hi"]
+
+[ext_resource type="Script" uid="uid://rh5w3ri2ft8k" path="res://UI/Recipes/RecipesInGrimoire.gd" id="1_fsqbl"]
+[ext_resource type="Texture2D" uid="uid://cyueoxuksu1lj" path="res://Resources/Placeholders/Potions-Ingredients/Fantasy potions 30+/Potions/Mana Rank 1.png" id="1_nmnhj"]
+
+[node name="RecipePanelContainer" type="PanelContainer"]
+script = ExtResource("1_fsqbl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RecipeTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_nmnhj")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RecipeNameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recipe Name"
+
+[node name="RecipeDescriptionLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recipe Description"
+
+[node name="SelectRecipeButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select Recipe"

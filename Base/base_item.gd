@@ -36,15 +36,16 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if !drag_mode and pressed_pos:
-		print((get_global_mouse_position()-pressed_pos).length())
-		if (get_global_mouse_position()-pressed_pos).length()>20:
-			drag_mode=true
+		var drag_distance = (get_global_mouse_position()-pressed_pos).length()
+		#print("Mouse drag distance: ", drag_distance)
+		if drag_distance > 20:
+			drag_mode = true
 			pressed_pos = Vector2(0,0)
 
 func got_input(_viewport: Node, event: InputEvent, _shape_idx: int):
 	
 	if event.is_action_pressed("LMB"):
-		print(ItemStates.find_key(current_state))
+		#print("LMB pressed - Current state: ", ItemStates.find_key(current_state))
 		if current_state != ItemStates.HOLDED and !drag_mode:
 			pressed_pos = get_global_mouse_position()
 			give_me_up.emit()

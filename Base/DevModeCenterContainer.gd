@@ -13,8 +13,8 @@ func _ready() -> void:
 	spawn_item_button.pressed.connect(_on_spawn_item_button_pressed)
 
 
-func _on_dev_mode_visibility_changed(is_visible: bool) -> void:
-	visible = is_visible
+func _on_dev_mode_visibility_changed(is_visible_flag: bool) -> void:
+	visible = is_visible_flag
 
 func _on_dev_functions_x_button_pressed() -> void:
 	SignalBus.dev_mode_visibility_changed.emit(false)

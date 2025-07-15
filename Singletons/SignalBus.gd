@@ -1,8 +1,6 @@
 ## SignalBus - Autoload
 extends Node
 
-@warning_ignore("unused_signal")
-
 # --- UI Signals ---
 signal grimoire_clicked
 signal dev_mode_visibility_changed(is_visible: bool)

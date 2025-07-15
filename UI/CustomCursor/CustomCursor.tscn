@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1gmlseqvku44"]
+
+[ext_resource type="Texture2D" uid="uid://cak4xeq34efhv" path="res://Resources/Placeholders/custom-cursors/Huge mouse pointer pack.png" id="1_h4215"]
+[ext_resource type="Script" uid="uid://ba1nyrtc0wo3u" path="res://UI/CustomCursor/custom_cursor.gd" id="1_o6w3p"]
+[ext_resource type="Script" uid="uid://cqudnn7ytx0o2" path="res://UI/CustomCursor/texture_rect.gd" id="2_2t6ap"]
+[ext_resource type="Script" uid="uid://bnrcyqt25kau8" path="res://UI/CustomCursor/pressed_cursor.gd" id="3_bfv4n"]
+
+[node name="CustomCursor" type="CanvasLayer"]
+script = ExtResource("1_o6w3p")
+
+[node name="RegularCursor" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 99
+texture = ExtResource("1_h4215")
+region_enabled = true
+region_rect = Rect2(143.497, 95.6436, 13.0113, 16.0115)
+script = ExtResource("2_2t6ap")
+
+[node name="PressedCursor" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 99
+texture = ExtResource("1_h4215")
+region_enabled = true
+region_rect = Rect2(63.3819, 95.3364, 13.0486, 16.836)
+script = ExtResource("3_bfv4n")

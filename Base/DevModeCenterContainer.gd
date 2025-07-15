@@ -22,5 +22,9 @@ func _on_dev_functions_x_button_pressed() -> void:
 
 func _on_spawn_item_button_pressed() -> void:
 	# TODO: Implement item spawning logic here.
-	print("Spawn Item button pressed!")
+
+	var item = load("res://Base/base_item.tscn").instantiate()
+	item.global_position = %Marker2D.position
+	print(item.position)
+	%Level.add_child(item)
 	pass 

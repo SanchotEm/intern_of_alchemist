@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=31 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
+[ext_resource type="AudioStream" uid="uid://hth7u6yhs7lq" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Early-Draft.mp3" id="2_ekk2t"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
 [ext_resource type="Script" uid="uid://bji3c6bc4krp2" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
 [ext_resource type="PackedScene" uid="uid://dsjertmptbxpt" path="res://Base/base_item.tscn" id="3_lo0hp"]
@@ -16,8 +17,8 @@
 [ext_resource type="Script" uid="uid://82rvw75ngto4" path="res://Base/grimoire_placeholder.gd" id="8_llarn"]
 [ext_resource type="Texture2D" uid="uid://blpqswr63jyas" path="res://Resources/Icons/HelpSpritePressed-0001.png" id="8_u7upk"]
 [ext_resource type="Script" uid="uid://g31ahwmjiu65" path="res://UI/ScrollUI.gd" id="9_llarn"]
-[ext_resource type="AudioStream" uid="uid://cr04tu13u3wfu" path="res://Resources/Audio/test_music.mp3" id="10_87cgt"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
+[ext_resource type="PackedScene" uid="uid://be26rmrpdq3hi" path="res://UI/Recipes/RecipesInGrimoire.tscn" id="13_7nedf"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
 [ext_resource type="Script" uid="uid://cehqcenuffuh8" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
 [ext_resource type="Script" uid="uid://c41kgvuuck1eu" path="res://UI/MusicControl.gd" id="14_48dpn"]
@@ -43,7 +44,7 @@ script = ExtResource("1_hljll")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("10_87cgt")
+stream = ExtResource("2_ekk2t")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
@@ -182,22 +183,43 @@ texture = ExtResource("15_7ly7r")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -132.0
-offset_right = 125.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture"]
+custom_minimum_size = Vector2(700, 280)
+layout_mode = 0
+offset_left = 219.0
+offset_top = 194.0
+offset_right = 919.0
+offset_bottom = 474.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Scroll of Recipes"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GridContainer" type="GridContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="RecipePanelContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("13_7nedf")]
+layout_mode = 2
 
 [node name="ScrollXButton" type="TextureButton" parent="UI/ScrollUIControl"]
 unique_name_in_owner = true
@@ -219,32 +241,35 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TopBarUIContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="TopBarUIContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="DevMoveControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+[node name="DevMoveControl" type="Control" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 script = ExtResource("14_4dgd5")
 
-[node name="DevModeButton" type="Button" parent="UI/MarginContainer/TopBarUIContainer/DevMoveControl"]
+[node name="DevModeButton" type="Button" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/DevMoveControl"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "DEV MODE"
 
-[node name="VolumeControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+[node name="VolumeControl" type="Control" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("4_otdql")
 
-[node name="VolumeButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl"]
+[node name="VolumeButton" type="TextureButton" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
@@ -260,7 +285,7 @@ size_flags_vertical = 2
 texture_normal = ExtResource("4_1h10i")
 texture_pressed = ExtResource("5_swbce")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -273,90 +298,90 @@ grow_horizontal = 0
 mouse_filter = 2
 alignment = 1
 
-[node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer"]
+[node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(70, 24)
 layout_mode = 2
 
-[node name="MainLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
+[node name="MainLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Main"
 
-[node name="MainVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
+[node name="MainVolumeVSlider" type="VSlider" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
 
-[node name="PanelContainer2" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2"]
 custom_minimum_size = Vector2(70, 24)
 layout_mode = 2
 
-[node name="SFXLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
+[node name="SFXLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "SFX"
 
-[node name="SFXVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
+[node name="SFXVolumeVSlider" type="VSlider" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
 
-[node name="PanelContainer3" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3"]
 custom_minimum_size = Vector2(70, 24)
 layout_mode = 2
 
-[node name="NarratorLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
+[node name="NarratorLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Narrator"
 
-[node name="NarratorVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
+[node name="NarratorVolumeVSlider" type="VSlider" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
 
-[node name="PanelContainer4" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+[node name="PanelContainer4" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4"]
 custom_minimum_size = Vector2(70, 24)
 layout_mode = 2
 
-[node name="MusicLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
+[node name="MusicLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Music"
 
-[node name="MusicVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
+[node name="MusicVolumeVSlider" type="VSlider" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
 
-[node name="HelpControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+[node name="HelpControl" type="Control" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer"]
 visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -364,7 +389,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("7_u7upk")
 
-[node name="HelpButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/HelpControl"]
+[node name="HelpButton" type="TextureButton" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/HelpControl"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -376,14 +401,14 @@ texture_normal = ExtResource("7_3tpw1")
 texture_pressed = ExtResource("8_u7upk")
 stretch_mode = 3
 
-[node name="MusicControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
+[node name="MusicControl" type="Control" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer"]
 custom_minimum_size = Vector2(70, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("14_48dpn")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/TopBarUIContainer/MusicControl"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/MusicControl"]
 layout_mode = 2
 offset_left = -4.0
 offset_right = 74.0
@@ -393,21 +418,38 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/MusicControl/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/MusicControl/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="PausePlayMusicButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
+[node name="PausePlayMusicButton" type="TextureButton" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 texture_normal = ExtResource("13_gj25o")
 
-[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("14_oqvj5")
 
+[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/SelectedRecipePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Selected Recipe: Sleep Potion"
+
+[node name="Label2" type="Label" parent="UI/MarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ingredients: Unknown"
+
 [node name="DevModeCenterContainer" type="CenterContainer" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

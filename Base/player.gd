@@ -30,6 +30,11 @@ func release(_item: Item) -> Item:
 		hand = null
 		
 	return released_item
+
+func clear_hand():
+	hand = null
+	hand_status = HandStatus.EMPTY
+
 func _hand_updates():
 	grabler.global_position = get_global_mouse_position()
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=35 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
@@ -27,9 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
 [ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
-[ext_resource type="Script" uid="uid://d0g825kmk3g7u" path="res://UI/SelectedRecipePanelContainer.gd" id="27_l6o11"]
-[ext_resource type="Script" uid="uid://g3trio6l0800" path="res://UI/MainMenu.gd" id="27_l6o11"]
+[ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nedf"]
+bg_color = Color(0.298075, 0.298075, 0.298074, 1)
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6c3lq"]
 
@@ -43,9 +44,6 @@ distance = -39.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wxmdi"]
 size = Vector2(408.571, 400)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nedf"]
-bg_color = Color(0.298075, 0.298075, 0.298074, 1)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_hljll")
@@ -250,10 +248,8 @@ alignment = 1
 
 [node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer"]
 unique_name_in_owner = true
-
 visible = false
 z_index = 1
-
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
@@ -473,8 +469,8 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Spawn Item"
 
-
 [node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI"]
+visible = false
 custom_minimum_size = Vector2(200, 200)
 offset_left = 942.0
 offset_top = 54.0
@@ -601,6 +597,5 @@ position = Vector2(-1.42859, -2.85715)
 shape = SubResource("RectangleShape2D_wxmdi")
 
 [node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
-
 
 [connection signal="input_event" from="Level/Grimoire-placeholder/Area2D" to="Level/Grimoire-placeholder" method="_on_area_2d_input_event"]

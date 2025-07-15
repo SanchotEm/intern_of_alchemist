@@ -2,6 +2,7 @@
 	"glowmelt": {
 		"name": "Glowmelt",
 		"description": "A faint, stubborn glow meant to shove back the dark. Don't expect it to light your whole bloody workshop!",
+		"instructions": "1. Combine LAVENDER and TOADSTOOL in the cauldron.\n2. Stir clockwise three times.\n3. Wait until it emits a soft light.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Glowmelt.png",
 		"ui_effects": {
 			"positive": "Room brightens slightly & saturation increase.",

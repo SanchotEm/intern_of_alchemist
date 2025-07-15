@@ -4,6 +4,7 @@ extends Node
 # --- UI Signals ---
 signal grimoire_clicked
 signal dev_mode_visibility_changed(is_visible: bool)
+signal grimoire_recipe_selected(current_recipe_id: String)
 
 # --- Music Signals ---
 signal volume_system_ready

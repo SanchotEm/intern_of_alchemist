@@ -5,6 +5,7 @@ extends Node
 
 # --- UI Signals ---
 signal grimoire_clicked
+signal dev_mode_visibility_changed(is_visible: bool)
 
 # --- Music Signals ---
 signal play_pause_music_toggled

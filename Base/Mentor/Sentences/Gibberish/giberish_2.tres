@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sentence_Resource" load_steps=2 format=3 uid="uid://kl7pthq04m72"]
+
+[ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="1_o85fw"]
+
+[resource]
+script = ExtResource("1_o85fw")
+text = "In order to succeed, you must not forget: One who tells a tale, lays an egg... wich spoil under the sun... despite the fact chickens eat grass..."
+audio = "<null>"
+metadata/_custom_type_script = "uid://crx8px7laoift"

@@ -39,15 +39,16 @@ func _ready() -> void:
 	volume_sliders.modulate.a = 0.0
 	volume_button.pressed.connect(_on_volume_button_pressed)
 	_setup_sliders()
+	SignalBus.call_deferred("emit_signal", "volume_system_ready")
 
 func _on_volume_button_pressed() -> void:
 	sliders_visible = not sliders_visible
 	_toggle_sliders_visibility(sliders_visible)
 	volume_button.button_pressed = sliders_visible
 
-func _toggle_sliders_visibility(visible: bool) -> void:
+func _toggle_sliders_visibility(should_show: bool) -> void:
 	var tween = create_tween()
-	if visible:
+	if should_show:
 		volume_sliders.visible = true
 		tween.tween_property(volume_sliders, "modulate:a", 1.0, 0.3).set_trans(Tween.TRANS_SINE)
 	else:

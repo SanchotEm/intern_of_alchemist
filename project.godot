@@ -20,9 +20,13 @@ config/icon="res://icon.svg"
 
 Interface="*res://Singletons/interface.gd"
 GameConstants="*res://Singletons/GameConstants.gd"
+SignalBus="*res://Singletons/SignalBus.gd"
+Achievements="*res://Singletons/Achievements.gd"
+StatTracking="*res://Singletons/StatTracking.gd"
 
 [display]
 
+window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
 [editor]

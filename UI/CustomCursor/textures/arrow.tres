@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b3q17ehh6rx0p"]
+
+[ext_resource type="Texture2D" uid="uid://cak4xeq34efhv" path="res://Resources/Placeholders/custom-cursors/Huge mouse pointer pack.png" id="1_qxibj"]
+
+[resource]
+atlas = ExtResource("1_qxibj")
+region = Rect2(48, 96, 16, 16)

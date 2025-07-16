@@ -394,7 +394,6 @@ layout_mode = 2
 texture = ExtResource("14_oqvj5")
 
 [node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 

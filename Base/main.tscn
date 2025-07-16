@@ -1,17 +1,37 @@
-[gd_scene load_steps=17 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=35 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
+[ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
+[ext_resource type="AudioStream" uid="uid://hth7u6yhs7lq" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Early-Draft.mp3" id="2_ekk2t"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
+[ext_resource type="Script" uid="uid://bji3c6bc4krp2" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
 [ext_resource type="PackedScene" uid="uid://dsjertmptbxpt" path="res://Base/base_item.tscn" id="3_lo0hp"]
 [ext_resource type="PackedScene" uid="uid://csgcw8ndkwkyy" path="res://Base/cauldron.tscn" id="3_mrrah"]
 [ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
+[ext_resource type="Texture2D" uid="uid://uscrsehbwwhm" path="res://Resources/Placeholders/Desk-Placeholder.png" id="4_6c3lq"]
 [ext_resource type="Script" uid="uid://7ahbhb8ok21u" path="res://UI/VolumeControl.gd" id="4_otdql"]
 [ext_resource type="Texture2D" uid="uid://cf4l3e4vy7ukc" path="res://Resources/Icons/VolumeSpritePressed-0001.png" id="5_swbce"]
+[ext_resource type="Texture2D" uid="uid://bmq0wgn3qcfi4" path="res://Resources/Placeholders/Mentor-Placeholder.png" id="6_87cgt"]
 [ext_resource type="Texture2D" uid="uid://depdj7kbkpgu" path="res://Resources/Icons/HelpSprite-0001.png" id="7_3tpw1"]
 [ext_resource type="Script" uid="uid://b4873n8i6s0vb" path="res://UI/HelpControl.gd" id="7_u7upk"]
+[ext_resource type="Texture2D" uid="uid://dt8a1nb4gbn7e" path="res://Resources/Placeholders/Grimoire-Placeholder.png" id="7_x1fjo"]
+[ext_resource type="Script" uid="uid://82rvw75ngto4" path="res://Base/grimoire_placeholder.gd" id="8_llarn"]
 [ext_resource type="Texture2D" uid="uid://blpqswr63jyas" path="res://Resources/Icons/HelpSpritePressed-0001.png" id="8_u7upk"]
-[ext_resource type="AudioStream" uid="uid://cr04tu13u3wfu" path="res://Resources/Audio/test_music.mp3" id="10_87cgt"]
+
 [ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
+[ext_resource type="Script" uid="uid://g31ahwmjiu65" path="res://UI/ScrollUI.gd" id="9_llarn"]
+[ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
+[ext_resource type="PackedScene" uid="uid://be26rmrpdq3hi" path="res://UI/Recipes/RecipesInGrimoire.tscn" id="13_7nedf"]
+[ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
+[ext_resource type="Script" uid="uid://bvlij08oj17xg" path="res://UI/RecipesGridContainer.gd" id="13_l6o11"]
+[ext_resource type="Script" uid="uid://cehqcenuffuh8" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
+[ext_resource type="Script" uid="uid://c41kgvuuck1eu" path="res://UI/MusicControl.gd" id="14_48dpn"]
+[ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
+[ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
+[ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
+[ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nedf"]
+bg_color = Color(0.298075, 0.298075, 0.298074, 1)
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6c3lq"]
 
@@ -23,15 +43,467 @@ distance = -39.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7ly7r"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxmdi"]
+size = Vector2(408.571, 400)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_hljll")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="UI"]
+visible = false
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.156863, 0.156863, 0.156863, 0.321569)
+
+[node name="ScrollUIControl" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_llarn")
+
+[node name="ScrollMarginContainer" type="MarginContainer" parent="UI/ScrollUIControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollBackgroundTexture" type="TextureRect" parent="UI/ScrollUIControl/ScrollMarginContainer"]
+layout_mode = 2
+texture = ExtResource("15_7ly7r")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture"]
+custom_minimum_size = Vector2(700, 280)
+layout_mode = 0
+offset_left = 219.0
+offset_top = 194.0
+offset_right = 919.0
+offset_bottom = 474.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Scroll of Recipes"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 260)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+horizontal_scroll_mode = 0
+
+[node name="RecipesGridContainer" type="GridContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+script = ExtResource("13_l6o11")
+
+[node name="RecipePanelContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer/RecipesGridContainer" instance=ExtResource("13_7nedf")]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+
+[node name="RecipePanelContainer2" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer/RecipesGridContainer" instance=ExtResource("13_7nedf")]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+
+[node name="ScrollXButton" type="TextureButton" parent="UI/ScrollUIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 896.0
+offset_top = 58.0
+offset_right = 960.0
+offset_bottom = 122.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("12_wxmdi")
+
+[node name="MainMenu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("27_l6o11")
+
+[node name="ColorRect" type="ColorRect" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133884, 0.580968, 0.640417, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="UI/MainMenu/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="TopBarUIMarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TopBarUIMarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TopBarUIContainer" type="HBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="DevMoveControl" type="Control" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+script = ExtResource("14_4dgd5")
+
+[node name="DevModeButton" type="Button" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/DevMoveControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "DEV MODE"
+
+[node name="VolumeControl" type="Control" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("4_otdql")
+
+[node name="VolumeButton" type="TextureButton" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 32.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+texture_normal = ExtResource("4_1h10i")
+texture_pressed = ExtResource("5_swbce")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -233.0
+offset_top = 45.0
+offset_right = 77.0
+offset_bottom = 208.0
+grow_horizontal = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7nedf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MainLabel" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main"
+
+[node name="MainVolumeVSlider" type="VSlider" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7nedf")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SFXLabel" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SFX"
+
+[node name="SFXVolumeVSlider" type="VSlider" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7nedf")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NarratorLabel" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Narrator"
+
+[node name="NarratorVolumeVSlider" type="VSlider" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="PanelContainer4" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7nedf")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4"]
+custom_minimum_size = Vector2(70, 24)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MusicLabel" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+
+[node name="MusicVolumeVSlider" type="VSlider" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="HelpControl" type="Control" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("7_u7upk")
+
+[node name="HelpButton" type="TextureButton" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/HelpControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("7_3tpw1")
+texture_pressed = ExtResource("8_u7upk")
+stretch_mode = 3
+
+[node name="MusicControl" type="Control" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer"]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("14_48dpn")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/MusicControl"]
+layout_mode = 2
+offset_left = -4.0
+offset_right = 74.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/MusicControl/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="PausePlayMusicButton" type="TextureButton" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("13_gj25o")
+
+[node name="TextureRect" type="TextureRect" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_oqvj5")
+
+[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Selected Recipe: Sleep Potion"
+
+[node name="Label2" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ingredients: Unknown"
+
+[node name="DevModeCenterContainer" type="CenterContainer" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("24_4dgd5")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/DevModeCenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/DevModeCenterContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="UI/DevModeCenterContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="DevFunctionsXButton" type="TextureButton" parent="UI/DevModeCenterContainer/PanelContainer/HBoxContainer/ColorRect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+action_mode = 0
+texture_normal = ExtResource("12_wxmdi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DevModeCenterContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DevModeCenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/DevModeCenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Dev Functions"
+
+[node name="SpawnItemButton" type="Button" parent="UI/DevModeCenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Spawn Item"
+
+[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+offset_left = 942.0
+offset_top = 54.0
+offset_right = 1142.0
+offset_bottom = 254.0
+size_flags_horizontal = 8
+mouse_filter = 2
+script = ExtResource("27_l6o11")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SelectedRecipePanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RecipeNameLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recipe Name"
+horizontal_alignment = 1
+
+[node name="RecipeInstructionsLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select a recipe from the Grimiore to begin brewing a potion."
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("10_87cgt")
-autoplay = true
+stream = ExtResource("2_ekk2t")
 bus = &"Music"
 parameters/looping = true
+script = ExtResource("3_fx5w4")
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -48,6 +520,7 @@ max_polyphony = 5
 bus = &"SFX"
 
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(-581, -316)
 script = ExtResource("2_n3y37")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -60,11 +533,12 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_lo0hp")
 
 [node name="Scene" type="Node2D" parent="."]
+position = Vector2(-581, -316)
 
 [node name="Environment" type="Node" parent="Scene"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene/Environment"]
-position = Vector2(0, 111)
+position = Vector2(-581, -205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_lo0hp")
@@ -80,187 +554,50 @@ rotation = 1.57079
 shape = SubResource("WorldBoundaryShape2D_lo0hp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene/Environment/StaticBody2D"]
+visible = false
 position = Vector2(45, 192)
 scale = Vector2(-1556.96, 302.987)
 texture = SubResource("PlaceholderTexture2D_7ly7r")
 
-[node name="Cauldron" parent="Scene/Environment/StaticBody2D" instance=ExtResource("3_mrrah")]
-position = Vector2(369, -76)
+[node name="Level" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-581, -316)
+
+[node name="Marker2D" type="Marker2D" parent="Level"]
+unique_name_in_owner = true
+position = Vector2(-11, -197)
+
+[node name="DeskSprite2D" type="Sprite2D" parent="Level"]
+position = Vector2(89, 254)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6c3lq")
+
+[node name="MentorSprite2D" type="Sprite2D" parent="Level"]
+position = Vector2(-394, -58)
+texture = ExtResource("6_87cgt")
+
+[node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
+position = Vector2(369, 35)
 scale = Vector2(0.512881, 0.512881)
 
-[node name="base_item" parent="." instance=ExtResource("3_lo0hp")]
-position = Vector2(3, -1)
-scale = Vector2(0.604146, 0.604146)
+[node name="base_item" parent="Level" instance=ExtResource("3_lo0hp")]
 
-[node name="Level" type="Node2D" parent="."]
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Background" type="ColorRect" parent="UI"]
-visible = false
-y_sort_enabled = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.156863, 0.156863, 0.156863, 0.321569)
-
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 20.0
-grow_horizontal = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="TopBarUIContainer" type="HBoxContainer" parent="UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 2
-alignment = 2
-
-[node name="VolumeControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("4_otdql")
-
-[node name="VolumeButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -16.0
-offset_right = 16.0
-offset_bottom = 32.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
-texture_normal = ExtResource("4_1h10i")
-texture_pressed = ExtResource("5_swbce")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -230.0
-offset_top = 40.0
-offset_bottom = 203.0
-grow_horizontal = 0
-mouse_filter = 2
-alignment = 1
-
-[node name="VolumeSlidersHBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 10
-
-[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(70, 24)
-layout_mode = 2
-
-[node name="MainLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Main"
-
-[node name="MainVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-value = 50.0
-
-[node name="PanelContainer2" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2"]
-custom_minimum_size = Vector2(70, 24)
-layout_mode = 2
-
-[node name="SFXLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "SFX"
-
-[node name="SFXVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer2/VBoxContainer2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-value = 50.0
-
-[node name="PanelContainer3" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3"]
-custom_minimum_size = Vector2(70, 24)
-layout_mode = 2
-
-[node name="NarratorLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Narrator"
-
-[node name="NarratorVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer3/VBoxContainer3"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-value = 50.0
-
-[node name="PanelContainer4" type="PanelContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4"]
-custom_minimum_size = Vector2(70, 24)
-layout_mode = 2
-
-[node name="MusicLabel" type="Label" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Music"
-
-[node name="MusicVolumeVSlider" type="VSlider" parent="UI/MarginContainer/TopBarUIContainer/VolumeControl/VolumeButton/VBoxContainer/VolumeSlidersHBoxContainer/PanelContainer4/VBoxContainer3"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-value = 50.0
-
-[node name="HelpControl" type="Control" parent="UI/MarginContainer/TopBarUIContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-script = ExtResource("7_u7upk")
-
-[node name="HelpButton" type="TextureButton" parent="UI/MarginContainer/TopBarUIContainer/HelpControl"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-offset_right = 32.0
-offset_bottom = 32.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture_normal = ExtResource("7_3tpw1")
-texture_pressed = ExtResource("8_u7upk")
-stretch_mode = 3
-
-[node name="base_item2" parent="." instance=ExtResource("3_lo0hp")]
+[node name="base_item2" parent="Level" instance=ExtResource("3_lo0hp")]
 position = Vector2(128, 68)
-scale = Vector2(0.420556, 0.420556)
 
+scale = Vector2(0.420556, 0.420556)
 [node name="Mentor" parent="." instance=ExtResource("12_6c3lq")]
 position = Vector2(-450, 3)
+
+[node name="Grimoire-placeholder" type="Sprite2D" parent="Level"]
+position = Vector2(-177, 65)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_x1fjo")
+script = ExtResource("8_llarn")
+[node name="Area2D" type="Area2D" parent="Level/Grimoire-placeholder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Grimoire-placeholder/Area2D"]
+position = Vector2(-1.42859, -2.85715)
+shape = SubResource("RectangleShape2D_wxmdi")
+[node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
+[connection signal="input_event" from="Level/Grimoire-placeholder/Area2D" to="Level/Grimoire-placeholder" method="_on_area_2d_input_event"]
+

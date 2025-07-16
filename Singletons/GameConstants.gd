@@ -10,3 +10,7 @@ const DEFAULT_MUSIC_VOLUME: int = 30
 const DEFAULT_SFX_VOLUME: int = 30
 const DEFAULT_NARRATOR_VOLUME: int = 30
 #endregion 
+
+#region Text Control
+const TEXT_SPEED :float = 35 #amount of characters that become visible per second
+#endregion

@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
 [ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
-[ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
+[ext_resource type="Script" uid="uid://g3trio6l0800" path="res://UI/MainMenu.gd" id="27_l6o11"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nedf"]
 bg_color = Color(0.298075, 0.298075, 0.298074, 1)
@@ -127,11 +127,9 @@ columns = 2
 script = ExtResource("13_l6o11")
 
 [node name="RecipePanelContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer/RecipesGridContainer" instance=ExtResource("13_7nedf")]
-custom_minimum_size = Vector2(300, 125)
 layout_mode = 2
 
 [node name="RecipePanelContainer2" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer/RecipesGridContainer" instance=ExtResource("13_7nedf")]
-custom_minimum_size = Vector2(300, 125)
 layout_mode = 2
 
 [node name="ScrollXButton" type="TextureButton" parent="UI/ScrollUIControl"]
@@ -597,5 +595,6 @@ position = Vector2(-1.42859, -2.85715)
 shape = SubResource("RectangleShape2D_wxmdi")
 
 [node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
+visible = false
 
 [connection signal="input_event" from="Level/Grimoire-placeholder/Area2D" to="Level/Grimoire-placeholder" method="_on_area_2d_input_event"]

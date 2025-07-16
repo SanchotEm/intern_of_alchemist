@@ -7,16 +7,16 @@ extends CanvasLayer
 @onready var pressed_cursor: Sprite2D = %PressedCursor
 
 
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	regular_cursor.show()
-	pressed_cursor.hide()
-
-
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("LMB"):
-		regular_cursor.hide()
-		pressed_cursor.show()
-	else:
-		regular_cursor.show()
-		pressed_cursor.hide()
+#func _ready() -> void:
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#regular_cursor.show()
+	#pressed_cursor.hide()
+#
+#
+#func _process(delta: float) -> void:
+	#if Input.is_action_pressed("LMB"):
+		#regular_cursor.hide()
+		#pressed_cursor.show()
+	#else:
+		#regular_cursor.show()
+		#pressed_cursor.hide()

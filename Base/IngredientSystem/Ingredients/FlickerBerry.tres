@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" load_steps=3 format=3 uid="uid://dw8pm4mno3ejj"]
+
+[ext_resource type="Texture2D" uid="uid://yedfhsyemtyj" path="res://Resources/Placeholders/fruits/pngs/black-berry-light.png" id="1_kfp5i"]
+[ext_resource type="Script" uid="uid://dmf2h6w400qmd" path="res://Base/IngredientSystem/Ingredients/IngredientData.gd" id="2_nr2ew"]
+
+[resource]
+script = ExtResource("2_nr2ew")
+item_name = "Flicker Berry"
+icon = ExtResource("1_kfp5i")
+scale = Vector2(0.1, 0.1)
+metadata/_custom_type_script = "uid://dmf2h6w400qmd"

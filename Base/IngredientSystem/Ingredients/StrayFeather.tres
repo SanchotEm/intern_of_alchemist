@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" load_steps=3 format=3 uid="uid://i4vc3oa0di2v"]
+
+[ext_resource type="Texture2D" uid="uid://c63x6tp8lmcfb" path="res://Resources/Placeholders/fruits/pngs/banana.png" id="1_tdjiq"]
+[ext_resource type="Script" uid="uid://dmf2h6w400qmd" path="res://Base/IngredientSystem/Ingredients/IngredientData.gd" id="2_4gvll"]
+
+[resource]
+script = ExtResource("2_4gvll")
+item_name = "Stray Feather"
+icon = ExtResource("1_tdjiq")
+scale = Vector2(0.1, 0.1)
+metadata/_custom_type_script = "uid://dmf2h6w400qmd"

@@ -205,10 +205,8 @@ func say_random() -> void:
 	var files = file.get_files()
 	i = randi_range(0, files.size() - 1)
 	
-	say_sentence(load(file.get_current_dir() + "/" + files[i])) #WARNING:might not be safe. Check better way
-
-func say_sentence(sentence :Sentence_Resource) -> void:
-	pass
+	get_tree().get_first_node_in_group("Speech_bubble").\
+	 say_sentence(load(file.get_current_dir() + "/" + files[i])) #WARNING:might not be safe. Check better way
 
 
 func disappear() -> void:

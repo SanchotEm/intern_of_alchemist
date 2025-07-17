@@ -8,7 +8,8 @@ var visible_characters_true :float = 0 #true amount of visible characters
 var player :AudioStreamPlayer #current audio player, if there is one
 
 func _ready() -> void:
-	show_text("LOREM IPSUM [i]TEST[/i] [b]TEST[/b] TEST")
+	pass
+	#show_text("LOREM IPSUM [i]TEST[/i] [b]TEST[/b] TEST")
 
 func _process(delta: float) -> void:
 	if speech_bubble_state == SpeechBubbleStates.SHOWING:

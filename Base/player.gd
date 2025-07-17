@@ -1,4 +1,3 @@
-# Player.gd (Updated)
 extends Node2D
 class_name Player
 
@@ -34,7 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 ## Picks up a specific item, changing the player's state
-func hold_item(item: Item, click_position: Vector2) -> void: # Now accepts click_position
+func hold_item(item: Item, click_position: Vector2) -> void:
 	if hand_status != HandStatus.EMPTY:
 		return
 

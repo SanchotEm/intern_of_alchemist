@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=39 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
@@ -16,17 +16,15 @@
 [ext_resource type="Script" uid="uid://b4873n8i6s0vb" path="res://UI/HelpControl.gd" id="7_u7upk"]
 [ext_resource type="Texture2D" uid="uid://dt8a1nb4gbn7e" path="res://Resources/Placeholders/Grimoire-Placeholder.png" id="7_x1fjo"]
 [ext_resource type="Texture2D" uid="uid://blpqswr63jyas" path="res://Resources/Icons/HelpSpritePressed-0001.png" id="8_u7upk"]
-[ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
-[ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Script" uid="uid://g31ahwmjiu65" path="res://UI/ScrollUI.gd" id="9_llarn"]
 [ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
+[ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
 [ext_resource type="Script" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
 [ext_resource type="Script" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
-
 [ext_resource type="Script" uid="uid://bo0fbbiqxf55r" path="res://Base/Grimoire/grimoire.gd" id="22_l6o11"]
 [ext_resource type="Script" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
 [ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
@@ -162,13 +160,11 @@ theme_override_font_sizes/font_size = 24
 text = "Game Stats"
 horizontal_alignment = 1
 
-
 [node name="StatsVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer"]
 layout_mode = 2
 
 [node name="StatsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer/StatsVBoxContainer"]
 unique_name_in_owner = true
-
 layout_mode = 2
 text = "Recipe Name"
 horizontal_alignment = 1
@@ -424,15 +420,6 @@ texture_normal = ExtResource("7_3tpw1")
 texture_pressed = ExtResource("8_u7upk")
 stretch_mode = 3
 
-[node name="Speech_bubble" parent="UI" instance=ExtResource("12_87cgt")]
-offset_top = -1.46399
-
-[node name="base_item2" parent="." instance=ExtResource("3_lo0hp")]
-position = Vector2(128, 68)
-scale = Vector2(0.420556, 0.420556)
-
-[node name="Mentor" parent="." instance=ExtResource("12_6c3lq")]
-position = Vector2(-450, 3)
 [node name="MusicControl" type="Control" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer"]
 custom_minimum_size = Vector2(70, 40)
 layout_mode = 2
@@ -463,6 +450,9 @@ texture_normal = ExtResource("13_gj25o")
 [node name="TextureRect" type="TextureRect" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer/MusicControl/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("14_oqvj5")
+
+[node name="Speech_bubble" parent="UI" instance=ExtResource("12_87cgt")]
+offset_top = -1.46399
 
 [node name="DevModeCenterContainer" type="CenterContainer" parent="UI"]
 visible = false
@@ -522,6 +512,13 @@ text = "Dev Functions"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Spawn Item"
+
+[node name="base_item2" parent="." instance=ExtResource("3_lo0hp")]
+position = Vector2(128, 68)
+scale = Vector2(0.420556, 0.420556)
+
+[node name="Mentor" parent="." instance=ExtResource("12_6c3lq")]
+position = Vector2(-450, 3)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

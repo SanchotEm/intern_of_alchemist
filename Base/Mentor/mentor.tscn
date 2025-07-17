@@ -1,6 +1,5 @@
 [gd_scene load_steps=7 format=3 uid="uid://f8d15v2cndw1"]
 
-
 [ext_resource type="Texture2D" uid="uid://bam88ycvtrhka" path="res://Resources/WizardGhost/wizard character.png" id="2_7cqvm"]
 [ext_resource type="Script" uid="uid://d3pc2mfqxq2qq" path="res://Base/Mentor/mentor.gd" id="2_37jcg"]
 
@@ -41,6 +40,5 @@ shape = SubResource("RectangleShape2D_7cqvm")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_7cqvm")
-
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

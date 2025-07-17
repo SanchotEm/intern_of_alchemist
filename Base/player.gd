@@ -8,7 +8,7 @@ var hand_status: HandStatus = HandStatus.EMPTY
 
 
 
-func _ready() -> void:
+func _enter_tree(): 
 	Interface.player = self
 func pick(item: Item):
 	if hand_status != HandStatus.EMPTY:

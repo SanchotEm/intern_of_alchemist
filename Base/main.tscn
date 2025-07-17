@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
 [ext_resource type="Texture2D" uid="uid://uscrsehbwwhm" path="res://Resources/Placeholders/Desk-Placeholder.png" id="4_6c3lq"]
 [ext_resource type="Script" uid="uid://7ahbhb8ok21u" path="res://UI/VolumeControl.gd" id="4_otdql"]
+[ext_resource type="Texture2D" uid="uid://da7wnp6iylcja" path="res://Resources/Icons/ArrowSprite-0001.png" id="5_l6o11"]
 [ext_resource type="Texture2D" uid="uid://cf4l3e4vy7ukc" path="res://Resources/Icons/VolumeSpritePressed-0001.png" id="5_swbce"]
 [ext_resource type="Texture2D" uid="uid://depdj7kbkpgu" path="res://Resources/Icons/HelpSprite-0001.png" id="7_3tpw1"]
 [ext_resource type="Script" uid="uid://b4873n8i6s0vb" path="res://UI/HelpControl.gd" id="7_u7upk"]
@@ -19,15 +20,16 @@
 [ext_resource type="Script" uid="uid://g31ahwmjiu65" path="res://UI/ScrollUI.gd" id="9_llarn"]
 [ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
-[ext_resource type="PackedScene" uid="uid://be26rmrpdq3hi" path="res://UI/Recipes/RecipesInGrimoire.tscn" id="13_7nedf"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
-[ext_resource type="Script" uid="uid://bvlij08oj17xg" path="res://UI/RecipesGridContainer.gd" id="13_l6o11"]
 [ext_resource type="Script" uid="uid://cehqcenuffuh8" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
 [ext_resource type="Script" uid="uid://c41kgvuuck1eu" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
 [ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
 [ext_resource type="Script" uid="uid://g3trio6l0800" path="res://UI/MainMenu.gd" id="27_l6o11"]
+
+[sub_resource type="Theme" id="Theme_7nedf"]
+Label/colors/font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nedf"]
 bg_color = Color(0.298075, 0.298075, 0.298074, 1)
@@ -68,6 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_7nedf")
 script = ExtResource("9_llarn")
 
 [node name="ScrollMarginContainer" type="MarginContainer" parent="UI/ScrollUIControl"]
@@ -97,40 +100,41 @@ offset_top = 194.0
 offset_right = 919.0
 offset_bottom = 474.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
+[node name="PageVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 alignment = 1
 
-[node name="Label" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer"]
+[node name="PageLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Scroll of Recipes"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 260)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-horizontal_scroll_mode = 0
-
-[node name="RecipesGridContainer" type="GridContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 2
-script = ExtResource("13_l6o11")
-
-[node name="RecipePanelContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer/RecipesGridContainer" instance=ExtResource("13_7nedf")]
+[node name="RecipeVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="RecipePanelContainer2" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/VBoxContainer/ScrollContainer/RecipesGridContainer" instance=ExtResource("13_7nedf")]
+[node name="RecipeNameLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer/RecipeVBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+text = "Recipe Name"
+horizontal_alignment = 1
+
+[node name="RecipeInstructionsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer/RecipeVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="RecipeTagsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer/RecipeVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tags or not"
+horizontal_alignment = 1
 
 [node name="ScrollXButton" type="TextureButton" parent="UI/ScrollUIControl"]
 unique_name_in_owner = true
@@ -141,6 +145,27 @@ offset_right = 960.0
 offset_bottom = 122.0
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("12_wxmdi")
+
+[node name="ScrollRightButton" type="TextureButton" parent="UI/ScrollUIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 884.0
+offset_top = 164.0
+offset_right = 948.0
+offset_bottom = 228.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("5_l6o11")
+
+[node name="ScrollLeftButton" type="TextureButton" parent="UI/ScrollUIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 223.0
+offset_top = 164.0
+offset_right = 287.0
+offset_bottom = 228.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("5_l6o11")
+flip_h = true
 
 [node name="MainMenu" type="Control" parent="UI"]
 visible = false
@@ -393,21 +418,6 @@ texture_normal = ExtResource("13_gj25o")
 layout_mode = 2
 texture = ExtResource("14_oqvj5")
 
-[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Selected Recipe: Sleep Potion"
-
-[node name="Label2" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Ingredients: Unknown"
-
 [node name="DevModeCenterContainer" type="CenterContainer" parent="UI"]
 visible = false
 anchors_preset = 15
@@ -466,34 +476,6 @@ text = "Dev Functions"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Spawn Item"
-
-[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI"]
-visible = false
-custom_minimum_size = Vector2(200, 200)
-offset_left = 942.0
-offset_top = 54.0
-offset_right = 1142.0
-offset_bottom = 254.0
-size_flags_horizontal = 8
-mouse_filter = 2
-script = ExtResource("27_l6o11")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SelectedRecipePanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="RecipeNameLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Recipe Name"
-horizontal_alignment = 1
-
-[node name="RecipeInstructionsLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Select a recipe from the Grimiore to begin brewing a potion."
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

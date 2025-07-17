@@ -115,7 +115,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 alignment = 1
 
-[node name="PageLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer"]
+[node name="RecipePageLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -143,6 +143,29 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "Tags or not"
+horizontal_alignment = 1
+
+[node name="StatsPageVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="StatsPageLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Game Stats"
+horizontal_alignment = 1
+
+[node name="StatsVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer"]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer/StatsVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recipe Name"
 horizontal_alignment = 1
 
 [node name="ScrollXButton" type="TextureButton" parent="UI/ScrollUIControl"]

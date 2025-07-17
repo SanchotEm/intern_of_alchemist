@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" load_steps=3 format=3 uid="uid://c1nogrucy2r2y"]
+
+[ext_resource type="Texture2D" uid="uid://bdd14jjlofvi2" path="res://Resources/Placeholders/fruits/pngs/green-apple.png" id="1_8i0gh"]
+[ext_resource type="Script" uid="uid://dmf2h6w400qmd" path="res://Base/IngredientSystem/Ingredients/IngredientData.gd" id="2_mc5oo"]
+
+[resource]
+script = ExtResource("2_mc5oo")
+item_name = "Paper Shred"
+icon = ExtResource("1_8i0gh")
+scale = Vector2(0.1, 0.1)
+metadata/_custom_type_script = "uid://dmf2h6w400qmd"

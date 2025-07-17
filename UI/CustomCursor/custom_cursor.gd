@@ -13,7 +13,7 @@ func _ready() -> void:
 	pressed_cursor.hide()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("LMB"):
 		regular_cursor.hide()
 		pressed_cursor.show()

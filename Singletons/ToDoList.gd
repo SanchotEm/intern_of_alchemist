@@ -28,7 +28,6 @@ extends Node
 
 # Brewing System:
 # Adding:
-# TODO: Add ability for player to click to drag ingredients from a region on the screen (unlimited), then drag them into the cauldron when they want to for the recipe. 
 # TODO: Add ingredient trash
 # TODO: Add (1) stirring stick (2) stirring mechanic (a) clockwise and (b) counterclockwise with a counter on the pot. One full rotation = one stir for the recipes. 
 # TODO: Add a heating / fire function. Player can drag a log onto the fire which burns for X seconds 

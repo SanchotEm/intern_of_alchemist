@@ -24,7 +24,7 @@ func _on_spawn_item_button_pressed() -> void:
 	# TODO: Implement item spawning logic here.
 
 	var item = load("res://Base/base_item.tscn").instantiate()
-	item.global_position = %SpawnerPosition.position
+	item.global_position = %Marker2D.position
 	print("Spawned item '%s' at position %s" % [item.name, item.global_position])
 	%Level.add_child(item)
 	pass 

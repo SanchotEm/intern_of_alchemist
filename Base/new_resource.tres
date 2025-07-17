@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c1ot85xwieocf"]
+
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/item_data.gd" id="1_7kykj"]
+[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://Resources/hallo.png" id="2_4ymob"]
+
+[resource]
+script = ExtResource("1_7kykj")
+item_name = ""
+description = ""
+sprite = ExtResource("2_4ymob")
+tags = Array[String]([])
+metadata/_custom_type_script = "uid://dluypacfui4h"

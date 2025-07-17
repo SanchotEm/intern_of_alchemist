@@ -1,30 +1,34 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsjertmptbxpt"]
 
 [ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/base_item.gd" id="1_r6ri3"]
-[ext_resource type="Texture2D" uid="uid://c63x6tp8lmcfb" path="res://Resources/Placeholders/fruits/pngs/banana.png" id="2_l10xi"]
+[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://Resources/hallo.png" id="2_l10xi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_new0r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56rss"]
+size = Vector2(84, 98)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l10xi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_new0r"]
+size = Vector2(112, 128)
 
 [node name="base_item" type="RigidBody2D"]
 collision_layer = 5
 collision_mask = 5
 mass = 1000.0
 script = ExtResource("1_r6ri3")
+tags = Array[String](["dummy"])
 
 [node name="item_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_l10xi")
 
 [node name="Item_collision" type="CollisionShape2D" parent="."]
-scale = Vector2(56.3214, 56.3214)
-shape = SubResource("CircleShape2D_new0r")
+shape = SubResource("RectangleShape2D_56rss")
 debug_color = Color(0, 0.6, 0.701961, 0.843137)
 
 [node name="input_collision" type="Area2D" parent="."]
 collision_mask = 0
 
-[node name="InputShape2D" type="CollisionShape2D" parent="input_collision"]
-scale = Vector2(50.4318, 50.4318)
-shape = SubResource("CircleShape2D_l10xi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="input_collision"]
+shape = SubResource("RectangleShape2D_new0r")
 debug_color = Color(1, 0.933333, 0, 0.368627)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=35 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
@@ -28,31 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
 [ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
 [ext_resource type="Script" uid="uid://g3trio6l0800" path="res://UI/MainMenu.gd" id="27_l6o11"]
-[ext_resource type="Script" uid="uid://bu5iwmb01tnls" path="res://Base/IngredientSystem/draggable_ingredients_container.gd" id="28_tk4b4"]
-[ext_resource type="Texture2D" uid="uid://c63x6tp8lmcfb" path="res://Resources/Placeholders/fruits/pngs/banana.png" id="29_33wbd"]
-[ext_resource type="Script" uid="uid://dmf2h6w400qmd" path="res://Base/IngredientSystem/Ingredients/IngredientData.gd" id="29_hokyh"]
-[ext_resource type="Resource" uid="uid://i4vc3oa0di2v" path="res://Base/IngredientSystem/Ingredients/StrayFeather.tres" id="30_n2q5m"]
-[ext_resource type="Texture2D" uid="uid://dvm2i6dn7t4x6" path="res://Resources/Placeholders/fruits/pngs/black-berry-dark.png" id="30_wsile"]
-[ext_resource type="Resource" uid="uid://mfp7cm3wqvv2" path="res://Base/IngredientSystem/Ingredients/PebbleHeart.tres" id="31_fexjs"]
-[ext_resource type="Texture2D" uid="uid://yedfhsyemtyj" path="res://Resources/Placeholders/fruits/pngs/black-berry-light.png" id="31_hokyh"]
-[ext_resource type="Texture2D" uid="uid://dskue2u44t21s" path="res://Resources/Placeholders/fruits/pngs/black-cherry.png" id="32_0jtdi"]
-[ext_resource type="Resource" uid="uid://dw8pm4mno3ejj" path="res://Base/IngredientSystem/Ingredients/FlickerBerry.tres" id="32_c5v3s"]
-[ext_resource type="Texture2D" uid="uid://rbiisqyjutuq" path="res://Resources/Placeholders/fruits/pngs/coconut.png" id="33_k75nb"]
-[ext_resource type="Resource" uid="uid://bhuiqej3m865w" path="res://Base/IngredientSystem/Ingredients/WildLavender.tres" id="33_ksw61"]
-[ext_resource type="Texture2D" uid="uid://bdd14jjlofvi2" path="res://Resources/Placeholders/fruits/pngs/green-apple.png" id="34_ndbks"]
-[ext_resource type="Resource" uid="uid://bt5gr0up42j8v" path="res://Base/IngredientSystem/Ingredients/EmberTwig.tres" id="34_qninr"]
-[ext_resource type="Resource" uid="uid://c1nogrucy2r2y" path="res://Base/IngredientSystem/Ingredients/PaperShred.tres" id="35_5epor"]
-[ext_resource type="Script" uid="uid://bdwbkmh28li2b" path="res://Base/BrewingSystem/BrewingSystem.gd" id="35_33wbd"]
-[ext_resource type="Texture2D" uid="uid://b6qokmbu162bl" path="res://Resources/Placeholders/fruits/pngs/strawberry.png" id="36_0jtdi"]
-[ext_resource type="Resource" uid="uid://btj501i6v6tlb" path="res://Base/IngredientSystem/Ingredients/WhisperShell.tres" id="36_vajpv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nedf"]
 bg_color = Color(0.298075, 0.298075, 0.298074, 1)
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_6c3lq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2q5m"]
-size = Vector2(480, 93)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lo0hp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lo0hp"]
 normal = Vector2(0.0073913, -0.999973)
@@ -411,6 +393,21 @@ texture_normal = ExtResource("13_gj25o")
 layout_mode = 2
 texture = ExtResource("14_oqvj5")
 
+[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Selected Recipe: Sleep Potion"
+
+[node name="Label2" type="Label" parent="UI/TopBarUIMarginContainer/VBoxContainer/SelectedRecipePanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ingredients: Unknown"
+
 [node name="DevModeCenterContainer" type="CenterContainer" parent="UI"]
 visible = false
 anchors_preset = 15
@@ -470,6 +467,34 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Spawn Item"
 
+[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+offset_left = 942.0
+offset_top = 54.0
+offset_right = 1142.0
+offset_bottom = 254.0
+size_flags_horizontal = 8
+mouse_filter = 2
+script = ExtResource("27_l6o11")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SelectedRecipePanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RecipeNameLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recipe Name"
+horizontal_alignment = 1
+
+[node name="RecipeInstructionsLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select a recipe from the Grimiore to begin brewing a potion."
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_ekk2t")
@@ -497,6 +522,13 @@ script = ExtResource("2_n3y37")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="Grabler" type="StaticBody2D" parent="Player"]
+position = Vector2(1, -1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Grabler"]
+shape = SubResource("CircleShape2D_lo0hp")
+
 [node name="Scene" type="Node2D" parent="."]
 position = Vector2(-581, -316)
 
@@ -505,20 +537,15 @@ position = Vector2(-581, -316)
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene/Environment"]
 position = Vector2(-581, -205)
 
-[node name="DeskCollider" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
-position = Vector2(358, 63)
-shape = SubResource("RectangleShape2D_n2q5m")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lo0hp")
 
-[node name="DeskCollider2" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
-position = Vector2(-307, 60)
-shape = SubResource("RectangleShape2D_n2q5m")
-
-[node name="RightWallCollision" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
 position = Vector2(536, 0)
 rotation = -1.57079
 shape = SubResource("WorldBoundaryShape2D_lo0hp")
 
-[node name="LeftWallCollision" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
 position = Vector2(-536, 0)
 rotation = 1.57079
 shape = SubResource("WorldBoundaryShape2D_lo0hp")
@@ -533,26 +560,27 @@ texture = SubResource("PlaceholderTexture2D_7ly7r")
 unique_name_in_owner = true
 position = Vector2(-581, -316)
 
-[node name="SpawnerPosition" type="Marker2D" parent="Level"]
+[node name="Marker2D" type="Marker2D" parent="Level"]
 unique_name_in_owner = true
 position = Vector2(-11, -197)
 
 [node name="DeskSprite2D" type="Sprite2D" parent="Level"]
-position = Vector2(-314, 191)
-scale = Vector2(0.300001, 0.300001)
-texture = ExtResource("4_6c3lq")
-
-[node name="DeskSprite2D2" type="Sprite2D" parent="Level"]
-position = Vector2(339, 194)
-scale = Vector2(0.300001, 0.300001)
+position = Vector2(89, 254)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_6c3lq")
 
 [node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
-position = Vector2(20, 246)
+position = Vector2(369, 35)
 scale = Vector2(0.512881, 0.512881)
 
+[node name="base_item" parent="Level" instance=ExtResource("3_lo0hp")]
+
+[node name="base_item2" parent="Level" instance=ExtResource("3_lo0hp")]
+position = Vector2(128, 68)
+scale = Vector2(0.420556, 0.420556)
+
 [node name="Grimoire-placeholder" type="Sprite2D" parent="Level"]
-position = Vector2(467, 66)
+position = Vector2(-177, 65)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("7_x1fjo")
 script = ExtResource("8_llarn")
@@ -564,99 +592,8 @@ position = Vector2(-1.42859, -2.85715)
 shape = SubResource("RectangleShape2D_wxmdi")
 
 [node name="Mentor" parent="Level" instance=ExtResource("12_6c3lq")]
-position = Vector2(-436, 86)
-
-[node name="IngredientSpawner" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -700.0
-offset_top = -564.0
-offset_right = -700.0
-offset_bottom = -564.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("28_tk4b4")
-item_scene = ExtResource("3_lo0hp")
-ingredient_resources = Array[ExtResource("29_hokyh")]([ExtResource("30_n2q5m"), ExtResource("31_fexjs"), ExtResource("32_c5v3s"), ExtResource("33_ksw61"), ExtResource("34_qninr"), ExtResource("35_5epor"), ExtResource("36_vajpv")])
-
-[node name="HBoxContainer" type="HBoxContainer" parent="IngredientSpawner"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -394.0
-offset_top = -64.0
-offset_right = 394.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="IngredientSpawner/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-mouse_filter = 0
-texture = ExtResource("29_33wbd")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="IngredientSpawner/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-mouse_filter = 0
-texture = ExtResource("30_wsile")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="IngredientSpawner/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-mouse_filter = 0
-texture = ExtResource("31_hokyh")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect4" type="TextureRect" parent="IngredientSpawner/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-mouse_filter = 0
-texture = ExtResource("32_0jtdi")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect5" type="TextureRect" parent="IngredientSpawner/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-mouse_filter = 0
-texture = ExtResource("33_k75nb")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect6" type="TextureRect" parent="IngredientSpawner/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-mouse_filter = 0
-texture = ExtResource("34_ndbks")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect7" type="TextureRect" parent="IngredientSpawner/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-mouse_filter = 0
-texture = ExtResource("36_0jtdi")
-expand_mode = 2
-stretch_mode = 5
+position = Vector2(-419, -65)
 
 [node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
-
-[node name="Node" type="Node" parent="."]
-script = ExtResource("35_33wbd")
 
 [connection signal="input_event" from="Level/Grimoire-placeholder/Area2D" to="Level/Grimoire-placeholder" method="_on_area_2d_input_event"]

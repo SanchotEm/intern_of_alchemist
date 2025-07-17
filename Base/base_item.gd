@@ -26,7 +26,6 @@ var pressed_pos: Vector2
 
 # Constant for SFX
 const ATTACH_SOUND: AudioStream = preload("uid://bgs8a5isxl01b")
-
 func _ready() -> void:
 	Interface.items.append(self)
 	pin.set_node_a(get_path())
@@ -35,17 +34,18 @@ func _ready() -> void:
 	let_me_down.connect(player.release.bind(self))
 	input_collision.input_event.connect(got_input)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !drag_mode and pressed_pos:
-		print((get_global_mouse_position()-pressed_pos).length())
-		if (get_global_mouse_position()-pressed_pos).length()>20:
-			drag_mode=true
+		var drag_distance = (get_global_mouse_position()-pressed_pos).length()
+		#print("Mouse drag distance: ", drag_distance)
+		if drag_distance > 20:
+			drag_mode = true
 			pressed_pos = Vector2(0,0)
 
-func got_input(viewport: Node, event: InputEvent, shape_idx: int):
+func got_input(_viewport: Node, event: InputEvent, _shape_idx: int):
 	
 	if event.is_action_pressed("LMB"):
-		print(ItemStates.find_key(current_state))
+		#print("LMB pressed - Current state: ", ItemStates.find_key(current_state))
 		if current_state != ItemStates.HOLDED and !drag_mode:
 			pressed_pos = get_global_mouse_position()
 			give_me_up.emit()

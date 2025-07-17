@@ -29,7 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_cancel_hold()
 			if hold_time < MINIMUM_HOLD_TIME:
 				print("Emitting click (short hold)")
-				SignalBus.emit_signal("grimoire_clicked")
+				SignalBus.emit_signal("grimoire_opened")
+				SignalBus.emit_signal("stat_incremented", "grimoire_opened", 1)
 		State.DRAGGING:
 			print("Drag ended")
 			current_state = State.IDLE
@@ -52,6 +53,7 @@ func _on_hold_timer_timeout() -> void:
 		print("Hold completed (", hold_time, "s), starting drag")
 		current_state = State.DRAGGING
 		hold_progress_bar.visible = false
+		SignalBus.emit_signal("stat_incremented", "grimoire_moved", 1)
 
 func _on_hold_area_mouse_exited() -> void:
 	if current_state == State.HOLDING:

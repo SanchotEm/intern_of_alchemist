@@ -21,7 +21,7 @@ var current_page_index: int = 0
 var total_pages: int = 0
 
 func _ready() -> void:
-	SignalBus.grimoire_clicked.connect(_on_grimoire_clicked)
+	SignalBus.grimoire_opened.connect(_on_grimoire_opened)
 	x_button.pressed.connect(_on_x_button_pressed)
 	right_button.pressed.connect(_on_right_button_pressed)
 	left_button.pressed.connect(_on_left_button_pressed)
@@ -84,7 +84,7 @@ func _on_left_button_pressed() -> void:
 	current_page_index = (current_page_index - 1 + total_pages) % total_pages
 	_update_page_display()
 
-func _on_grimoire_clicked() -> void:
+func _on_grimoire_opened() -> void:
 	recipe_pages = Interface.recipes.values()
 	total_pages = recipe_pages.size() + 1
 	current_page_index = 0

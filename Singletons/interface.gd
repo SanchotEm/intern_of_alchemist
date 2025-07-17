@@ -3,7 +3,7 @@ extends Node
 
 var player 
 var items: Array[Item] = []
-# Small typo corrected
+
 var recipes : Dictionary = {}
 
 #region Audio Control
@@ -26,7 +26,6 @@ func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> void:
 #region Recipies
 
 func load_recipes(file_path: String, merge: bool = true) -> bool:
-	# Simple check for data, early returns
 	if not FileAccess.file_exists(file_path):
 		return false
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -43,25 +42,10 @@ func load_recipes(file_path: String, merge: bool = true) -> bool:
 	else:
 		recipes = json_data
 	return true
-#func load_recipies(file: String, merge: bool = true) -> Dictionary:
-#	var loaded_file = FileAccess.open(file,FileAccess.READ)
-#	if loaded_file == null:
-#		push_error(FileAccess.get_open_error())
-#	if merge:
-#		recipies.merge(JSON.parse_string(loaded_file.get_as_text()))
-#	else:
-#		recipies = JSON.parse_string(loaded_file.get_as_text())
-#	loaded_file.close()
-#	return recipies
-#	pass
-
 
 # Get a single recipe by its unique ID, safer if there is bad data
 func get_recipe(id: String) -> Dictionary:
 	return recipes.get(id, {})
-
-#func get_recipe(id:String) -> Dictionary:
-#	return recipies[id]
 
 # Finds a recipe that can be crafted with the provided ingredients
 func find_matching_recipe(ingredients: Array) -> Dictionary:
@@ -90,20 +74,6 @@ func _can_craft(available: Array, required: Array) -> bool:
 			return false
 	return true
 
-#func match_recipe(ingredients:Array[String]):
-#	for recipe in recipies:
-#		var count :int = 0
-#		var we_have = ingredients.duplicate()
-#		var needed: Array = recipies[recipe]["tags"].duplicate()
-#		var confirmed :Array = []
-#		for ingredient in needed:
-#			if we_have.has(ingredient):
-#				confirmed.append(ingredient)
-#				we_have.remove_at(we_have.find(ingredient))
-#				count +=1
-#		if needed.size()==count:
-#			return get_recipe(recipe)
-#	return 
 #endregion
 
 func _ready() -> void:

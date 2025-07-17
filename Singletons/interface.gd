@@ -15,19 +15,13 @@ func register_player(player_type: AudioPlayerType, audio_player: AudioStreamPlay
 	audio_players[player_type] = audio_player
 
 func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> AudioStreamPlayer:
-	var player: AudioStreamPlayer
 	if player_type in audio_players:
-		player = audio_players[player_type]
+		var player := audio_players[player_type] as AudioStreamPlayer
 		player.stream = stream
 		player.play()
-	else:
-		push_error("Audio player not working")
-	return player
-		var audio_stream_player: AudioStreamPlayer = audio_players[player_type]
-		audio_stream_player.stream = stream
-		audio_stream_player.play()
-	else:
-		push_error("Audio player not registered for type: %s" % player_type)
+		return player
+	push_error("Audio player not registered for type: %s" % player_type)
+	return null
 #endregion 
 
 #region Recipies

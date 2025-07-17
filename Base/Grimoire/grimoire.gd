@@ -65,7 +65,8 @@ func _start_hold() -> void:
 	const HOLD_PROGRESS_MID_VALUE := 50
 	const FADE_IN_DELAY_RATIO := 0.1
 	const FIRST_TWEEN_RATIO := 0.5 
-	const SECOND_TWEEN_RATIO := 0.5 
+
+	const _SECOND_TWEEN_RATIO := 0.5 
 	
 	print("Starting hold")
 	current_state = State.HOLDING

@@ -21,7 +21,10 @@ func _process(delta: float) -> void:
 				$Timer.start(GameConstants.TEXT_TIME_TO_DISAPPEAR)
 
 func say_sentence(sentence :Sentence_Resource) -> void:
-	show_text(sentence.txt)
+	if not sentence:
+		push_error("No sentences to say")
+		return
+	show_text(sentence.txt if "txt" in sentence else "PLACEHOLDER TEXT")
 	player = Interface.play_audio(Interface.AudioPlayerType.NARRATOR, load(sentence.audio))
 	if player:
 		player.finished.connect(_on_player_finished)

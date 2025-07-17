@@ -5,6 +5,8 @@ extends Node
 # Add the new stat here
 var _stats: Dictionary = {
 	"items_picked_up": 0,
+	"grimoire_opened": 0,
+	"grimoire_moved":0, 
 }
 func _ready() -> void:
 	SignalBus.stat_incremented.connect(increment_stat)

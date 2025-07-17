@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://f8d15v2cndw1"]
 
+[ext_resource type="Texture2D" uid="uid://bam88ycvtrhka" path="res://Resources/WizardGhost/wizard character.png" id="2_7cqvm"]
 [ext_resource type="Script" uid="uid://d3pc2mfqxq2qq" path="res://Base/Mentor/mentor.gd" id="2_37jcg"]
-[ext_resource type="Texture2D" uid="uid://b4m38e4rgnnyp" path="res://Resources/Placeholders/Mentor-Placeholder.webp" id="3_7cqvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37jcg"]
 size = Vector2(138.5, 247)
@@ -39,6 +39,6 @@ position = Vector2(304, 195)
 shape = SubResource("RectangleShape2D_7cqvm")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_7cqvm")
+texture = ExtResource("2_7cqvm")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,5 +1,4 @@
 [gd_scene load_steps=35 format=3 uid="uid://blnydnqk036lx"]
-
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
 [ext_resource type="AudioStream" uid="uid://hth7u6yhs7lq" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Early-Draft.mp3" id="2_ekk2t"]
@@ -17,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dt8a1nb4gbn7e" path="res://Resources/Placeholders/Grimoire-Placeholder.png" id="7_x1fjo"]
 [ext_resource type="Script" uid="uid://82rvw75ngto4" path="res://Base/grimoire_placeholder.gd" id="8_llarn"]
 [ext_resource type="Texture2D" uid="uid://blpqswr63jyas" path="res://Resources/Icons/HelpSpritePressed-0001.png" id="8_u7upk"]
+[ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
+[ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Script" uid="uid://g31ahwmjiu65" path="res://UI/ScrollUI.gd" id="9_llarn"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
 [ext_resource type="PackedScene" uid="uid://be26rmrpdq3hi" path="res://UI/Recipes/RecipesInGrimoire.tscn" id="13_7nedf"]
@@ -361,6 +362,15 @@ texture_normal = ExtResource("7_3tpw1")
 texture_pressed = ExtResource("8_u7upk")
 stretch_mode = 3
 
+[node name="Speech_bubble" parent="UI" instance=ExtResource("12_87cgt")]
+offset_top = -1.46399
+
+[node name="base_item2" parent="." instance=ExtResource("3_lo0hp")]
+position = Vector2(128, 68)
+scale = Vector2(0.420556, 0.420556)
+
+[node name="Mentor" parent="." instance=ExtResource("12_6c3lq")]
+position = Vector2(-450, 3)
 [node name="MusicControl" type="Control" parent="UI/TopBarUIMarginContainer/VBoxContainer/TopBarUIContainer"]
 custom_minimum_size = Vector2(70, 40)
 layout_mode = 2

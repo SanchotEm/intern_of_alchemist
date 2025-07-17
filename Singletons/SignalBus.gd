@@ -2,7 +2,7 @@
 extends Node
 
 # --- UI Signals ---
-signal grimoire_clicked
+signal grimoire_opened
 signal dev_mode_visibility_changed(is_visible: bool)
 signal grimoire_recipe_selected(current_recipe_id: String)
 
@@ -17,3 +17,6 @@ signal stat_incremented(stat_name: String, value: int)
 
 # Signal for events that might unlock an achievement, simply pass an event id
 signal achievement_triggered(event_id: String)
+
+# Misc. other signals
+signal grimoire_moved

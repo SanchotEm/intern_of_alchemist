@@ -208,7 +208,6 @@ func say_random() -> void:
 	get_tree().get_first_node_in_group("Speech_bubble").\
 	 say_sentence(load(file.get_current_dir() + "/" + files[i])) #WARNING:might not be safe. Check better way
 
-
 func disappear() -> void:
 	hide()
 	$Area2D.hide()

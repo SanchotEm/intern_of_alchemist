@@ -30,7 +30,6 @@ func _ready() -> void:
 func _update_page_display() -> void:
 	left_button.visible = current_page_index > 0
 	right_button.visible = current_page_index < total_pages - 1
-	
 	if recipe_pages.is_empty() and total_pages <= 1:
 		_display_stats_page()
 	elif current_page_index < recipe_pages.size():

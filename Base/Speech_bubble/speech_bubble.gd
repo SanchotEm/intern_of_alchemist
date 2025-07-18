@@ -1,5 +1,6 @@
 extends ColorRect
 
+signal dialogue_finished
 enum SpeechBubbleStates {HIDDEN, SHOWING, ALL_VISIBLE}
 var speech_bubble_state :SpeechBubbleStates = SpeechBubbleStates.HIDDEN
 
@@ -56,6 +57,7 @@ func disappear() -> void:
 	$Label.visible_characters = 0
 	visible_characters_true = 0
 	hide()
+	dialogue_finished.emit() 
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action("LMB"):

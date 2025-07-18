@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=53 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
@@ -28,6 +28,8 @@
 [ext_resource type="Script" uid="uid://bo0fbbiqxf55r" path="res://Base/Grimoire/grimoire.gd" id="22_l6o11"]
 [ext_resource type="Script" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
 [ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
+[ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="28_bq4wq"]
+[ext_resource type="Script" uid="uid://f35ukopor4pw" path="res://Base/IntroManager.gd" id="29_tk4b4"]
 
 [sub_resource type="Theme" id="Theme_7nedf"]
 Label/colors/font_color = Color(0, 0, 0, 1)
@@ -56,6 +58,78 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="Theme" id="Theme_tk4b4"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_l6o11")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ay008")
+
+[sub_resource type="Resource" id="Resource_sulbg"]
+script = ExtResource("28_bq4wq")
+txt = "It was meant to be my masterpiece. The pinnacle of my craft… a potion unlike any before it."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_ck8li"]
+script = ExtResource("28_bq4wq")
+txt = "Every ingredient, every measure… balanced on a knife’s edge. One slip, and—"
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_tdga5"]
+script = ExtResource("28_bq4wq")
+txt = "Well. You can guess where this is going."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_wph0v"]
+script = ExtResource("28_bq4wq")
+txt = "The fly. Some meddling, buzzing speck… thought it wise to dance past my face right at the wrong moment."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_33wbd"]
+script = ExtResource("28_bq4wq")
+txt = "And me? I swatted. Knocked the wrong ingredient straight in."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_wsile"]
+script = ExtResource("28_bq4wq")
+txt = "They’ll call it the Potion of Death, I expect. Bit on the nose… but accurate."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_hokyh"]
+script = ExtResource("28_bq4wq")
+txt = "Should’ve kept the blasted windows shut…"
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_0jtdi"]
+script = ExtResource("28_bq4wq")
+txt = "Now look at me. Not quite dead. Not quite alive. And you— poking your nose in like you’ve got business here."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_k75nb"]
+script = ExtResource("28_bq4wq")
+txt = "Hmph. Thought I’d seen the last of meddling apprentices."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_ndbks"]
+script = ExtResource("28_bq4wq")
+txt = "Would’ve still been alive… if not for one sodding fly."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_jyyvj"]
+script = ExtResource("28_bq4wq")
+txt = "Still… since you’re here. Might as well make yourself useful."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_ppcoy"]
+script = ExtResource("28_bq4wq")
+txt = "Hobson Crane. Most talented alchemist this world’s ever seen. Or was. Not planning to stay this way."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_hljll")
@@ -627,10 +701,15 @@ theme = SubResource("Theme_tk4b4")
 show_percentage = false
 
 [node name="Mentor" parent="Level" instance=ExtResource("12_6c3lq")]
+unique_name_in_owner = true
 position = Vector2(-419, -65)
+intro_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_sulbg"), SubResource("Resource_ck8li"), SubResource("Resource_tdga5"), SubResource("Resource_wph0v"), SubResource("Resource_33wbd"), SubResource("Resource_wsile"), SubResource("Resource_hokyh"), SubResource("Resource_0jtdi"), SubResource("Resource_k75nb"), SubResource("Resource_ndbks"), SubResource("Resource_jyyvj"), SubResource("Resource_ppcoy")])
 
 [node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
 visible = false
+
+[node name="IntroManager" type="Node" parent="."]
+script = ExtResource("29_tk4b4")
 
 [connection signal="input_event" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_input_event"]
 [connection signal="mouse_exited" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_mouse_exited"]

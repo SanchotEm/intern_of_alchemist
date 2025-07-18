@@ -4,8 +4,11 @@ extends Node2D
 
 @onready var camera_2d: Camera2D = %Camera2D
 
+signal scripted_dialogue_finished
+@export var intro_dialogue: Array[Sentence_Resource] # Array for intro lines
+
 enum MentorStates\
- {HIDDEN, MOVING, LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
+ {HIDDEN, MOVING, LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM, SCRIPTED}
 var mentor_state :MentorStates = MentorStates.HIDDEN
 var state_chances :Array[int] = [20, 20, 20, 0, 0]
 #HIDDEN = not visible or doing anything
@@ -46,6 +49,27 @@ var i_t_wave_rate :float = 2 * pow(10, -7) #rate at wich the master will grow tr
 func _ready() -> void:
 	Interface.register_player(Interface.AudioPlayerType.NARRATOR, narrator_audio_player)
 	randomize()
+	#show_up() Hiding for the intro scene
+	hide()
+	$Area2D.hide()
+	mentor_state = MentorStates.HIDDEN
+
+func start_intro_sequence() -> void:
+	mentor_state = MentorStates.SCRIPTED
+	show()
+	modulate = Color(1, 1, 1, 1)
+	for sentence in intro_dialogue:
+		await say_line_and_wait(sentence)
+	scripted_dialogue_finished.emit()
+	start_random_behavior()
+
+func say_line_and_wait(sentence: Sentence_Resource) -> void:
+	speech_bubble.say_sentence(sentence)
+	await speech_bubble.dialogue_finished 
+
+# New function to replace the random behavior
+func start_random_behavior() -> void:
+	# Moved show up further down, so we can intro first.
 	show_up()
 
 func _process(delta: float) -> void:

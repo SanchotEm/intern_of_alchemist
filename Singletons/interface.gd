@@ -23,7 +23,7 @@ func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> AudioStrea
 		if not is_instance_valid(stream):
 			push_error("Check the audio resource")
 			return null
-			player.stream = stream
+		player.stream = stream
 		player.play()
 		return player
 	push_error("Audio player not registered for type: %s" % player_type)
@@ -32,53 +32,44 @@ func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> AudioStrea
 
 #region Recipies
 
-func load_recipes(file_path: String, merge: bool = true) -> bool:
+func load_recipes(file_path: String, merge: bool = true):
 	if not FileAccess.file_exists(file_path):
-		return false
+		return
 	var file = FileAccess.open(file_path, FileAccess.READ)
-	
-	if file == null:
-		return false
 	var json_data = JSON.parse_string(file.get_as_text())
 	file.close()
-	
-	if json_data == null:
-		return false
 	if merge:
 		recipes.merge(json_data, true)
 	else:
 		recipes = json_data
-	return true
-
-# Get a single recipe by its unique ID, safer if there is bad data
+		
 func get_recipe(id: String) -> Dictionary:
-	return recipes.get(id, {})
+	return recipes.get(id)
 
-# Finds a recipe that can be crafted with the provided ingredients
-func find_matching_recipe(ingredients: Array) -> Dictionary:
+func match_recipe(ingredients: Array):
 	for recipe_id in recipes:
 		var recipe_data: Dictionary = recipes[recipe_id]
-		var required: Array = recipe_data.get("required_tags", [])
-		
+		var required: Array = recipe_data["required_tags"]
+		var strict = recipe_data["strict"]
 		if required.is_empty() or ingredients.size() < required.size():
 			continue
-
-		if _can_craft(ingredients, required):
+		if _can_craft(strict, ingredients, required):
 			var compatible_recipe = recipe_data.duplicate()
 			compatible_recipe["tags"] = required 
 			return compatible_recipe
 
-	return {}
-
-# Helper function to check if available ingredients meet the recipe requirements
-func _can_craft(available: Array, required: Array) -> bool:
-	var available_copy = available.duplicate()
-	for item in required:
-		var found_index = available_copy.find(item)
-		if found_index != -1:
-			available_copy.remove_at(found_index)
-		else:
-			return false
+func _can_craft(strict: bool, available: Array, required: Array) -> bool:
+	var available_copy: Array = available.duplicate()
+	if strict:
+		for item in required:
+			var index = required.find(item)
+			if item != available_copy[index]:
+				return false
+	else:
+		for item in required:
+			if !available_copy.has(item):
+				return false
+			available_copy.erase(item)
 	return true
 
 #endregion

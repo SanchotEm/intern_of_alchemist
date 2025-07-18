@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://be26rmrpdq3hi"]
 
 [ext_resource type="Script" uid="uid://rh5w3ri2ft8k" path="res://UI/Recipes/RecipesInGrimoire.gd" id="1_fsqbl"]
-[ext_resource type="Texture2D" uid="uid://cyueoxuksu1lj" path="res://Resources/Placeholders/Potions-Ingredients/Fantasy potions 30+/Potions/Mana Rank 1.png" id="1_nmnhj"]
+[ext_resource type="Texture2D" uid="uid://cyueoxuksu1lj" path="res://Resources/Art/Potions-Ingredients/Fantasy potions 30+/Potions/Mana Rank 1.png" id="1_nmnhj"]
 
 [node name="RecipePanelContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 125)

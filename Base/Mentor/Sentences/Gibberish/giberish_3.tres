@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sentence_Resource" load_steps=2 format=3 uid="uid://cjhr7s0xlyr0a"]
+
+[ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="1_y8ysd"]
+
+[resource]
+script = ExtResource("1_y8ysd")
+txt = "Don't you clog the toilet again!"
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"

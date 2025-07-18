@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sentence_Resource" load_steps=2 format=3 uid="uid://d1lxb1whp7oho"]
+
+[ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="1_qfewy"]
+
+[resource]
+script = ExtResource("1_qfewy")
+txt = "In the times of old, it was believed children of the summer solstiece were best suited to pick [INGREDIENT NAME]"
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"

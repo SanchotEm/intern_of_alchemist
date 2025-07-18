@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	Interface.register_player(Interface.AudioPlayerType.SFX, %SFXPlayer)
 	Interface.register_player(Interface.AudioPlayerType.MUSIC, %MusicPlayer)
-	Interface.register_player(Interface.AudioPlayerType.NARRATOR, %NarratorPlayer)
 
 
 func _game_cycle():

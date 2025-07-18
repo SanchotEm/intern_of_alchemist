@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sentence_Resource" load_steps=2 format=3 uid="uid://dfi318nekkfyp"]
+
+[ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="1_410gk"]
+
+[resource]
+script = ExtResource("1_410gk")
+txt = "Be carefull not to mix inredients that don't match, they can cause dangerous side effects!"
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"

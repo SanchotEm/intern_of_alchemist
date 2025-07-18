@@ -15,7 +15,6 @@ func register_player(player_type: AudioPlayerType, audio_player: AudioStreamPlay
 	audio_players[player_type] = audio_player
 
 func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> AudioStreamPlayer:
-	
 	if player_type in audio_players:
 		var player := audio_players[player_type] as AudioStreamPlayer
 		if not is_instance_valid(player):
@@ -43,7 +42,7 @@ func load_recipes(file_path: String, merge: bool = true):
 		recipes.merge(json_data, true)
 	else:
 		recipes = json_data
-
+		
 func get_recipe(id: String) -> Dictionary:
 	return recipes.get(id)
 

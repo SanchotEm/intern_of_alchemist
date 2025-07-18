@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_o85fw")
 txt = "In order to succeed, you must not forget: One who tells a tale, lays an egg... wich spoil under the sun... despite the fact chickens eat grass..."
-audio = "uid://bewjegomrsjim"
+audio = null
 metadata/_custom_type_script = "uid://crx8px7laoift"

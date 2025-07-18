@@ -1,4 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://f8d15v2cndw1"]
+
+[gd_scene load_steps=15 format=3 uid="uid://f8d15v2cndw1"]
 
 [ext_resource type="Texture2D" uid="uid://bam88ycvtrhka" path="res://Resources/WizardGhost/wizard character.png" id="2_7cqvm"]
 [ext_resource type="Script" uid="uid://d3pc2mfqxq2qq" path="res://Base/Mentor/mentor.gd" id="2_37jcg"]
@@ -13,19 +14,10 @@
 [ext_resource type="Resource" uid="uid://difje4t0b0qjl" path="res://Base/Mentor/Sentences/Hints/hint_2.tres" id="10_gtn57"]
 [ext_resource type="Resource" uid="uid://dhgdk1wx56mpy" path="res://Base/Mentor/Sentences/Hints/hint_3.tres" id="11_uxkmi"]
 
+
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_37jcg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_37jcg"]
-size = Vector2(138.5, 247)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwkmp"]
-size = Vector2(26, 124)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxs17"]
-size = Vector2(53, 147)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cqvm"]
-size = Vector2(134, 190)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ej568"]
 
 [node name="Mentor" type="Node2D"]
 script = ExtResource("2_37jcg")
@@ -41,26 +33,18 @@ max_polyphony = 5
 bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 position = Vector2(-293, -317)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(311.25, 409.5)
-shape = SubResource("RectangleShape2D_37jcg")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(380, 300)
-shape = SubResource("RectangleShape2D_vwkmp")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(215.5, 258.5)
-shape = SubResource("RectangleShape2D_rxs17")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(304, 195)
-shape = SubResource("RectangleShape2D_7cqvm")
+position = Vector2(285, 357)
+scale = Vector2(4.8, 5.85637)
+shape = SubResource("CapsuleShape2D_ej568")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-13, 38)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_7cqvm")
+region_enabled = true
+region_rect = Rect2(556.027, 137.464, 750.941, 922.128)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=40 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
@@ -56,6 +56,8 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="Theme" id="Theme_tk4b4"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_l6o11")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ay008")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay008"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_hljll")
@@ -537,7 +539,6 @@ position = Vector2(-581, -316)
 script = ExtResource("2_n3y37")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-unique_name_in_owner = true
 
 [node name="Grabler" type="StaticBody2D" parent="Player"]
 position = Vector2(1, -1)
@@ -628,6 +629,13 @@ show_percentage = false
 
 [node name="Mentor" parent="Level" instance=ExtResource("12_6c3lq")]
 position = Vector2(-419, -65)
+
+[node name="MentorRoamArea2D" type="Area2D" parent="Level"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MentorRoamArea2D"]
+scale = Vector2(62.88, 36.52)
+shape = SubResource("RectangleShape2D_ay008")
 
 [node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
 visible = false

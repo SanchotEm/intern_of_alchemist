@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ba377lyphh7r4"]
+
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="1_55xex"]
+[ext_resource type="Texture2D" uid="uid://48o7w1p1jawn" path="res://Resources/Art/fruit/pngs/lemon.png" id="1_el2od"]
+
+[resource]
+script = ExtResource("1_55xex")
+item_id = "flicker_berry"
+item_name = "Flicker Berry"
+description = ""
+Icon = ExtResource("1_el2od")
+sprite = ExtResource("1_el2od")
+tags = Array[String](["flicker_berry"])
+metadata/_custom_type_script = "uid://dluypacfui4h"

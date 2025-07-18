@@ -2,14 +2,14 @@
 	"glowmelt": {
 		"name": "Glowmelt",
 		"description": "A faint, stubborn glow meant to shove back the dark. Don't expect it to light your whole bloody workshop!",
-		"instructions": "1. Combine LAVENDER and TOADSTOOL in the cauldron.\n2. Stir clockwise three times.\n3. Wait until it emits a soft light.",
+		"instructions": "1. Combine Wild Lavender, Ember Twig, and a Flicker Berry.\n2. Stir gently.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Glowmelt.png",
 		"ui_effects": {
 			"positive": "Room brightens slightly & saturation increase.",
 			"negative": "Room darkens & interactables become difficult to see."
 		},
 		"strict": true,
-		"required_tags": [],
+		"required_tags": ["wild_lavender", "ember_twig", "flicker_berry", "light_stir"],
 		"method": "applyGlowmeltEffect"
 	},
 	"swift_hand": {
@@ -21,7 +21,7 @@
 			"negative": "Reverse Mouse Controls."
 		},
 		"strict": true,
-		"required_tags": [],
+		"required_tags": ["stray_feather", "ember_twig", "pebble_heart"],
 		"method": "applySwiftHandEffect"
 	},
 	"invisibility": {
@@ -33,7 +33,7 @@
 			"negative": "The room becomes over-bright and saturated making it slightly uncomfortable."
 		},
 		"strict": true,
-		"required_tags": [],
+		"required_tags": ["flicker_berry", "paper_shred", "stray_feather", "medium_stir"],
 		"method": "applyInvisibilityEffect"
 	},
 	"tattle_tonic": {
@@ -45,7 +45,7 @@
 			"negative": "All game audio becomes muffled."
 		},
 		"strict": true,
-		"required_tags": [],
+		"required_tags": ["whisper_shell", "pebble_heart", "wild_lavender", "hard_stir"],
 		"method": "applyTattleTonicEffect"
-	},
+	}
 }

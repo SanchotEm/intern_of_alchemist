@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bfhxsfxygn5ko"]
+
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="1_b1tal"]
+[ext_resource type="Texture2D" uid="uid://krbenr053xui" path="res://Resources/Art/fruit/pngs/black-cherry.png" id="1_rtblc"]
+
+[resource]
+script = ExtResource("1_b1tal")
+item_id = "pebble_heart"
+item_name = "Pebble Heart"
+description = ""
+Icon = ExtResource("1_rtblc")
+sprite = ExtResource("1_rtblc")
+tags = Array[String](["pebble_heart"])
+metadata/_custom_type_script = "uid://dluypacfui4h"

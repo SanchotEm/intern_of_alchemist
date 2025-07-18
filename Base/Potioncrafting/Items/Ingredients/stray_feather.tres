@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dl5nh7tolyrpl"]
+
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="1_g5e3d"]
+[ext_resource type="Texture2D" uid="uid://dtpk4uqysd0wb" path="res://Resources/Art/fruit/pngs/black-berry-light.png" id="1_v2sbr"]
+
+[resource]
+script = ExtResource("1_g5e3d")
+item_id = "stray_feather"
+item_name = "Stray Feather"
+description = ""
+Icon = ExtResource("1_v2sbr")
+sprite = ExtResource("1_v2sbr")
+tags = Array[String](["stray_feather"])
+metadata/_custom_type_script = "uid://dluypacfui4h"

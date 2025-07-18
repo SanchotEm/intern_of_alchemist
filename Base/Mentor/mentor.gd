@@ -9,6 +9,9 @@ signal scripted_dialogue_finished
 @export var intro_dialogue: Array[Sentence_Resource] # Array for intro lines
 @export var tutorial_dialogue: Array[Sentence_Resource] # Array for tutorial lines
 
+@export var faliure_barks: Array[Sentence_Resource] #Things he says on a failed potion
+@export var success_barks: Array[Sentence_Resource] #Things he says on a successful potion
+
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
  LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
 var mentor_state :MentorStates = MentorStates.HIDDEN
@@ -130,6 +133,8 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 
 func show_up() -> void: #Appears in a random position, then enters a LINGERING state
 	
+	
+	
 	await move_to_random_position(true) #will allways show up on a random position
 	#Might move to speciic position later, such as if it rolls LINGERING_GRAB_ITEM
 	show()
@@ -176,11 +181,12 @@ func linger_to_random() -> void:
 	
 	await move_to_random_position()
 	
-	var timer = get_tree().create_timer(randf_range(linger_time_range.x, linger_time_range.y))
 	if remaining_linger_amount > 0:
-		timer.connect("timeout", linger_to_random)
+		$LingerToRandomTimer.start(randf_range(linger_time_range.x, linger_time_range.y))
 	else:
-		await timer.timeout
+		
+		$GenericTimer.start(randf_range(linger_time_range.x, linger_time_range.y))
+		await $GenericTimer.timeout
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.2).set_trans(Tween.TRANS_SINE)
@@ -227,7 +233,7 @@ func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
 func say_random() -> void:
 	var sentence_type = randi_range(0, 2)
 	var chosen_sentence: Sentence_Resource
-
+	
 	match sentence_type:
 		0: # Normal Hint
 			if not normal_hints.is_empty():
@@ -248,9 +254,51 @@ func disappear() -> void:
 	$Area2D.hide()
 	mentor_state = MentorStates.HIDDEN
 	
-	var timer = get_tree().create_timer(randi_range(apparition_time_range.x, apparition_time_range.y))
-	timer.timeout.connect(show_up)
+	$ShowUpTimer.start(randi_range(apparition_time_range.x, apparition_time_range.y))
 
 
 func get_size_sprite() -> Vector2:
 	return Vector2($Sprite.texture.get_width(), $Sprite.texture.get_height()) * $Sprite.scale
+
+
+func _on_faliure() -> void: #called when a potion fails
+	var info = pause_lingering()
+	
+	if !faliure_barks.is_empty():
+		await say_line_and_wait(faliure_barks.pick_random())
+	else:
+		print("Faliure Bark!")
+	
+	unpause_lingering(info)
+
+func _on_success() -> void: #called when a poition succeeds
+	var info = pause_lingering()
+	
+	if !success_barks.is_empty():
+		await say_line_and_wait(success_barks.pick_random())
+	else:
+		print("Success Bark!")
+	
+	unpause_lingering(info)
+
+func pause_lingering() -> Dictionary: #pause the random stuff he's doing
+	var info :Dictionary = {}
+	
+	for t in get_tree().get_nodes_in_group("MentorTimer"):
+		t.paused = true
+	info["state"] = mentor_state
+	mentor_state = MentorStates.SCRIPTED
+	info["modulate"] = modulate
+	modulate = Color(1, 1, 1, 1)
+	info["visible"] = visible
+	visible = true
+	
+	return info
+
+func unpause_lingering(info :Dictionary) -> void: #continue the random stuff he's doing
+	
+	for t in get_tree().get_nodes_in_group("MentorTimer"):
+		t.paused = false
+	mentor_state = info["state"]
+	modulate = info["modulate"]
+	visible = info["visible"]

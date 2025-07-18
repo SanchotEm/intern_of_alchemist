@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://b4873n8i6s0vb" path="res://UI/HelpControl.gd" id="7_u7upk"]
 [ext_resource type="Texture2D" uid="uid://dt8a1nb4gbn7e" path="res://Resources/Art/Grimoire-Placeholder.png" id="7_x1fjo"]
 [ext_resource type="Texture2D" uid="uid://blpqswr63jyas" path="res://Resources/Icons/HelpSpritePressed-0001.png" id="8_u7upk"]
-[ext_resource type="Script" uid="uid://g31ahwmjiu65" path="res://UI/ScrollUI.gd" id="9_llarn"]
+[ext_resource type="Script" path="res://UI/ScrollUI.gd" id="9_llarn"]
 [ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
 [ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]

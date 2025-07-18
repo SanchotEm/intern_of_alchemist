@@ -45,4 +45,15 @@ texture = ExtResource("2_7cqvm")
 region_enabled = true
 region_rect = Rect2(556.027, 137.464, 750.941, 922.128)
 
+[node name="ShowUpTimer" type="Timer" parent="." groups=["MentorTimer"]]
+one_shot = true
+
+[node name="LingerToRandomTimer" type="Timer" parent="." groups=["MentorTimer"]]
+one_shot = true
+
+[node name="GenericTimer" type="Timer" parent="." groups=["MentorTimer"]]
+one_shot = true
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="ShowUpTimer" to="." method="show_up"]
+[connection signal="timeout" from="LingerToRandomTimer" to="." method="linger_to_random"]

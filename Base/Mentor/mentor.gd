@@ -6,6 +6,7 @@ extends Node2D
 
 signal scripted_dialogue_finished
 @export var intro_dialogue: Array[Sentence_Resource] # Array for intro lines
+@export var tutorial_dialogue: Array[Sentence_Resource] # Array for tutorial lines
 
 enum MentorStates\
  {HIDDEN, MOVING, LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM, SCRIPTED}
@@ -59,6 +60,8 @@ func start_intro_sequence() -> void:
 	show()
 	modulate = Color(1, 1, 1, 1)
 	for sentence in intro_dialogue:
+		await say_line_and_wait(sentence)
+	for sentence in tutorial_dialogue:
 		await say_line_and_wait(sentence)
 	scripted_dialogue_finished.emit()
 	start_random_behavior()

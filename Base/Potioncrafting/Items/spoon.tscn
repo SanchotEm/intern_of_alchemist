@@ -17,6 +17,7 @@ size = Vector2(54, 147)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5seu"]
 size = Vector2(35, 38)
 
+
 [node name="spoon" type="RigidBody2D" groups=["spoon"]]
 collision_layer = 4
 collision_mask = 3

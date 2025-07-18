@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_qfewy")
 txt = "In the times of old, it was believed children of the summer solstiece were best suited to pick [INGREDIENT NAME]"
-audio = "uid://bewjegomrsjim"
+audio = null
 metadata/_custom_type_script = "uid://crx8px7laoift"

@@ -9,8 +9,8 @@ signal scripted_dialogue_finished
 @export var intro_dialogue: Array[Sentence_Resource] # Array for intro lines
 @export var tutorial_dialogue: Array[Sentence_Resource] # Array for tutorial lines
 
-enum MentorStates\
- {HIDDEN, MOVING, LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM, SCRIPTED}
+enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
+ LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
 var mentor_state :MentorStates = MentorStates.HIDDEN
 var state_chances :Array[int] = [20, 20, 20, 0, 0]
 #HIDDEN = not visible or doing anything

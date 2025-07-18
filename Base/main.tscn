@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=44 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
@@ -9,7 +8,6 @@
 [ext_resource type="Script" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
 [ext_resource type="PackedScene" uid="uid://dsjertmptbxpt" path="res://Base/Potioncrafting/Items/base_item.tscn" id="3_lo0hp"]
 [ext_resource type="PackedScene" uid="uid://csgcw8ndkwkyy" path="res://Base/Potioncrafting/cauldron.tscn" id="3_mrrah"]
-
 [ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
 [ext_resource type="Texture2D" uid="uid://uscrsehbwwhm" path="res://Resources/Art/Desk-Placeholder.png" id="4_6c3lq"]
 [ext_resource type="Script" uid="uid://7ahbhb8ok21u" path="res://UI/VolumeControl.gd" id="4_otdql"]
@@ -481,16 +479,6 @@ text = "Dev Functions"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Spawn Item"
-[node name="SelectedRecipePanelContainer" type="PanelContainer" parent="UI"]
-visible = false
-custom_minimum_size = Vector2(200, 200)
-offset_left = 942.0
-offset_top = 54.0
-offset_right = 1142.0
-offset_bottom = 254.0
-size_flags_horizontal = 8
-mouse_filter = 2
-script = ExtResource("27_l6o11")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -573,7 +561,6 @@ texture = ExtResource("6_87cgt")
 [node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
 position = Vector2(331, 79)
 scale = Vector2(0.512881, 0.512881)
-
 
 [node name="Grimoire" type="Node2D" parent="Level"]
 script = ExtResource("22_l6o11")

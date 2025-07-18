@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var camera_2d: Camera2D = %Camera2D
 
+
 signal scripted_dialogue_finished
 @export var intro_dialogue: Array[Sentence_Resource] # Array for intro lines
 @export var tutorial_dialogue: Array[Sentence_Resource] # Array for tutorial lines

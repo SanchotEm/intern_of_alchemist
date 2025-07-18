@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cr45yf2ilggxg"]
+
+[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://Resources/hallo.png" id="1_8vlmq"]
+[ext_resource type="AudioStream" uid="uid://85bh476ck277" path="res://Resources/Audio/MenuSFX by hitrison.itch.io/OGG/Abstract/abs-cancel-2.ogg" id="2_5sp7m"]
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="3_kmuxc"]
+
+[resource]
+script = ExtResource("3_kmuxc")
+item_id = "dummy"
+item_name = "Dummy"
+description = "Dummy"
+Icon = ExtResource("1_8vlmq")
+sprite = ExtResource("1_8vlmq")
+tags = Array[String](["dummy"])
+item_sound = ExtResource("2_5sp7m")
+metadata/_custom_type_script = "uid://dluypacfui4h"

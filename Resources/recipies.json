@@ -8,6 +8,7 @@
 			"positive": "Room brightens slightly & saturation increase.",
 			"negative": "Room darkens & interactables become difficult to see."
 		},
+		"strict": true,
 		"required_tags": [],
 		"method": "applyGlowmeltEffect"
 	},
@@ -19,6 +20,7 @@
 			"positive": "Selecting ingredients automatically adds them to the current recipe.",
 			"negative": "Reverse Mouse Controls."
 		},
+		"strict": true,
 		"required_tags": [],
 		"method": "applySwiftHandEffect"
 	},
@@ -30,6 +32,7 @@
 			"positive": "Mentor/Narrator believes you to be gone, decreases remarks or criticisms from narrator.",
 			"negative": "The room becomes over-bright and saturated making it slightly uncomfortable."
 		},
+		"strict": true,
 		"required_tags": [],
 		"method": "applyInvisibilityEffect"
 	},
@@ -41,7 +44,8 @@
 			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
 			"negative": "All game audio becomes muffled."
 		},
+		"strict": true,
 		"required_tags": [],
 		"method": "applyTattleTonicEffect"
-	}
+	},
 }

@@ -1,6 +1,6 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://chlptxeakol3y"]
 
-[ext_resource type="Texture2D" uid="uid://cak4xeq34efhv" path="res://Resources/Placeholders/custom-cursors/Huge mouse pointer pack.png" id="1_0itsa"]
+[ext_resource type="Texture2D" uid="uid://cak4xeq34efhv" path="res://Resources/Art/custom-cursors/Huge mouse pointer pack.png" id="1_0itsa"]
 
 [resource]
 atlas = ExtResource("1_0itsa")

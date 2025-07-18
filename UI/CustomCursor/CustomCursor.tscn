@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1gmlseqvku44"]
 
-[ext_resource type="Texture2D" uid="uid://cak4xeq34efhv" path="res://Resources/Placeholders/custom-cursors/Huge mouse pointer pack.png" id="1_h4215"]
+[ext_resource type="Texture2D" uid="uid://cak4xeq34efhv" path="res://Resources/Art/custom-cursors/Huge mouse pointer pack.png" id="1_h4215"]
 [ext_resource type="Script" uid="uid://ba1nyrtc0wo3u" path="res://UI/CustomCursor/custom_cursor.gd" id="1_o6w3p"]
 [ext_resource type="Script" uid="uid://cqudnn7ytx0o2" path="res://UI/CustomCursor/texture_rect.gd" id="2_2t6ap"]
 [ext_resource type="Script" uid="uid://bnrcyqt25kau8" path="res://UI/CustomCursor/pressed_cursor.gd" id="3_bfv4n"]

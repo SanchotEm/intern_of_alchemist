@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://hiy0lb7hjnt2"]
+
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="1_g0ykr"]
+[ext_resource type="Texture2D" uid="uid://wddg6nwtoefo" path="res://Resources/Art/cauldron and spoon/spoon.png" id="1_imijp"]
+[ext_resource type="AudioStream" uid="uid://xxanksxoq6wy" path="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-cancel-1.mp3" id="2_x71re"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x71re"]
+atlas = ExtResource("1_imijp")
+region = Rect2(760, 784, 512, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgky7"]
+atlas = ExtResource("1_imijp")
+region = Rect2(848, 416, 760, 808)
+
+[resource]
+script = ExtResource("1_g0ykr")
+item_id = "spoon"
+item_name = "Spoon"
+description = "To mix some stuff"
+Icon = SubResource("AtlasTexture_x71re")
+sprite = SubResource("AtlasTexture_wgky7")
+tags = Array[String]([])
+item_sound = ExtResource("2_x71re")
+metadata/_custom_type_script = "uid://dluypacfui4h"

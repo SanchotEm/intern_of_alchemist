@@ -34,6 +34,21 @@ window/vsync/vsync_mode=0
 movie_writer/movie_file="A:/Игродел/WildJam83/intern_of_alchemist/test.avi"
 movie_writer/disable_vsync=true
 
+[file_customization]
+
+folder_colors={
+"res://Base/Potioncrafting/": "red",
+"res://Resources/": "orange",
+"res://Singletons/": "purple",
+"res://UI/": "green"
+}
+
+[global_group]
+
+spoon="spoon group"
+item="item"
+wood=""
+
 [input]
 
 LMB={
@@ -51,3 +66,10 @@ Settings={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="items"
+2d_physics/layer_2="cauldron"
+2d_physics/layer_3="ingredients"
+2d_physics/layer_4="wood"

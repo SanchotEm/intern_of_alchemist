@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var narrator_audio_player: AudioStreamPlayer = %NarratorPlayer
+@onready var camera_2d: Camera2D = %Camera2D
 
 enum MentorStates\
  {HIDDEN, MOVING, LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
@@ -18,17 +19,12 @@ var state_chances :Array[int] = [20, 20, 20, 0, 0]
 
 var minimum_trans_to_disappear :float = 0.05 #minimum transparency at wich it will disappear
 
-var apparition_time_range :Vector2 = Vector2(20, 40) #min and max time between aparitions (in seconds)
+var apparition_time_range :Vector2 = Vector2(2.0, 4.0) #min and max time between aparitions (in seconds)
 #IE: between being sent away and coming back again
 
-var speech_kinds_chance = Vector3i(45, 30, 25) #chance that it will, respectivelly:
-#give a hint (not necessarly related to the current recipy)
-#give a *crytic* hint
-#say a giberish/nonsense thing not really related to anything, but that might sound like a cryptic hint
-
 #LINGERING
-var linger_time_range = Vector2(3, 6) #min and max time between each random lingering movement (s)
-var linger_amount_range = Vector2i(1, 4) #min and max amount of time mentor will move randomly when lingering
+var linger_time_range = Vector2(.3, .6) #min and max time between each random lingering movement (s)
+var linger_amount_range = Vector2i(10, 40) #min and max amount of time mentor will move randomly when lingering
 var remaining_linger_amount :int = 0
 
 #LINGERING_CLICK
@@ -69,8 +65,8 @@ func is_mouse_on_top(mouse_pos :Vector2) -> bool: #returns true is the mouse is 
 	
 	var siz_s :Vector2 = get_size_sprite()
 	
-	var x :bool = mouse_pos.x < (position.x + siz_s.x/2) and mouse_pos.x > (position.x - siz_s.x/2)
-	var y :bool = mouse_pos.y < (position.y + siz_s.y/2) and mouse_pos.y > (position.y - siz_s.y/2)
+	var x: bool = mouse_pos.x < (global_position.x + siz_s.x / 2) and mouse_pos.x > (global_position.x - siz_s.x / 2)
+	var y: bool = mouse_pos.y < (global_position.y + siz_s.y / 2) and mouse_pos.y > (global_position.y - siz_s.y / 2)
 	
 	return x and y
 
@@ -149,7 +145,7 @@ func linger_to_random() -> void:
 	
 	remaining_linger_amount -= 1
 	
-	move_to_random_position()
+	await move_to_random_position()
 	
 	var timer = get_tree().create_timer(randf_range(linger_time_range.x, linger_time_range.y))
 	if remaining_linger_amount > 0:
@@ -163,25 +159,38 @@ func linger_to_random() -> void:
 		
 		disappear()
 
+func get_camera_view_rect() -> Rect2:
+	if not is_instance_valid(camera_2d):
+		push_error("Can't find camera")
+		return Rect2()
+	var viewport_size = get_viewport_rect().size
+	var view_size = viewport_size * camera_2d.zoom
+	var view_top_left = camera_2d.global_position - (view_size / 2.0)
+	return Rect2(view_top_left, view_size)
 
-func move_to_random_position(instant :bool = false) -> void: #Mentor moves to a random position
-	
-	var siz_w :Vector2 = get_window().size
-	var siz_s :Vector2 = get_size_sprite()
-	var pos = Vector2(randf_range(siz_s.x/2, siz_w.x - siz_s.x/2), randf_range(siz_s.y/2, siz_w.y - siz_s.y/2))
-	
+func move_to_random_position(instant: bool = false) -> void: # Mentor moves to a random position
+	var view_rect: Rect2 = get_camera_view_rect()
+	if view_rect.size == Vector2.ZERO:
+		return
+	var top_left: Vector2 = view_rect.position
+	var bottom_right: Vector2 = view_rect.position + view_rect.size
+	var siz_s: Vector2 = get_size_sprite()
+	var pos = Vector2(
+		randf_range(top_left.x + siz_s.x / 2.0, bottom_right.x - siz_s.x / 2.0),
+		randf_range(top_left.y + siz_s.y / 2.0, bottom_right.y - siz_s.y / 2.0)
+	)
 	if instant:
-		position = pos
+		global_position = pos
 	else:
 		await move_to(pos)
 
 func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
 	
-	var starting_state :MentorStates = mentor_state
+	var starting_state: MentorStates = mentor_state
 	mentor_state = MentorStates.MOVING
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", pos, 1).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "global_position", pos, 0.25).set_trans(Tween.TRANS_SINE)
 	await tween.finished
 	
 	mentor_state = starting_state

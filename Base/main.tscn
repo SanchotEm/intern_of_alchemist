@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=75 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="PackedScene" uid="uid://d1gmlseqvku44" path="res://UI/CustomCursor/CustomCursor.tscn" id="2_ay008"]
@@ -33,6 +33,7 @@
 [ext_resource type="Resource" uid="uid://cr45yf2ilggxg" path="res://Base/Potioncrafting/Items/dummy_data.tres" id="31_tdga5"]
 [ext_resource type="PackedScene" uid="uid://bboarkl1nm1uo" path="res://Base/Potioncrafting/Items/item_spawner.tscn" id="33_tdga5"]
 [ext_resource type="PackedScene" uid="uid://brfqe3g6gus84" path="res://Base/Potioncrafting/Items/spoon.tscn" id="35_33wbd"]
+[ext_resource type="Texture2D" uid="uid://b4iua8kocvr48" path="res://Resources/Art/dungeon/dungeon 2.png" id="35_wsile"]
 [ext_resource type="PackedScene" uid="uid://mt1njk72dm6w" path="res://Base/Potioncrafting/Items/wood.tscn" id="36_wsile"]
 
 [sub_resource type="Theme" id="Theme_7nedf"]
@@ -769,6 +770,7 @@ position = Vector2(331, 79)
 scale = Vector2(0.512881, 0.512881)
 
 [node name="Grimoire" type="Node2D" parent="Level"]
+z_index = 6
 script = ExtResource("22_l6o11")
 
 [node name="Grimoire-placeholder" type="Sprite2D" parent="Level/Grimoire"]
@@ -829,6 +831,12 @@ item = "uid://dsjertmptbxpt"
 
 [node name="IntroManager" type="Node" parent="."]
 script = ExtResource("29_tk4b4")
+
+[node name="Dungeon2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-570, -324)
+scale = Vector2(0.525915, 0.525915)
+texture = ExtResource("35_wsile")
 
 [connection signal="input_event" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_input_event"]
 [connection signal="mouse_exited" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_mouse_exited"]

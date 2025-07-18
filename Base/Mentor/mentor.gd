@@ -9,9 +9,6 @@ signal scripted_dialogue_finished
 @export var intro_dialogue: Array[Sentence_Resource] # Array for intro lines
 @export var tutorial_dialogue: Array[Sentence_Resource] # Array for tutorial lines
 
-@export var faliure_barks: Array[Sentence_Resource] #Things he says on a failed potion
-@export var success_barks: Array[Sentence_Resource] #Things he says on a successful potion
-
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
  LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
 var mentor_state :MentorStates = MentorStates.HIDDEN
@@ -44,12 +41,15 @@ var l_c_threshold = Vector2(0.6, 0.2)
 var mouse_last_pos :Vector2 #last position the mouse was seen at
 #var mouse_last_t :float = 0 #moment at wich the mouse was last seen
 var mouse_on_top_lf :bool #if the mouse was On Top Of the Mentor Last Frame
-var i_t_wave_rate :float = 2 * pow(10, -7) #rate at wich the master will grow transparent while bein waved at
+var i_t_wave_rate :float = 2.5 * pow(10, -7) #rate at wich the master will grow transparent while bein waved at
 
 @export var cryptic_hints: Array[Sentence_Resource]
 @export var gibberish_lines: Array[Sentence_Resource]
 @export var normal_hints: Array[Sentence_Resource]
 @onready var speech_bubble: ColorRect = %Speech_bubble 
+
+@export var faliure_barks: Array[Sentence_Resource] #Things he says on a failed potion
+@export var success_barks: Array[Sentence_Resource] #Things he says on a successful potion
 
 func _ready() -> void:
 	Interface.register_player(Interface.AudioPlayerType.NARRATOR, narrator_audio_player)
@@ -72,7 +72,7 @@ func start_intro_sequence() -> void:
 
 func say_line_and_wait(sentence: Sentence_Resource) -> void:
 	speech_bubble.say_sentence(sentence)
-	await speech_bubble.dialogue_finished 
+	await speech_bubble.dialogue_finished
 
 # New function to replace the random behavior
 func start_random_behavior() -> void:

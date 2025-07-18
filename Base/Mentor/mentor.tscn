@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://f8d15v2cndw1"]
+[gd_scene load_steps=18 format=3 uid="uid://f8d15v2cndw1"]
 
 [ext_resource type="Texture2D" uid="uid://bam88ycvtrhka" path="res://Resources/WizardGhost/wizard character.png" id="2_7cqvm"]
 [ext_resource type="Script" uid="uid://d3pc2mfqxq2qq" path="res://Base/Mentor/mentor.gd" id="2_37jcg"]
@@ -6,12 +6,15 @@
 [ext_resource type="Resource" uid="uid://d1lxb1whp7oho" path="res://Base/Mentor/Sentences/Cryptic hints/cryptic_hint_1.tres" id="3_eg76k"]
 [ext_resource type="Resource" uid="uid://dhqmewxj4vril" path="res://Base/Mentor/Sentences/Cryptic hints/cryptic_hint_2.tres" id="4_xiy78"]
 [ext_resource type="Resource" uid="uid://daa3v1s2nb7wu" path="res://Base/Mentor/Sentences/Cryptic hints/cryptic_hint_3.tres" id="5_ry6n8"]
-[ext_resource type="Resource" uid="uid://cr46arsijdn2d" path="res://Base/Mentor/Sentences/Gibberish/giberish_1.tres" id="6_3p2er"]
+[ext_resource type="Resource" uid="uid://dgatj63ugr6s1" path="res://Base/Mentor/Sentences/Faliure Barks/faliure_bark_2.tres" id="6_ej568"]
 [ext_resource type="Resource" uid="uid://kl7pthq04m72" path="res://Base/Mentor/Sentences/Gibberish/giberish_2.tres" id="7_qgj5k"]
 [ext_resource type="Resource" uid="uid://cjhr7s0xlyr0a" path="res://Base/Mentor/Sentences/Gibberish/giberish_3.tres" id="8_bxk4y"]
 [ext_resource type="Resource" uid="uid://dfi318nekkfyp" path="res://Base/Mentor/Sentences/Hints/hint_1.tres" id="9_msldg"]
 [ext_resource type="Resource" uid="uid://difje4t0b0qjl" path="res://Base/Mentor/Sentences/Hints/hint_2.tres" id="10_gtn57"]
 [ext_resource type="Resource" uid="uid://dhgdk1wx56mpy" path="res://Base/Mentor/Sentences/Hints/hint_3.tres" id="11_uxkmi"]
+[ext_resource type="Resource" uid="uid://x7wagysbvw2p" path="res://Base/Mentor/Sentences/Success Barks/success_bark_2.tres" id="12_eg76k"]
+[ext_resource type="Resource" uid="uid://cuauf6cvpgsux" path="res://Base/Mentor/Sentences/Faliure Barks/faliure_bark_1.tres" id="12_ry6n8"]
+[ext_resource type="Resource" uid="uid://bfhsxfsrjj66h" path="res://Base/Mentor/Sentences/Success Barks/success_bark_1.tres" id="13_xiy78"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_37jcg"]
 
@@ -20,8 +23,10 @@
 [node name="Mentor" type="Node2D"]
 script = ExtResource("2_37jcg")
 cryptic_hints = Array[ExtResource("2_ej568")]([ExtResource("3_eg76k"), ExtResource("4_xiy78"), ExtResource("5_ry6n8")])
-gibberish_lines = Array[ExtResource("2_ej568")]([ExtResource("6_3p2er"), ExtResource("7_qgj5k"), ExtResource("8_bxk4y")])
+gibberish_lines = Array[ExtResource("2_ej568")]([ExtResource("6_ej568"), ExtResource("7_qgj5k"), ExtResource("8_bxk4y")])
 normal_hints = Array[ExtResource("2_ej568")]([ExtResource("9_msldg"), ExtResource("10_gtn57"), ExtResource("11_uxkmi")])
+faliure_barks = Array[ExtResource("2_ej568")]([ExtResource("12_ry6n8"), ExtResource("6_ej568")])
+success_barks = Array[ExtResource("2_ej568")]([ExtResource("13_xiy78"), ExtResource("12_eg76k")])
 
 [node name="NarratorPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

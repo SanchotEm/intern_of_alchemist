@@ -3,7 +3,7 @@ extends Node
 
 var player 
 var items: Array[Item] = []
-# Small typo corrected
+
 var recipes : Dictionary = {}
 
 #region Audio Control
@@ -14,15 +14,6 @@ var audio_players := {}
 func register_player(player_type: AudioPlayerType, audio_player: AudioStreamPlayer) -> void:
 	audio_players[player_type] = audio_player
 
-<<<<<<< Updated upstream
-func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> void:
-	if player_type in audio_players:
-		var audio_stream_player: AudioStreamPlayer = audio_players[player_type]
-		audio_stream_player.stream = stream
-		audio_stream_player.play()
-	else:
-		push_error("Audio player not registered for type: %s" % player_type)
-=======
 func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> AudioStreamPlayer:
 	
 	if player_type in audio_players:
@@ -38,17 +29,11 @@ func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> AudioStrea
 		return player
 	push_error("Audio player not registered for type: %s" % player_type)
 	return null
->>>>>>> Stashed changes
 #endregion 
 
 #region Recipies
 
-<<<<<<< Updated upstream
-func load_recipes(file_path: String, merge: bool = true) -> bool:
-	# Simple check for data, early returns
-=======
 func load_recipes(file_path: String, merge: bool = true):
->>>>>>> Stashed changes
 	if not FileAccess.file_exists(file_path):
 		return
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -58,35 +43,11 @@ func load_recipes(file_path: String, merge: bool = true):
 		recipes.merge(json_data, true)
 	else:
 		recipes = json_data
-<<<<<<< Updated upstream
-	return true
-#func load_recipies(file: String, merge: bool = true) -> Dictionary:
-#	var loaded_file = FileAccess.open(file,FileAccess.READ)
-#	if loaded_file == null:
-#		push_error(FileAccess.get_open_error())
-#	if merge:
-#		recipies.merge(JSON.parse_string(loaded_file.get_as_text()))
-#	else:
-#		recipies = JSON.parse_string(loaded_file.get_as_text())
-#	loaded_file.close()
-#	return recipies
-#	pass
-
-=======
->>>>>>> Stashed changes
 
 func get_recipe(id: String) -> Dictionary:
 	return recipes.get(id)
 
-<<<<<<< Updated upstream
-#func get_recipe(id:String) -> Dictionary:
-#	return recipies[id]
-
-# Finds a recipe that can be crafted with the provided ingredients
-func find_matching_recipe(ingredients: Array) -> Dictionary:
-=======
 func match_recipe(ingredients: Array):
->>>>>>> Stashed changes
 	for recipe_id in recipes:
 		var recipe_data: Dictionary = recipes[recipe_id]
 		var required: Array = recipe_data["required_tags"]
@@ -112,20 +73,6 @@ func _can_craft(strict: bool, available: Array, required: Array) -> bool:
 			available_copy.erase(item)
 	return true
 
-#func match_recipe(ingredients:Array[String]):
-#	for recipe in recipies:
-#		var count :int = 0
-#		var we_have = ingredients.duplicate()
-#		var needed: Array = recipies[recipe]["tags"].duplicate()
-#		var confirmed :Array = []
-#		for ingredient in needed:
-#			if we_have.has(ingredient):
-#				confirmed.append(ingredient)
-#				we_have.remove_at(we_have.find(ingredient))
-#				count +=1
-#		if needed.size()==count:
-#			return get_recipe(recipe)
-#	return 
 #endregion
 
 func _ready() -> void:

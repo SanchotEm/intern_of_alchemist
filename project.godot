@@ -23,6 +23,7 @@ GameConstants="*res://Singletons/GameConstants.gd"
 SignalBus="*res://Singletons/SignalBus.gd"
 Achievements="*res://Singletons/Achievements.gd"
 StatTracking="*res://Singletons/StatTracking.gd"
+ToDoList="*res://Singletons/ToDoList.gd"
 
 [display]
 

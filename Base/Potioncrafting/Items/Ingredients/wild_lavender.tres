@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bnnukffy63l04"]
+
+[ext_resource type="Texture2D" uid="uid://cf8u6g2cut4r" path="res://Resources/Art/fruit/pngs/black-berry-dark.png" id="1_bwq24"]
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="1_nhnun"]
+
+[resource]
+script = ExtResource("1_nhnun")
+item_id = "wild_lavender"
+item_name = "Wild Lavender"
+description = ""
+Icon = ExtResource("1_bwq24")
+sprite = ExtResource("1_bwq24")
+tags = Array[String](["wild_lavender"])
+scale_factor = 0.1
+metadata/_custom_type_script = "uid://dluypacfui4h"

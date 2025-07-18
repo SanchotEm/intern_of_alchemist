@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://hth7u6yhs7lq" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Early-Draft.mp3" id="2_ekk2t"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
 [ext_resource type="Script" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
-[ext_resource type="PackedScene" uid="uid://dsjertmptbxpt" path="res://Base/Potioncrafting/Items/base_item.tscn" id="3_lo0hp"]
 [ext_resource type="PackedScene" uid="uid://csgcw8ndkwkyy" path="res://Base/Potioncrafting/cauldron.tscn" id="3_mrrah"]
 [ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
 [ext_resource type="Texture2D" uid="uid://uscrsehbwwhm" path="res://Resources/Art/Desk-Placeholder.png" id="4_6c3lq"]
@@ -30,10 +29,11 @@
 [ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
 [ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="28_bq4wq"]
 [ext_resource type="Script" uid="uid://f35ukopor4pw" path="res://Base/IntroManager.gd" id="29_tk4b4"]
-[ext_resource type="Resource" uid="uid://cr45yf2ilggxg" path="res://Base/Potioncrafting/Items/dummy_data.tres" id="31_tdga5"]
+[ext_resource type="Texture2D" uid="uid://dpd8thke4k7tu" path="res://Resources/Art/placeholder_kit_rectangles/64x64_yellow.png" id="32_wph0v"]
 [ext_resource type="PackedScene" uid="uid://bboarkl1nm1uo" path="res://Base/Potioncrafting/Items/item_spawner.tscn" id="33_tdga5"]
+[ext_resource type="Resource" uid="uid://bgnyvx54rrpne" path="res://Base/Potioncrafting/Items/Ingredients/ember_twig.tres" id="34_wsile"]
 [ext_resource type="PackedScene" uid="uid://brfqe3g6gus84" path="res://Base/Potioncrafting/Items/spoon.tscn" id="35_33wbd"]
-[ext_resource type="PackedScene" uid="uid://mt1njk72dm6w" path="res://Base/Potioncrafting/Items/wood.tscn" id="36_wsile"]
+[ext_resource type="Texture2D" uid="uid://b4iua8kocvr48" path="res://Resources/Art/dungeon/dungeon 2.png" id="35_wsile"]
 
 [sub_resource type="Theme" id="Theme_7nedf"]
 Label/colors/font_color = Color(0, 0, 0, 1)
@@ -769,6 +769,7 @@ position = Vector2(331, 79)
 scale = Vector2(0.512881, 0.512881)
 
 [node name="Grimoire" type="Node2D" parent="Level"]
+z_index = 6
 script = ExtResource("22_l6o11")
 
 [node name="Grimoire-placeholder" type="Sprite2D" parent="Level/Grimoire"]
@@ -798,9 +799,8 @@ size_flags_vertical = 4
 theme = SubResource("Theme_tk4b4")
 show_percentage = false
 
-[node name="base_item2" parent="Level" instance=ExtResource("3_lo0hp")]
-position = Vector2(128, 68)
-scale = Vector2(0.420556, 0.420556)
+[node name="spoon" parent="Level" instance=ExtResource("35_33wbd")]
+position = Vector2(169, 17)
 
 [node name="Mentor" parent="Level" instance=ExtResource("12_6c3lq")]
 unique_name_in_owner = true
@@ -811,24 +811,22 @@ tutorial_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_bq4wq"
 [node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
 visible = false
 
-[node name="base_item" parent="." instance=ExtResource("3_lo0hp")]
-position = Vector2(-488, -295)
-scale = Vector2(0.367045, 0.449723)
-data = ExtResource("31_tdga5")
-metadata/_edit_pinned_properties_ = [&"scale"]
-
-[node name="base_item3" parent="." instance=ExtResource("35_33wbd")]
-position = Vector2(-412, -299)
-
-[node name="base_item4" parent="." instance=ExtResource("36_wsile")]
-position = Vector2(-543, -249)
-
 [node name="ItemSpawner" parent="." instance=ExtResource("33_tdga5")]
-position = Vector2(-602, -473)
+position = Vector2(-503, -537)
+item_data = ExtResource("34_wsile")
 item = "uid://dsjertmptbxpt"
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemSpawner"]
+texture = ExtResource("32_wph0v")
 
 [node name="IntroManager" type="Node" parent="."]
 script = ExtResource("29_tk4b4")
+
+[node name="Dungeon2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-570, -324)
+scale = Vector2(0.525915, 0.525915)
+texture = ExtResource("35_wsile")
 
 [connection signal="input_event" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_input_event"]
 [connection signal="mouse_exited" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_mouse_exited"]

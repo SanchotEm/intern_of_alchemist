@@ -8,3 +8,4 @@ class_name ItemData
 @export var sprite : Texture2D
 @export var tags :Array[String]
 @export var item_sound : AudioStream
+@export var scale_factor: float = 1.0

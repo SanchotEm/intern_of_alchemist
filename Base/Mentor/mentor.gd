@@ -262,22 +262,21 @@ func get_size_sprite() -> Vector2:
 
 
 func _on_faliure() -> void: #called when a potion fails
-	var info = pause_lingering()
-	
 	if !faliure_barks.is_empty():
-		await say_line_and_wait(faliure_barks.pick_random())
+		await pause_to_say(faliure_barks.pick_random())
 	else:
 		print("Faliure Bark!")
-	
-	unpause_lingering(info)
 
 func _on_success() -> void: #called when a poition succeeds
-	var info = pause_lingering()
-	
 	if !success_barks.is_empty():
-		await say_line_and_wait(success_barks.pick_random())
+		await pause_to_say(success_barks.pick_random())
 	else:
 		print("Success Bark!")
+
+func pause_to_say(sentence :Sentence_Resource) -> void: #stops any random things he might be saying
+	var info = pause_lingering()
+	
+	await say_line_and_wait(sentence)
 	
 	unpause_lingering(info)
 

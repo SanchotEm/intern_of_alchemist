@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var narrator_audio_player: AudioStreamPlayer = %NarratorPlayer
+
 @onready var camera_2d: Camera2D = %Camera2D
 
 enum MentorStates\

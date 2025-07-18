@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_vj0ku")
-txt = "A good alchemist must never be afraid to experiment!g"
+txt = "A good alchemist must never be afraid to experiment!"
 audio = "uid://bewjegomrsjim"
 metadata/_custom_type_script = "uid://crx8px7laoift"

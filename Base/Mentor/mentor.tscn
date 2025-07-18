@@ -1,7 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://f8d15v2cndw1"]
+[gd_scene load_steps=18 format=3 uid="uid://f8d15v2cndw1"]
 
 [ext_resource type="Texture2D" uid="uid://bam88ycvtrhka" path="res://Resources/WizardGhost/wizard character.png" id="2_7cqvm"]
 [ext_resource type="Script" uid="uid://d3pc2mfqxq2qq" path="res://Base/Mentor/mentor.gd" id="2_37jcg"]
+[ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="2_ej568"]
+[ext_resource type="Resource" uid="uid://d1lxb1whp7oho" path="res://Base/Mentor/Sentences/Cryptic hints/cryptic_hint_1.tres" id="3_eg76k"]
+[ext_resource type="Resource" uid="uid://dhqmewxj4vril" path="res://Base/Mentor/Sentences/Cryptic hints/cryptic_hint_2.tres" id="4_xiy78"]
+[ext_resource type="Resource" uid="uid://daa3v1s2nb7wu" path="res://Base/Mentor/Sentences/Cryptic hints/cryptic_hint_3.tres" id="5_ry6n8"]
+[ext_resource type="Resource" uid="uid://cr46arsijdn2d" path="res://Base/Mentor/Sentences/Gibberish/giberish_1.tres" id="6_3p2er"]
+[ext_resource type="Resource" uid="uid://kl7pthq04m72" path="res://Base/Mentor/Sentences/Gibberish/giberish_2.tres" id="7_qgj5k"]
+[ext_resource type="Resource" uid="uid://cjhr7s0xlyr0a" path="res://Base/Mentor/Sentences/Gibberish/giberish_3.tres" id="8_bxk4y"]
+[ext_resource type="Resource" uid="uid://dfi318nekkfyp" path="res://Base/Mentor/Sentences/Hints/hint_1.tres" id="9_msldg"]
+[ext_resource type="Resource" uid="uid://difje4t0b0qjl" path="res://Base/Mentor/Sentences/Hints/hint_2.tres" id="10_gtn57"]
+[ext_resource type="Resource" uid="uid://dhgdk1wx56mpy" path="res://Base/Mentor/Sentences/Hints/hint_3.tres" id="11_uxkmi"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_37jcg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37jcg"]
 size = Vector2(138.5, 247)
@@ -17,6 +29,16 @@ size = Vector2(134, 190)
 
 [node name="Mentor" type="Node2D"]
 script = ExtResource("2_37jcg")
+cryptic_hints = Array[ExtResource("2_ej568")]([ExtResource("3_eg76k"), ExtResource("4_xiy78"), ExtResource("5_ry6n8")])
+gibberish_lines = Array[ExtResource("2_ej568")]([ExtResource("6_3p2er"), ExtResource("7_qgj5k"), ExtResource("8_bxk4y")])
+normal_hints = Array[ExtResource("2_ej568")]([ExtResource("9_msldg"), ExtResource("10_gtn57"), ExtResource("11_uxkmi")])
+
+[node name="NarratorPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_37jcg")
+autoplay = true
+max_polyphony = 5
+bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

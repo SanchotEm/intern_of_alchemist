@@ -452,6 +452,7 @@ layout_mode = 2
 texture = ExtResource("14_oqvj5")
 
 [node name="Speech_bubble" parent="UI" instance=ExtResource("12_87cgt")]
+unique_name_in_owner = true
 offset_top = -1.46399
 
 [node name="DevModeCenterContainer" type="CenterContainer" parent="UI"]
@@ -525,13 +526,6 @@ parameters/looping = true
 script = ExtResource("3_fx5w4")
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = SubResource("AudioStreamPolyphonic_6c3lq")
-autoplay = true
-max_polyphony = 5
-bus = &"SFX"
-
-[node name="NarratorPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamPolyphonic_6c3lq")
 autoplay = true

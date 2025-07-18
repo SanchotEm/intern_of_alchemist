@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var narrator_audio_player: AudioStreamPlayer = %NarratorPlayer
+
 enum MentorStates\
  {HIDDEN, MOVING, LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
 var mentor_state :MentorStates = MentorStates.HIDDEN
@@ -39,8 +41,13 @@ var mouse_last_pos :Vector2 #last position the mouse was seen at
 var mouse_on_top_lf :bool #if the mouse was On Top Of the Mentor Last Frame
 var i_t_wave_rate :float = 2 * pow(10, -7) #rate at wich the master will grow transparent while bein waved at
 
+@export var cryptic_hints: Array[Sentence_Resource]
+@export var gibberish_lines: Array[Sentence_Resource]
+@export var normal_hints: Array[Sentence_Resource]
+@onready var speech_bubble: ColorRect = %Speech_bubble 
 
 func _ready() -> void:
+	Interface.register_player(Interface.AudioPlayerType.NARRATOR, narrator_audio_player)
 	randomize()
 	show_up()
 
@@ -180,33 +187,23 @@ func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
 	mentor_state = starting_state
 
 func say_random() -> void:
-	
-	var x = speech_kinds_chance.x
-	var y = x + speech_kinds_chance.y
-	var z = y + speech_kinds_chance.z
-	
-	var file :DirAccess = DirAccess.open("res://Base/Mentor/Sentences/")
-	if !file:
-		print("Error! Filed to open 'res://Base/Mentor/Sentences/'. Error:")
-		print(error_string(DirAccess.get_open_error()))
-		return
-	
-	var i = randi_range(1, z)
-	
-	if i <= x:
-		file.change_dir("Hints")
-	elif x < i and i <= y:
-		file.change_dir("Cryptic hints")
-	elif y < i and i <= z:
-		file.change_dir("Gibberish")
-	#else:
-	#	print("'say_speech' on mentor didn't work propery. i = ", str(i))
-	
-	var files = file.get_files()
-	i = randi_range(0, files.size() - 1)
-	
-	get_tree().get_first_node_in_group("Speech_bubble").\
-	 say_sentence(load(file.get_current_dir() + "/" + files[i])) #WARNING:might not be safe. Check better way
+	var sentence_type = randi_range(0, 2)
+	var chosen_sentence: Sentence_Resource
+
+	match sentence_type:
+		0: # Normal Hint
+			if not normal_hints.is_empty():
+				chosen_sentence = normal_hints.pick_random()
+		1: # Cryptic Hint
+			if not cryptic_hints.is_empty():
+				chosen_sentence = cryptic_hints.pick_random()
+		2: # Gibberish
+			if not gibberish_lines.is_empty():
+				chosen_sentence = gibberish_lines.pick_random()
+	if chosen_sentence:
+		speech_bubble.say_sentence(chosen_sentence)
+	else:
+		print("No sentences available for the chosen category.")
 
 func disappear() -> void:
 	hide()

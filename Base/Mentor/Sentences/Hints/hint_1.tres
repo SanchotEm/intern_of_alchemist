@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_410gk")
-text = "Be carefull not to mix inredients that don't match, they can cause dangerous side effects!"
-audio = "<null>"
+txt = "Be carefull not to mix inredients that don't match, they can cause dangerous side effects!"
+audio = "uid://bewjegomrsjim"
 metadata/_custom_type_script = "uid://crx8px7laoift"

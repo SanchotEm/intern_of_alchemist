@@ -11,4 +11,5 @@ description = ""
 Icon = ExtResource("1_i6n8f")
 sprite = ExtResource("1_i6n8f")
 tags = Array[String](["paper_shred"])
+scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

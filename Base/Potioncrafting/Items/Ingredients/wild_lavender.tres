@@ -11,4 +11,5 @@ description = ""
 Icon = ExtResource("1_bwq24")
 sprite = ExtResource("1_bwq24")
 tags = Array[String](["wild_lavender"])
+scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

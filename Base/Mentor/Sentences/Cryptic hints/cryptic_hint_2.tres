@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_kjkps")
-text = "Be wary of betrails, my pupil, for one could easly sour a potion, despite aparent friendships"
-audio = "<null>"
+txt = "Be wary of betrails, my pupil, for one could easly sour a potion, despite aparent friendships"
+audio = "uid://bewjegomrsjim"
 metadata/_custom_type_script = "uid://crx8px7laoift"

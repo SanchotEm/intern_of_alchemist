@@ -25,9 +25,10 @@ func say_sentence(sentence :Sentence_Resource) -> void:
 		push_error("No sentences to say")
 		return
 	show_text(sentence.txt if "txt" in sentence else "PLACEHOLDER TEXT")
-	player = Interface.play_audio(Interface.AudioPlayerType.NARRATOR, load(sentence.audio))
-	if player:
-		player.finished.connect(_on_player_finished)
+	if sentence.audio:
+		player = Interface.play_audio(Interface.AudioPlayerType.NARRATOR, load(sentence.audio))
+		if player:
+			player.finished.connect(_on_player_finished)
 
 func _on_player_finished() -> void:
 	if speech_bubble_state == SpeechBubbleStates.ALL_VISIBLE:

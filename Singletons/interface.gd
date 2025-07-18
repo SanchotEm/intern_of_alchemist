@@ -17,7 +17,13 @@ func register_player(player_type: AudioPlayerType, audio_player: AudioStreamPlay
 func play_audio(player_type: AudioPlayerType, stream: AudioStream) -> AudioStreamPlayer:
 	if player_type in audio_players:
 		var player := audio_players[player_type] as AudioStreamPlayer
-		player.stream = stream
+		if not is_instance_valid(player):
+			push_error("Registered audio player for type '%s' is invalid or has been freed." % player_type)
+			return null
+		if not is_instance_valid(stream):
+			push_error("Check the audio resource")
+			return null
+			player.stream = stream
 		player.play()
 		return player
 	push_error("Audio player not registered for type: %s" % player_type)

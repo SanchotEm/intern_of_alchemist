@@ -18,7 +18,6 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(load("uid://b3q17ehh6rx0p"),Input.CURSOR_ARROW)
 	Interface.register_player(Interface.AudioPlayerType.SFX, %SFXPlayer)
 	Interface.register_player(Interface.AudioPlayerType.MUSIC, %MusicPlayer)
-	Interface.register_player(Interface.AudioPlayerType.NARRATOR, %NarratorPlayer)
 
 
 func _game_cycle():

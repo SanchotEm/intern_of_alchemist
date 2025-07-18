@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_nyfu7")
-text = "Don't leave the mixture on the fire for too long"
-audio = "<null>"
+txt = "Don't leave the mixture on the fire for too long"
+audio = "uid://bewjegomrsjim"
 metadata/_custom_type_script = "uid://crx8px7laoift"

@@ -19,6 +19,7 @@ size = Vector2(35, 38)
 
 
 [node name="spoon" type="RigidBody2D" groups=["spoon"]]
+
 collision_layer = 4
 collision_mask = 3
 mass = 1000.0

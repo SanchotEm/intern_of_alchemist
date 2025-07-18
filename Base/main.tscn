@@ -492,23 +492,6 @@ size_flags_horizontal = 8
 mouse_filter = 2
 script = ExtResource("27_l6o11")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SelectedRecipePanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="RecipeNameLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Recipe Name"
-horizontal_alignment = 1
-
-[node name="RecipeInstructionsLabel" type="Label" parent="UI/SelectedRecipePanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Select a recipe from the Grimiore to begin brewing a potion."
-horizontal_alignment = 1
-autowrap_mode = 3
-
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_ekk2t")

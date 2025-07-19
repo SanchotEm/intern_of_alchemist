@@ -33,9 +33,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if ingredients.size()>3:
 		if !is_following_recipe(hardlock_recipe):
+			print("Current tags: ", ingredients)
 			get_tree().quit()
 func is_following_recipe(recipe)->bool:
-	print(recipe["required_tags"])
+	print("Required tags: ", recipe["required_tags"])
 	for i in ingredients:
 		if !recipe["required_tags"].has(i):
 			return false
@@ -63,7 +64,7 @@ func _add_to_soup(ingredient: Node2D):
 		ingredient.queue_free()
 		Interface.player.clear_hand()
 		_check_soup()
-
+	
 	elif ingredient.is_in_group("spoon"):
 		if not stirring and debug_mode:
 			print("Stirring started.")

@@ -9,7 +9,8 @@
 			"negative": "Room darkens & interactables become difficult to see."
 		},
 		"strict": true,
-		"required_tags": ["wild_lavender", "ember_twig", "flicker_berry", "light_stir"],
+		"required_tags": ["aromatic","unstable","light_stirring","heat","burnt","heat"],
+
 		"method": "applyGlowmeltEffect"
 	},
 	"swift_hand": {
@@ -44,8 +45,8 @@
 			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
 			"negative": "All game audio becomes muffled."
 		},
-		"strict": true,
-		"required_tags": ["whisper_shell", "pebble_heart", "wild_lavender", "hard_stir"],
+		"strict": false,
+		"required_tags": [],
 		"method": "applyTattleTonicEffect"
 	}
 }

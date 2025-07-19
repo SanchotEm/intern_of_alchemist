@@ -1,6 +1,17 @@
 ## Interface - Autoload
 extends Node
 
+enum languages {EN, RU}
+var current_language := languages.EN:
+	set(value):
+		
+		match value:
+			languages.EN:
+				TranslationServer.set_locale("en")
+			languages.RU:
+				TranslationServer.set_locale("ru")
+		current_language=value
+
 var player 
 var items: Array[Item] = []
 
@@ -10,6 +21,14 @@ var recipes : Dictionary = {}
 enum AudioPlayerType {SFX, MUSIC, NARRATOR}
 
 var audio_players := {}
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("change language"):
+		var change_lang = current_language+1
+		if change_lang == languages.size():
+			current_language=0
+		else: current_language=change_lang
+		
 
 func register_player(player_type: AudioPlayerType, audio_player: AudioStreamPlayer) -> void:
 	audio_players[player_type] = audio_player

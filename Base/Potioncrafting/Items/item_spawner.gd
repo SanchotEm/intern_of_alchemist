@@ -18,5 +18,5 @@ func spawn(_viewport, event, _index):
 		new_item.data = item_data
 		get_tree().current_scene.add_child(new_item)
 		new_item.position = get_global_mouse_position()
-		new_item.give_me_up.emit()
+		new_item.got_input(_viewport, event, _index)
 	pass

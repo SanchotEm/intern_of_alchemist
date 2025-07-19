@@ -6,7 +6,13 @@ var hand
 var hand_status: HandStatus = HandStatus.EMPTY
 @onready var grabler: StaticBody2D = $Grabler
 
-
+func _input(event: InputEvent) -> void:
+	if hand_status == HandStatus.WITH_ITEM:
+		if event.is_action_pressed("LMB") and hand.drag_mode:
+			release(hand)
+		elif event.is_action_pressed("RMB") and !hand.drag_mode:
+			release(hand)
+			
 
 func _enter_tree(): 
 	Interface.player = self

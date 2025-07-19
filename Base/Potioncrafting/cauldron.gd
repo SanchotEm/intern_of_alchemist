@@ -77,9 +77,12 @@ func _remove_from_soup(body: Node2D):
 		if stirring and debug_mode:
 			print("Stirring stopped.")
 		stirring = false
+		stir_count = 0
 		body.call_deferred("set_lock_rotation_enabled", false)
 	
 func _stir(body, side):
+	if !stirring:
+		return
 	print("Stir detected on side: ", side)
 	if current_side_spoon != side:
 		current_side_spoon = side 

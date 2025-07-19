@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
 [ext_resource type="Script" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
 [ext_resource type="PackedScene" uid="uid://csgcw8ndkwkyy" path="res://Base/Potioncrafting/cauldron.tscn" id="3_mrrah"]
+[ext_resource type="Texture2D" uid="uid://coyjxbbias0he" path="res://Resources/Art/open book front.png" id="3_wph0v"]
 [ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
-[ext_resource type="Texture2D" uid="uid://uscrsehbwwhm" path="res://Resources/Art/Desk-Placeholder.png" id="4_6c3lq"]
 [ext_resource type="Script" uid="uid://7ahbhb8ok21u" path="res://UI/VolumeControl.gd" id="4_otdql"]
 [ext_resource type="Texture2D" uid="uid://da7wnp6iylcja" path="res://Resources/Icons/ArrowSprite-0001.png" id="5_l6o11"]
 [ext_resource type="Texture2D" uid="uid://cf4l3e4vy7ukc" path="res://Resources/Icons/VolumeSpritePressed-0001.png" id="5_swbce"]
@@ -23,12 +23,12 @@
 [ext_resource type="Script" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
 [ext_resource type="Script" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
-[ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
 [ext_resource type="Script" uid="uid://bo0fbbiqxf55r" path="res://Base/Grimoire/grimoire.gd" id="22_l6o11"]
+[ext_resource type="Texture2D" uid="uid://40sc7miwtqo0" path="res://Resources/Art/table.png" id="23_wph0v"]
 [ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
 [ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
 [ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="28_bq4wq"]
-[ext_resource type="Script" path="res://Base/IntroManager.gd" id="29_tk4b4"]
+[ext_resource type="Script" uid="uid://f35ukopor4pw" path="res://Base/IntroManager.gd" id="29_tk4b4"]
 [ext_resource type="Texture2D" uid="uid://dpd8thke4k7tu" path="res://Resources/Art/placeholder_kit_rectangles/64x64_yellow.png" id="32_wph0v"]
 [ext_resource type="PackedScene" uid="uid://bboarkl1nm1uo" path="res://Base/Potioncrafting/Items/item_spawner.tscn" id="33_tdga5"]
 [ext_resource type="Resource" uid="uid://bgnyvx54rrpne" path="res://Base/Potioncrafting/Items/Ingredients/ember_twig.tres" id="34_wsile"]
@@ -280,7 +280,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="ScrollBackgroundTexture" type="TextureRect" parent="UI/ScrollUIControl/ScrollMarginContainer"]
 layout_mode = 2
-texture = ExtResource("15_7ly7r")
+texture = ExtResource("3_wph0v")
 expand_mode = 2
 stretch_mode = 5
 
@@ -288,45 +288,9 @@ stretch_mode = 5
 custom_minimum_size = Vector2(700, 280)
 layout_mode = 0
 offset_left = 219.0
-offset_top = 194.0
+offset_top = 127.0
 offset_right = 919.0
-offset_bottom = 474.0
-
-[node name="PageVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-alignment = 1
-
-[node name="RecipePageLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Scroll of Recipes"
-horizontal_alignment = 1
-
-[node name="RecipeVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="RecipeNameLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer/RecipeVBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Recipe Name"
-horizontal_alignment = 1
-
-[node name="RecipeInstructionsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer/RecipeVBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Instructions"
-horizontal_alignment = 1
-
-[node name="RecipeTagsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/PageVBoxContainer/RecipeVBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Tags or not"
-horizontal_alignment = 1
+offset_bottom = 541.0
 
 [node name="StatsPageVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
 layout_mode = 2
@@ -351,6 +315,76 @@ layout_mode = 2
 text = "Recipe Name"
 horizontal_alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
+layout_mode = 2
+
+[node name="Page_odd" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+alignment = 1
+
+[node name="RecipePageLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_odd"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Scroll of Recipes"
+horizontal_alignment = 1
+
+[node name="RecipeVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_odd"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RecipeNameLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_odd/RecipeVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recipe Name"
+horizontal_alignment = 1
+
+[node name="RecipeInstructionsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_odd/RecipeVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="RecipeTagsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_odd/RecipeVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tags or not"
+horizontal_alignment = 1
+
+[node name="Page_even" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+alignment = 1
+
+[node name="RecipePageLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Scroll of Recipes"
+horizontal_alignment = 1
+
+[node name="RecipeVBoxContainer" type="VBoxContainer" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even"]
+layout_mode = 2
+
+[node name="RecipeNameLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even/RecipeVBoxContainer"]
+layout_mode = 2
+text = "Recipe Name"
+horizontal_alignment = 1
+
+[node name="RecipeInstructionsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even/RecipeVBoxContainer"]
+layout_mode = 2
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="RecipeTagsLabel" type="Label" parent="UI/ScrollUIControl/ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even/RecipeVBoxContainer"]
+layout_mode = 2
+text = "Tags or not"
+horizontal_alignment = 1
+
 [node name="ScrollXButton" type="TextureButton" parent="UI/ScrollUIControl"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -365,9 +399,9 @@ texture_normal = ExtResource("12_wxmdi")
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 884.0
-offset_top = 164.0
+offset_top = 510.0
 offset_right = 948.0
-offset_bottom = 228.0
+offset_bottom = 574.0
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("5_l6o11")
 
@@ -375,9 +409,9 @@ texture_normal = ExtResource("5_l6o11")
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 223.0
-offset_top = 164.0
+offset_top = 510.0
 offset_right = 287.0
-offset_bottom = 228.0
+offset_bottom = 574.0
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("5_l6o11")
 flip_h = true
@@ -736,9 +770,16 @@ shape = SubResource("CapsuleShape2D_33wbd")
 [node name="Scene" type="Node2D" parent="."]
 position = Vector2(-581, -316)
 
+[node name="Dungeon2" type="Sprite2D" parent="Scene"]
+z_index = -1
+position = Vector2(11, -8)
+scale = Vector2(0.525915, 0.525915)
+texture = ExtResource("35_wsile")
+
 [node name="Environment" type="Node" parent="Scene"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene/Environment"]
+visible = false
 position = Vector2(-581, -205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Environment/StaticBody2D"]
@@ -764,39 +805,40 @@ texture = SubResource("PlaceholderTexture2D_7ly7r")
 unique_name_in_owner = true
 position = Vector2(-581, -316)
 
+[node name="Table" type="Sprite2D" parent="Level"]
+position = Vector2(-136, 171)
+scale = Vector2(0.786017, 0.658864)
+texture = ExtResource("23_wph0v")
+
+[node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
+position = Vector2(153, 126)
+scale = Vector2(0.512881, 0.512881)
+
 [node name="Marker2D" type="Marker2D" parent="Level"]
 unique_name_in_owner = true
 position = Vector2(-11, -197)
 
-[node name="DeskSprite2D" type="Sprite2D" parent="Level"]
-position = Vector2(89, 254)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_6c3lq")
-
-[node name="Cauldron" parent="Level" instance=ExtResource("3_mrrah")]
-position = Vector2(331, 79)
-scale = Vector2(0.512881, 0.512881)
-
 [node name="Grimoire" type="Node2D" parent="Level"]
 z_index = 6
+position = Vector2(-123, -144)
 script = ExtResource("22_l6o11")
 
-[node name="Grimoire-placeholder" type="Sprite2D" parent="Level/Grimoire"]
+[node name="grimoir_sprite" type="Sprite2D" parent="Level/Grimoire"]
 position = Vector2(-177, 65)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("7_x1fjo")
 
-[node name="HoldArea2D" type="Area2D" parent="Level/Grimoire/Grimoire-placeholder"]
+[node name="HoldArea2D" type="Area2D" parent="Level/Grimoire/grimoir_sprite"]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Grimoire/Grimoire-placeholder/HoldArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Grimoire/grimoir_sprite/HoldArea2D"]
 position = Vector2(-1.42859, -2.85715)
 shape = SubResource("RectangleShape2D_wxmdi")
 
-[node name="HoldTimer" type="Timer" parent="Level/Grimoire/Grimoire-placeholder"]
+[node name="HoldTimer" type="Timer" parent="Level/Grimoire/grimoir_sprite"]
 unique_name_in_owner = true
 
-[node name="HoldProgressBar" type="ProgressBar" parent="Level/Grimoire/Grimoire-placeholder"]
+[node name="HoldProgressBar" type="ProgressBar" parent="Level/Grimoire/grimoir_sprite"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 20)
 offset_left = 54.2858
@@ -809,16 +851,16 @@ theme = SubResource("Theme_tk4b4")
 show_percentage = false
 
 [node name="spoon" parent="Level" instance=ExtResource("35_33wbd")]
-position = Vector2(169, 17)
+position = Vector2(118, -53)
 
 [node name="Mentor" parent="Level" instance=ExtResource("12_6c3lq")]
 unique_name_in_owner = true
-position = Vector2(-419, -65)
+z_index = 6
+position = Vector2(-174, 77)
 intro_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_sulbg"), SubResource("Resource_ck8li"), SubResource("Resource_tdga5"), SubResource("Resource_wph0v"), SubResource("Resource_33wbd"), SubResource("Resource_wsile"), SubResource("Resource_hokyh"), SubResource("Resource_0jtdi"), SubResource("Resource_k75nb"), SubResource("Resource_ndbks"), SubResource("Resource_jyyvj"), SubResource("Resource_ppcoy")])
 tutorial_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_bq4wq"), SubResource("Resource_ifa6y"), SubResource("Resource_dcyn6"), SubResource("Resource_n2q5m"), SubResource("Resource_fexjs"), SubResource("Resource_c5v3s"), SubResource("Resource_ksw61"), SubResource("Resource_qninr"), SubResource("Resource_5epor"), SubResource("Resource_vajpv"), SubResource("Resource_rn58w"), SubResource("Resource_si6kl"), SubResource("Resource_qo28y"), SubResource("Resource_chvbj"), SubResource("Resource_4l2nq"), SubResource("Resource_unwff"), SubResource("Resource_hyxno")])
 
 [node name="CustomCursor" parent="." instance=ExtResource("2_ay008")]
-visible = false
 
 [node name="ItemSpawner" parent="." instance=ExtResource("33_tdga5")]
 position = Vector2(-503, -537)
@@ -831,12 +873,6 @@ texture = ExtResource("32_wph0v")
 [node name="IntroManager" type="Node" parent="."]
 script = ExtResource("29_tk4b4")
 
-[node name="Dungeon2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-570, -324)
-scale = Vector2(0.525915, 0.525915)
-texture = ExtResource("35_wsile")
-
-[connection signal="input_event" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_input_event"]
-[connection signal="mouse_exited" from="Level/Grimoire/Grimoire-placeholder/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_mouse_exited"]
-[connection signal="timeout" from="Level/Grimoire/Grimoire-placeholder/HoldTimer" to="Level/Grimoire" method="_on_hold_timer_timeout"]
+[connection signal="input_event" from="Level/Grimoire/grimoir_sprite/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_input_event"]
+[connection signal="mouse_exited" from="Level/Grimoire/grimoir_sprite/HoldArea2D" to="Level/Grimoire" method="_on_hold_area_2d_mouse_exited"]
+[connection signal="timeout" from="Level/Grimoire/grimoir_sprite/HoldTimer" to="Level/Grimoire" method="_on_hold_timer_timeout"]

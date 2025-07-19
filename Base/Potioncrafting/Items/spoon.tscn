@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://brfqe3g6gus84"]
+[gd_scene load_steps=7 format=3 uid="uid://brfqe3g6gus84"]
 
 [ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/Potioncrafting/Items/base_item.gd" id="1_no0oa"]
 [ext_resource type="Resource" uid="uid://hiy0lb7hjnt2" path="res://Base/Potioncrafting/Items/spoon.tres" id="2_r5seu"]
-[ext_resource type="Texture2D" uid="uid://wddg6nwtoefo" path="res://Resources/Art/cauldron and spoon/spoon.png" id="3_bdj8t"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4fx7"]
-atlas = ExtResource("3_bdj8t")
-region = Rect2(848, 416, 760, 808)
+[ext_resource type="Texture2D" uid="uid://435bimvr07j5" path="res://Resources/Art/spoon.png" id="3_r5seu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56rss"]
 size = Vector2(26, 133)
@@ -28,9 +24,8 @@ data = ExtResource("2_r5seu")
 
 [node name="item_sprite" type="Sprite2D" parent="."]
 z_index = 3
-rotation = -0.708701
 scale = Vector2(0.128947, 0.128947)
-texture = SubResource("AtlasTexture_u4fx7")
+texture = ExtResource("3_r5seu")
 
 [node name="Item_collision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -0.5)

@@ -36,16 +36,14 @@ max_polyphony = 5
 bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-293, -317)
+scale = Vector2(3.44867, 3.44867)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(285, 357)
 scale = Vector2(4.8, 5.85637)
 shape = SubResource("CapsuleShape2D_ej568")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-13, 38)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.689734, 0.689734)
 texture = ExtResource("2_7cqvm")
 region_enabled = true
 region_rect = Rect2(556.027, 137.464, 750.941, 922.128)

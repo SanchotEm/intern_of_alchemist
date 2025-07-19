@@ -1,6 +1,6 @@
 {
 	"glowmelt": {
-		"name": "GLOWMELT_NAME",
+		"name": "Glowmelt",
 		"description": "A faint, stubborn glow meant to shove back the dark. Don't expect it to light your whole bloody workshop!",
 		"instructions": "1. Combine Wild Lavender, Ember Twig, and a Flicker Berry.\n2. Stir gently.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Glowmelt.png",
@@ -10,6 +10,7 @@
 		},
 		"strict": true,
 		"required_tags": ["aromatic","unstable","light_stirring","heat","burnt","heat"],
+
 		"method": "applyGlowmeltEffect"
 	},
 	"swift_hand": {
@@ -21,7 +22,7 @@
 			"negative": "Reverse Mouse Controls."
 		},
 		"strict": true,
-		"required_tags": ["lightweight", "burnt", "solid"],
+		"required_tags": ["stray_feather", "ember_twig", "pebble_heart"],
 		"method": "applySwiftHandEffect"
 	},
 	"invisibility": {
@@ -33,7 +34,7 @@
 			"negative": "The room becomes over-bright and saturated making it slightly uncomfortable."
 		},
 		"strict": true,
-		"required_tags": ["unstable", "fragile", "lightweight", "medium_stir"],
+		"required_tags": ["flicker_berry", "paper_shred", "stray_feather", "medium_stir"],
 		"method": "applyInvisibilityEffect"
 	},
 	"tattle_tonic": {
@@ -44,8 +45,8 @@
 			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
 			"negative": "All game audio becomes muffled."
 		},
-		"strict": true,
-		"required_tags": ["hollow", "solid", "aromatic", "hard_stir"],
+		"strict": false,
+		"required_tags": [],
 		"method": "applyTattleTonicEffect"
 	}
 }

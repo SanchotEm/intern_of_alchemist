@@ -23,6 +23,18 @@ var pressed_pos: Vector2
 
 func _ready() -> void:
 	center_of_mass_mode=RigidBody2D.CENTER_OF_MASS_MODE_CUSTOM
+	if data:
+		sprite.texture = data.sprite
+		if sprite.texture:
+			var texture_size = sprite.texture.get_size()
+			if item_collision.shape is RectangleShape2D:
+				item_collision.shape.size = texture_size
+			if input_shape.shape is RectangleShape2D:
+				input_shape.shape.size = texture_size
+		var scale = data.scale_factor
+		sprite.scale = Vector2(scale, scale)
+		item_collision.scale = Vector2(scale, scale)
+		input_shape.scale = Vector2(scale, scale)
 	Interface.items.append(self)
 	pin.set_node_a(get_path())
 	player = Interface.player

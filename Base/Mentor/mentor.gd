@@ -41,12 +41,15 @@ var l_c_threshold = Vector2(0.6, 0.2)
 var mouse_last_pos :Vector2 #last position the mouse was seen at
 #var mouse_last_t :float = 0 #moment at wich the mouse was last seen
 var mouse_on_top_lf :bool #if the mouse was On Top Of the Mentor Last Frame
-var i_t_wave_rate :float = 2 * pow(10, -7) #rate at wich the master will grow transparent while bein waved at
+var i_t_wave_rate :float = 2.5 * pow(10, -7) #rate at wich the master will grow transparent while bein waved at
 
 @export var cryptic_hints: Array[Sentence_Resource]
 @export var gibberish_lines: Array[Sentence_Resource]
 @export var normal_hints: Array[Sentence_Resource]
 @onready var speech_bubble: ColorRect = %Speech_bubble 
+
+@export var faliure_barks: Array[Sentence_Resource] #Things he says on a failed potion
+@export var success_barks: Array[Sentence_Resource] #Things he says on a successful potion
 
 func _ready() -> void:
 	Interface.register_player(Interface.AudioPlayerType.NARRATOR, narrator_audio_player)
@@ -69,7 +72,7 @@ func start_intro_sequence() -> void:
 
 func say_line_and_wait(sentence: Sentence_Resource) -> void:
 	speech_bubble.say_sentence(sentence)
-	await speech_bubble.dialogue_finished 
+	await speech_bubble.dialogue_finished
 
 # New function to replace the random behavior
 func start_random_behavior() -> void:
@@ -130,6 +133,8 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 
 func show_up() -> void: #Appears in a random position, then enters a LINGERING state
 	
+	
+	
 	await move_to_random_position(true) #will allways show up on a random position
 	#Might move to speciic position later, such as if it rolls LINGERING_GRAB_ITEM
 	show()
@@ -176,11 +181,12 @@ func linger_to_random() -> void:
 	
 	await move_to_random_position()
 	
-	var timer = get_tree().create_timer(randf_range(linger_time_range.x, linger_time_range.y))
 	if remaining_linger_amount > 0:
-		timer.connect("timeout", linger_to_random)
+		$LingerToRandomTimer.start(randf_range(linger_time_range.x, linger_time_range.y))
 	else:
-		await timer.timeout
+		
+		$GenericTimer.start(randf_range(linger_time_range.x, linger_time_range.y))
+		await $GenericTimer.timeout
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.2).set_trans(Tween.TRANS_SINE)
@@ -227,7 +233,7 @@ func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
 func say_random() -> void:
 	var sentence_type = randi_range(0, 2)
 	var chosen_sentence: Sentence_Resource
-
+	
 	match sentence_type:
 		0: # Normal Hint
 			if not normal_hints.is_empty():
@@ -248,9 +254,50 @@ func disappear() -> void:
 	$Area2D.hide()
 	mentor_state = MentorStates.HIDDEN
 	
-	var timer = get_tree().create_timer(randi_range(apparition_time_range.x, apparition_time_range.y))
-	timer.timeout.connect(show_up)
+	$ShowUpTimer.start(randi_range(apparition_time_range.x, apparition_time_range.y))
 
 
 func get_size_sprite() -> Vector2:
 	return Vector2($Sprite.texture.get_width(), $Sprite.texture.get_height()) * $Sprite.scale
+
+
+func _on_faliure() -> void: #called when a potion fails
+	if !faliure_barks.is_empty():
+		await pause_to_say(faliure_barks.pick_random())
+	else:
+		print("Faliure Bark!")
+
+func _on_success() -> void: #called when a poition succeeds
+	if !success_barks.is_empty():
+		await pause_to_say(success_barks.pick_random())
+	else:
+		print("Success Bark!")
+
+func pause_to_say(sentence :Sentence_Resource) -> void: #stops any random things he might be saying
+	var info = pause_lingering()
+	
+	await say_line_and_wait(sentence)
+	
+	unpause_lingering(info)
+
+func pause_lingering() -> Dictionary: #pause the random stuff he's doing
+	var info :Dictionary = {}
+	
+	for t in get_tree().get_nodes_in_group("MentorTimer"):
+		t.paused = true
+	info["state"] = mentor_state
+	mentor_state = MentorStates.SCRIPTED
+	info["modulate"] = modulate
+	modulate = Color(1, 1, 1, 1)
+	info["visible"] = visible
+	visible = true
+	
+	return info
+
+func unpause_lingering(info :Dictionary) -> void: #continue the random stuff he's doing
+	
+	for t in get_tree().get_nodes_in_group("MentorTimer"):
+		t.paused = false
+	mentor_state = info["state"]
+	modulate = info["modulate"]
+	visible = info["visible"]

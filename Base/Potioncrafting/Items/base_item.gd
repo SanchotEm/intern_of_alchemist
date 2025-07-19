@@ -82,3 +82,10 @@ func detach():
 	pin.set_node_b("")
 	Interface.play_audio(Interface.AudioPlayerType.SFX, data.item_sound)
 	pass
+
+
+func set_data(d :ItemData) -> void:
+	data = d
+	$item_sprite.texture = data.sprite
+	$item_sprite.scale = Vector2(data.scale_factor, data.scale_factor)
+	#print("Data set")

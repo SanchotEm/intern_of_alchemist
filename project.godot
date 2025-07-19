@@ -68,6 +68,10 @@ Settings={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Resources/localization.en.translation", "res://Resources/localization.ru.translation")
+
 [layer_names]
 
 2d_physics/layer_1="items"

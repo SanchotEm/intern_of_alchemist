@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Sentence_Resource" load_steps=2 format=3 uid="uid://bfhsxfsrjj66h"]
+
+[ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="1_cknvg"]
+
+[resource]
+script = ExtResource("1_cknvg")
+txt = "You Succeed!"
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"

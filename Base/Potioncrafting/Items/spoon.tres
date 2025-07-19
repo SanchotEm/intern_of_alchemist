@@ -21,4 +21,5 @@ Icon = SubResource("AtlasTexture_x71re")
 sprite = SubResource("AtlasTexture_wgky7")
 tags = Array[String]([])
 item_sound = ExtResource("2_x71re")
+scale_factor = 0.15
 metadata/_custom_type_script = "uid://dluypacfui4h"

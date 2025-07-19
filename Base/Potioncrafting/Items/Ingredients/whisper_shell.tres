@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bm6jsn77blyiv"]
+
+[ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="1_fh1he"]
+[ext_resource type="Texture2D" uid="uid://edtr1q0qbjg4" path="res://Resources/Art/fruit/pngs/banana.png" id="1_vfo51"]
+
+[resource]
+script = ExtResource("1_fh1he")
+item_id = "whisper_shell"
+item_name = "Whisper Shell"
+description = ""
+Icon = ExtResource("1_vfo51")
+sprite = ExtResource("1_vfo51")
+tags = Array[String](["whisper_shell"])
+scale_factor = 0.1
+metadata/_custom_type_script = "uid://dluypacfui4h"

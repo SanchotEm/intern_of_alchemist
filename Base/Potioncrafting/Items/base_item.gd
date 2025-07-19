@@ -21,7 +21,6 @@ var current_state := ItemStates.NONE
 var drag_mode: bool = false
 var pressed_pos: Vector2
 
-
 func _ready() -> void:
 	center_of_mass_mode=RigidBody2D.CENTER_OF_MASS_MODE_CUSTOM
 	sprite.texture = data.sprite
@@ -39,8 +38,8 @@ func _process(_delta: float) -> void:
 		#print("Mouse drag distance: ", drag_distance)
 		if drag_distance > 20:
 			drag_mode = true
-			print(drag_mode)
 			pressed_pos = Vector2(0,0)
+
 
 func got_input(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if drag_mode:
@@ -72,7 +71,7 @@ func attach_to(target:Node2D, connection_point: Vector2 = get_global_mouse_posit
 	pin.global_position = connection_point
 	pin.set_node_b(target.get_path())
 	Interface.play_audio(Interface.AudioPlayerType.SFX, data.item_sound)
-	
+	current_state = ItemStates.HOLDED
 	
 	pass
 
@@ -80,6 +79,7 @@ func _is_attached() -> bool:
 	return !pin.node_b.is_empty()
 
 func detach():
+	current_state = ItemStates.PLACED
 	pin.set_node_b("")
 	Interface.play_audio(Interface.AudioPlayerType.SFX, data.item_sound)
 	pass

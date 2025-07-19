@@ -9,7 +9,7 @@
 			"negative": "Room darkens & interactables become difficult to see."
 		},
 		"strict": true,
-		"required_tags": [],
+		"required_tags": ["aromatic","unstable","light_stirring","heat","burnt","heat"],
 		"method": "applyGlowmeltEffect"
 	},
 	"swift_hand": {
@@ -44,7 +44,7 @@
 			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
 			"negative": "All game audio becomes muffled."
 		},
-		"strict": true,
+		"strict": false,
 		"required_tags": [],
 		"method": "applyTattleTonicEffect"
 	},

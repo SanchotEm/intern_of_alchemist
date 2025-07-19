@@ -44,7 +44,7 @@ func load_recipes(file_path: String, merge: bool = true):
 		recipes = json_data
 		
 func get_recipe(id: String) -> Dictionary:
-	return recipes.get(id)
+	return recipes[id]
 
 func match_recipe(ingredients: Array):
 	for recipe_id in recipes:
@@ -55,9 +55,12 @@ func match_recipe(ingredients: Array):
 			continue
 		if _can_craft(strict, ingredients, required):
 			var compatible_recipe = recipe_data.duplicate()
-			compatible_recipe["tags"] = required 
-			return compatible_recipe
-
+			var flaws = _get_flaws(compatible_recipe, ingredients)
+			return [compatible_recipe, flaws]
+func _get_flaws(recipe, ingredients):
+	for entry in recipe["required_tags"]:
+		ingredients.erase(entry)
+	return ingredients
 func _can_craft(strict: bool, available: Array, required: Array) -> bool:
 	var available_copy: Array = available.duplicate()
 	if strict:

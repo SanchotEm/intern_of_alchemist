@@ -27,8 +27,8 @@ func _ready() -> void:
 	fire_timer.timeout.connect(_reduce_fire)
 	fire_timer.start(Fire_Time)
 	soup.body_exited.connect(_remove_from_soup)
-  if debug_mode:
-  print("Cauldron ready. Debug mode is ON")
+	if debug_mode:
+		print("Cauldron ready. Debug mode is ON")
   
 func _process(delta: float) -> void:
 	if ingredients.size()>3:
@@ -44,7 +44,7 @@ func _reduce_fire():
 	fire_power=maxi(0,fire_power-1)
 	if fire_power<3:
 		applied_heat=false
-    
+	
 func _add_fire(object):
 	fire_power +=1
 	if debug_mode:

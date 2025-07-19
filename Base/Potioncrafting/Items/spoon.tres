@@ -15,11 +15,11 @@ region = Rect2(848, 416, 760, 808)
 [resource]
 script = ExtResource("1_g0ykr")
 item_id = "spoon"
-item_name = "Spoon"
-description = "To mix some stuff"
+item_name = "SPOON_NAME"
+description = "SPOON_DESCRIPTION"
 Icon = SubResource("AtlasTexture_x71re")
 sprite = SubResource("AtlasTexture_wgky7")
 tags = Array[String]([])
 item_sound = ExtResource("2_x71re")
-scale_factor = 0.15
+scale_factor = 1.0
 metadata/_custom_type_script = "uid://dluypacfui4h"

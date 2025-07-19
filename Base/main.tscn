@@ -15,12 +15,12 @@
 [ext_resource type="Script" uid="uid://b4873n8i6s0vb" path="res://UI/HelpControl.gd" id="7_u7upk"]
 [ext_resource type="Texture2D" uid="uid://dt8a1nb4gbn7e" path="res://Resources/Art/Grimoire-Placeholder.png" id="7_x1fjo"]
 [ext_resource type="Texture2D" uid="uid://blpqswr63jyas" path="res://Resources/Icons/HelpSpritePressed-0001.png" id="8_u7upk"]
-[ext_resource type="Script" path="res://UI/ScrollUI.gd" id="9_llarn"]
+[ext_resource type="Script" uid="uid://g31ahwmjiu65" path="res://UI/ScrollUI.gd" id="9_llarn"]
 [ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
 [ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
-[ext_resource type="Script" uid="uid://cehqcenuffuh8" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
+[ext_resource type="Script" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
 [ext_resource type="Script" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="Texture2D" uid="uid://b6cdhvw3ftbos" path="res://Resources/Scrolls/wide.png" id="15_7ly7r"]
@@ -823,7 +823,7 @@ position = Vector2(128, 68)
 scale = Vector2(0.420556, 0.420556)
 data = SubResource("Resource_klkmn")
 [node name="spoon" parent="Level" instance=ExtResource("35_33wbd")]
-position = Vector2(169, 17)
+position = Vector2(171, -4)
 
 [node name="Mentor" parent="Level" instance=ExtResource("12_6c3lq")]
 unique_name_in_owner = true

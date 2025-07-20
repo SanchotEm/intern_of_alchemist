@@ -10,6 +10,6 @@ item_name = "Whisper Shell"
 description = ""
 Icon = ExtResource("1_vfo51")
 sprite = ExtResource("1_vfo51")
-tags = Array[String](["whisper_shell"])
+tags = Array[String](["unstable"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

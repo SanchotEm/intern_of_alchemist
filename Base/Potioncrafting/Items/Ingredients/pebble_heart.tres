@@ -10,6 +10,6 @@ item_name = "Pebble Heart"
 description = ""
 Icon = ExtResource("1_rtblc")
 sprite = ExtResource("1_rtblc")
-tags = Array[String](["pebble_heart"])
+tags = Array[String](["solid"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

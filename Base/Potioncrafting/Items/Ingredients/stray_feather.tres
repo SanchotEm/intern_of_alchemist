@@ -10,6 +10,6 @@ item_name = "Stray Feather"
 description = ""
 Icon = ExtResource("1_v2sbr")
 sprite = ExtResource("1_v2sbr")
-tags = Array[String](["stray_feather"])
+tags = Array[String](["lightweight"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

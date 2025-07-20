@@ -10,6 +10,6 @@ item_name = "Flicker Berry"
 description = ""
 Icon = ExtResource("1_el2od")
 sprite = ExtResource("1_el2od")
-tags = Array[String](["flicker_berry"])
+tags = Array[String](["fragie"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

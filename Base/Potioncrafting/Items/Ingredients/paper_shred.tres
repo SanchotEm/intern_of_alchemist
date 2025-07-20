@@ -7,9 +7,9 @@
 script = ExtResource("1_wpet8")
 item_id = "paper_shred"
 item_name = "Paper Shred"
-description = ""
+description = "Scrap from some forgotten note. Doubt it was worth much when it was whole."
 Icon = ExtResource("1_i6n8f")
 sprite = ExtResource("1_i6n8f")
-tags = Array[String](["paper_shred"])
+tags = Array[String](["burnt"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

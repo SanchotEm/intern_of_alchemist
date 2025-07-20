@@ -7,9 +7,9 @@
 script = ExtResource("1_55xex")
 item_id = "flicker_berry"
 item_name = "Flicker Berry"
-description = ""
+description = "Little berry that won’t sit still on the branch. Spoils fast. Useless unless you know what you’re doing."
 Icon = ExtResource("1_el2od")
 sprite = ExtResource("1_el2od")
-tags = Array[String](["flicker_berry"])
+tags = Array[String](["fragie"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

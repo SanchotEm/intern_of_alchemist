@@ -7,9 +7,9 @@
 script = ExtResource("1_w6s4a")
 item_id = "ember_twig"
 item_name = "Ember Twig"
-description = ""
+description = "A burnt-out stick that won’t quit glowing. Old ember, no real fire left in it."
 Icon = ExtResource("1_wmp81")
 sprite = ExtResource("1_wmp81")
-tags = Array[String](["ember_twig"])
+tags = Array[String](["hollow"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

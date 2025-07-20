@@ -7,9 +7,9 @@
 script = ExtResource("1_b1tal")
 item_id = "pebble_heart"
 item_name = "Pebble Heart"
-description = ""
+description = "Just a stone with a crack down the middle. Folk love to make up stories about it. I don’t."
 Icon = ExtResource("1_rtblc")
 sprite = ExtResource("1_rtblc")
-tags = Array[String](["pebble_heart"])
+tags = Array[String](["solid"])
 scale_factor = 0.1
 metadata/_custom_type_script = "uid://dluypacfui4h"

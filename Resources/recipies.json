@@ -2,50 +2,110 @@
 	"glowmelt": {
 		"name": "GLOWMELT_NAME",
 		"description": "A faint, stubborn glow meant to shove back the dark. Don't expect it to light your whole bloody workshop!",
-		"instructions": "1. Combine Wild Lavender, Ember Twig, and a Flicker Berry.\n2. Stir gently.",
+		"instructions": "Light a fire under your cauldron — glowing embers won’t cut it.
+		At full boil, toss in a pinch of Wild Lavender. Breathe too close, and you’ll know why.
+		Stir four times clockwise. Gentle won’t do.
+		Drop in a Whisper Shell — straight down, mind the hiss.
+		Slip in a shred of Paper while it’s looking the other way.
+		Six counter-clockwise stirs.
+		If the glow starts to sink, you’ve nailed it. If it floats… best stand back.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Glowmelt.png",
 		"ui_effects": {
 			"positive": "Room brightens slightly & saturation increase.",
 			"negative": "Room darkens & interactables become difficult to see."
 		},
 		"strict": true,
-		"required_tags": ["aromatic","unstable","light_stirring","heat","burnt","heat"],
+		"required_tags": ["heat","aromatic","light_stir","unstable","burnt","medium_stir"],
 		"method": "applyGlowmeltEffect"
 	},
 	"swift_hand": {
 		"name": "Swift Hand",
 		"description": "A quick tap sends your ingredients straight into the cauldron. Saves your hands the extra work!",
+		"instructions": "Get a fire roaring beneath your cauldron — none of this flickering rubbish.
+		When it hits a full boil, sling in a Stray Feather. Quick, before it floats off.
+		Give it five good stirs to the right. Not a twitch more.
+		Drop in a Wild Ember Twig — straight in, don’t fiddle about.
+		Now, quietly slip in a Pebble Heart. Don’t ask, don’t look.
+		Two turns to the left. If your hand feels lighter after, well… that’s the point.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Swift_Hand.png",
 		"ui_effects": {
 			"positive": "Selecting ingredients automatically adds them to the current recipe.",
 			"negative": "Reverse Mouse Controls."
 		},
 		"strict": true,
-		"required_tags": ["lightweight", "burnt", "solid"],
+		"required_tags": ["heat","lightweight","light_stir","hollow","solid","light_stir"],
 		"method": "applySwiftHandEffect"
 	},
 	"invisibility": {
 		"name": "Invisibility",
 		"description": "Makes you fade just enough to slip by unnoticed.",
+		"instructions": "Light a proper fire beneath your cauldron — no embers, no excuses.
+		When the boil kicks in, toss in a Stray Feather. Don’t blink.
+		Three stirs to the right — tight circles, none of this lazy wobble.
+		In with a Flicker Berry. Whole. Yes, whole.
+		Slip a shred of Paper in after — quietly, like it was never there.
+		Two counter-clockwise stirs. If the surface starts fading, stop stirring. You’ll lose the lot.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Invisibility.png",
 		"ui_effects": {
 			"positive": "Mentor/Narrator believes you to be gone, decreases remarks or criticisms from narrator.",
 			"negative": "The room becomes over-bright and saturated making it slightly uncomfortable."
 		},
 		"strict": true,
-		"required_tags": ["unstable", "fragile", "lightweight", "medium_stir"],
+		"required_tags": ["heat","lightweight","light_stir","fragile","burnt"],
 		"method": "applyInvisibilityEffect"
 	},
 	"tattle_tonic": {
 		"name": "Tattle Tonic",
 		"description": "Catch whispers lurking in the air, if you've got the senses to listen to them!",
+		"instructions": "Set a fire beneath your cauldron — decent heat, none of that half-hearted spark business.
+		At a rolling boil, drop in a Pebble Heart. Mind the splash; it bites.
+		Stir five times clockwise. Steady, not frantic.
+		Toss in a pinch of Wild Lavender — right into the heart of it.
+		Now, slip in a Whisper Shell. Quietly.
+		Two slow stirs to the left. If the mix starts shifting faster than your hand, you’re nearly there.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Tattle_Tonic.png",
 		"ui_effects": {
 			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
 			"negative": "All game audio becomes muffled."
 		},
 		"strict": true,
-		"required_tags": ["hollow", "solid", "aromatic", "hard_stir"],
+		"required_tags": ["heat","solid","light_stir","aromatic","unstable","light_stir"],
+		"method": "applyTattleTonicEffect"
+	},
+	"pocket_puff": {
+		"name": "Pocket Puff",
+		"description": "",
+		"instructions": "Kindle a decent flame beneath your cauldron — none of this timid flicker nonsense.
+		Once your brew greets a proper boil, toss in a shred of Paper (yes, even that bit you meant to throw out).
+		Stir twice to the right — steady hands, no flapping.
+		Drop in a Whisper Shell, and mind the splash.
+		Follow sharp with a pinch of Wild Lavender; don’t ask why, you’ll know soon enough.
+		Stir thrice to the left. If it hisses, you’re on the right track.",
+		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Tattle_Tonic.png",
+		"ui_effects": {
+			"positive": "Can hear narrator's inner thoughts, player will know when narrator is lying.",
+			"negative": "All game audio becomes muffled."
+		},
+		"strict": true,
+		"required_tags": ["heat","burnt","unstable","aromatic","light_stir"],
+		"method": "applyTattleTonicEffect"
+	},
+	"bat_brother": {
+		"name": "Bat Brother",
+		"description": "Summons a single bat to chase off flying pests. Handy… until it isn’t.",
+		"instructions": "Kindle a decent flame beneath your cauldron — none of this timid flicker nonsense.
+		Once your brew greets a proper boil, toss in a shred of Paper (yes, even that bit you meant to throw out).
+		Stir twice to the right — steady hands, no flapping.
+		Drop in a Whisper Shell, and mind the splash.
+		Follow sharp with a pinch of Wild Lavender; don’t ask why, you’ll know soon enough.
+		Stir thrice to the left. If it hisses, you’re on the right track.",
+		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Tattle_Tonic.png",
+		"ui_effects": {
+			"positive": "A bat swoops in and chases off whatever’s buzzing about.",
+			"negative": "The bat circles your workspace, flapping wildly before vanishing."
+		},
+		"strict": true,
+		"required_tags": ["heat","burnt","unstable","aromatic","light_stir"],
 		"method": "applyTattleTonicEffect"
 	}
 }

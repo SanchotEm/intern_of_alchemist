@@ -54,7 +54,7 @@ func _add_fire(object):
 		ingredients.append("heat")
 		ligth.show()
 		bubbles = Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://by7e1pfgyevys"))
-		SignalBus.increased_heat
+		SignalBus.increased_heat.emit()
 	pass
 func _add_to_soup(ingredient: Node2D):
 	if ingredient.is_in_group("item"):
@@ -96,7 +96,7 @@ func _stir(body, side):
 				_:
 					ingredients.push_back("light_stirring")
 					
-					SignalBus.light_stirr
+					SignalBus.light_stirr.emit()
 			stir_count=0
 			Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://bgm1xts2v75dy"))
 		pass

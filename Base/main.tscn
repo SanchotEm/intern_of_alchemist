@@ -1,7 +1,6 @@
-[gd_scene load_steps=81 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=65 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
-[ext_resource type="AudioStream" uid="uid://hth7u6yhs7lq" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Early-Draft.mp3" id="2_ekk2t"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
 [ext_resource type="PackedScene" uid="uid://d2rofwrkj4n1m" path="res://UI/grimoire_ui.tscn" id="2_tdga5"]
 [ext_resource type="Script" uid="uid://bji3c6bc4krp2" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://f8d15v2cndw1" path="res://Base/Mentor/mentor.tscn" id="12_6c3lq"]
 [ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
+[ext_resource type="AudioStream" uid="uid://dxyohaxcot578" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Gameplay-Loop__Render-01.mp3" id="13_hokyh"]
 [ext_resource type="Script" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="PackedScene" uid="uid://b0rtlv5hi3qu" path="res://Base/Potioncrafting/Items/flask1.tscn" id="19_hokyh"]
@@ -83,64 +83,10 @@ bg_color = Color(1, 1, 1, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_l6o11")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ay008")
 
-[sub_resource type="Resource" id="Resource_sulbg"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_001"
-audio = "uid://byayc307mirdh"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_ck8li"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_002"
-audio = "uid://2vs66271y454"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_tdga5"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_003"
-audio = "uid://ddxryx65ser08"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_wph0v"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_004"
-audio = "uid://mqhpcvlkpvii"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_33wbd"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_005"
-audio = "uid://rj5i4s56cds0"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_wsile"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_006"
-audio = "uid://cfkmeoluw2a0r"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_hokyh"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_007"
-audio = "uid://daefln22dsuwn"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_0jtdi"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_008"
-audio = "uid://c3j13man642wn"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
 [sub_resource type="Resource" id="Resource_k75nb"]
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_INTRO_009"
 audio = "uid://cgsr2rbishq27"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_ndbks"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_INTRO_010"
-audio = "uid://c88uv3ajeuu7t"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_jyyvj"]
@@ -161,36 +107,6 @@ txt = "NARRATOR_TUTORIAL_001"
 audio = "uid://bt7qmvf3asyie"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
-[sub_resource type="Resource" id="Resource_ifa6y"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_002"
-audio = "uid://b4ttb2lcxcyhe"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_dcyn6"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_003"
-audio = "uid://xhn7e3wpsbd5"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_n2q5m"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_004"
-audio = "uid://v7hpe64k0hqw"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_fexjs"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_005"
-audio = "uid://b6hemffb5oyav"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_c5v3s"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_006"
-audio = "uid://bwmbv5367b2gl"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
 [sub_resource type="Resource" id="Resource_ksw61"]
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_TUTORIAL_007"
@@ -199,8 +115,8 @@ metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_wph0v"]
 script = ExtResource("28_bq4wq")
-txt = "Now before you go touching my ingredients, add some fuel to the fire. Now throw some firewood on the hearth. No fire, no brew. Shocking, I know."
-audio = null
+txt = "NARRATOR_TUTORIAL_013"
+audio = "uid://d3bh8outlvoux"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_qninr"]
@@ -217,32 +133,14 @@ metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_n2q5m"]
 script = ExtResource("28_bq4wq")
-txt = "And fetch the spoon. Can’t stir a potion with your bare hands… unless you fancy joining me in this mess. Stir it clockwise four times... gently."
-audio = null
+txt = "NARRATOR_TUTORIAL_004"
+audio = "uid://v7hpe64k0hqw"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_vajpv"]
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_TUTORIAL_010"
 audio = "uid://bsjjmacgum8oj"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_rn58w"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_011"
-audio = "uid://c43pg0leo6ccx"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_si6kl"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_012"
-audio = "uid://iwsmvkamkb1"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_qo28y"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_013"
-audio = "uid://d3bh8outlvoux"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_chvbj"]
@@ -255,12 +153,6 @@ metadata/_custom_type_script = "uid://crx8px7laoift"
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_TUTORIAL_015"
 audio = "uid://cvgtol8snnmkm"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_unwff"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_016"
-audio = "uid://c4v0kh48jucbg"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_hyxno"]
@@ -499,7 +391,7 @@ offset_top = -1.46399
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("19_wph0v")
+stream = ExtResource("13_hokyh")
 bus = &"Music"
 parameters/looping = true
 script = ExtResource("3_fx5w4")

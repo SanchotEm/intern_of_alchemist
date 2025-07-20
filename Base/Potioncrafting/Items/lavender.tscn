@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_kesjq"]
 script = ExtResource("2_nje7y")
-item_id = ""
-item_name = ""
+item_id = "wild_lavender"
+item_name = "WILD_LAVENDER_NAME"
 description = ""
 tags = Array[String](["aromatic"])
 scale_factor = 1.0

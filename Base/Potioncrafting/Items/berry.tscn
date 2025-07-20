@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_rdcig"]
 script = ExtResource("2_sucon")
-item_id = ""
+item_id = "flicker_berry"
 item_name = ""
 description = ""
 tags = Array[String](["unstable"])

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://mt1njk72dm6w"]
+[gd_scene load_steps=5 format=3 uid="uid://mt1njk72dm6w"]
 
 [ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/Potioncrafting/Items/base_item.gd" id="1_teq7n"]
+[ext_resource type="Texture2D" uid="uid://dj60cysv8r2d2" path="res://Resources/Art/drova.png" id="2_teq7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56rss"]
 size = Vector2(54, 66)
@@ -15,13 +16,16 @@ mass = 1000.0
 script = ExtResource("1_teq7n")
 
 [node name="item_sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.318456, 0.318456)
+texture = ExtResource("2_teq7n")
 
 [node name="Item_collision" type="CollisionShape2D" parent="."]
+scale = Vector2(3.01701, 2.42025)
 shape = SubResource("RectangleShape2D_56rss")
 debug_color = Color(0, 0.6, 0.701961, 0.843137)
 
 [node name="input_collision" type="Area2D" parent="."]
+scale = Vector2(3.01701, 2.42025)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="input_collision"]

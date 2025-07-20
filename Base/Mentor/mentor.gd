@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var base_scale :Vector2 = scale
+
 @onready var narrator_audio_player: AudioStreamPlayer = %NarratorPlayer
 
 @onready var camera_2d: Camera2D = %Camera2D
@@ -15,19 +17,20 @@ signal scripted_dialogue_finished
  #if no variale necessary put null and no variable will be used
  #each callable can only have one variable, and it will be the first one used
 #signal_to_wait = signal it will wait for before continuing
-var intro_actions :Array[Dictionary] = [
+@onready var speech_bubble: ColorRect = %Speech_bubble
+@onready var intro_actions :Array[Dictionary] = [
 	{"sentence": "res://Base/main.tscn::Resource_sulbg",\
 	 "callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
-var tutorial_actions :Array[Dictionary] = [
+@onready var tutorial_actions :Array[Dictionary] = [
 	{"sentence": "res://Base/main.tscn::Resource_bq4wq",\
 	"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
 
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
- LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
+ LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM, JUMPSCARE}
 var mentor_state :MentorStates = MentorStates.HIDDEN
-var state_chances :Array[int] = [20, 20, 20, 0, 0]
+var state_chances :Array[int] = [20, 20, 20, 0, 0, 5]
 #HIDDEN = not visible or doing anything
 #MOVING = travelling across the screen, therefore not interactable
 #LINGERING = On the screen, in the way, halfway transparent
@@ -61,7 +64,6 @@ var i_t_wave_rate :float = 2.5 * pow(10, -7) #rate at wich the master will grow 
 @export var cryptic_hints: Array[Sentence_Resource]
 @export var gibberish_lines: Array[Sentence_Resource]
 @export var normal_hints: Array[Sentence_Resource]
-@onready var speech_bubble: ColorRect = %Speech_bubble 
 
 @export var faliure_barks: Array[Sentence_Resource] #Things he says on a failed potion
 @export var success_barks: Array[Sentence_Resource] #Things he says on a successful potion
@@ -181,8 +183,9 @@ func show_up() -> void: #Appears in a random position, then enters a LINGERING s
 	var chance_2 :int = chance_1 + state_chances[2]
 	var chance_3 :int = chance_2 + state_chances[3]
 	var chance_4 :int = chance_3 + state_chances[4]
+	var chance_5 :int = chance_4 + state_chances[5]
 	
-	var i :int = randi_range(1, sum)
+	var i :int = 65#randi_range(1, sum)
 	if i <= chance_0: #LINGERING
 		mentor_state = MentorStates.LINGERING
 		remaining_linger_amount = randi_range(linger_amount_range[0], linger_amount_range[1])
@@ -199,6 +202,11 @@ func show_up() -> void: #Appears in a random position, then enters a LINGERING s
 		mentor_state = MentorStates.LINGERING_WAVE_ITEM
 	elif i <= chance_4: #LINGERING_GRAB_ITEM
 		mentor_state = MentorStates.LINGERING_GRAB_ITEM
+	elif i <= chance_5:
+		mentor_state = MentorStates.JUMPSCARE
+		move_to_center()
+		scale = base_scale * 10
+		show()
 	#else:
 		#else:
 		#print("'show_up' on mentor didn't work propery. i = ", str(i))
@@ -248,6 +256,11 @@ func move_to_random_position(instant: bool = false) -> void: # Mentor moves to a
 		global_position = pos
 	else:
 		await move_to(pos)
+
+func move_to_center() -> void:
+	var view_rect: Rect2 = get_camera_view_rect()
+	if view_rect.size != Vector2.ZERO:
+		position = view_rect.size/2
 
 func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
 	
@@ -322,6 +335,8 @@ func pause_lingering() -> Dictionary: #pause the random stuff he's doing
 	info["visible"] = visible
 	visible = true
 	info["position"] = position
+	info["sacle"] = scale
+	scale = base_scale
 	
 	return info
 
@@ -333,3 +348,4 @@ func unpause_lingering(info :Dictionary) -> void: #continue the random stuff he'
 	modulate = info["modulate"]
 	visible = info["visible"]
 	position = info["position"]
+	scale = info["scale"]

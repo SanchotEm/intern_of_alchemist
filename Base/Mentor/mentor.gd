@@ -9,6 +9,21 @@ signal scripted_dialogue_finished
 @export var intro_dialogue: Array[Sentence_Resource] # Array for intro lines
 @export var tutorial_dialogue: Array[Sentence_Resource] # Array for tutorial lines
 
+#sentence = the path to the resource to be loaded at that point
+#callables = all callables to be called, in order
+#variables = variables, each variable being used for the callable in the same index
+ #if no variale necessary put null and no variable will be used
+ #each callable can only have one variable, and it will be the first one used
+#signal_to_wait = signal it will wait for before continuing
+var intro_actions :Array[Dictionary] = [
+	{"sentence": "res://Base/main.tscn::Resource_sulbg",\
+	 "callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
+]
+var tutorial_actions :Array[Dictionary] = [
+	{"sentence": "res://Base/main.tscn::Resource_bq4wq",\
+	"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
+]
+
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
  LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
 var mentor_state :MentorStates = MentorStates.HIDDEN
@@ -59,25 +74,40 @@ func _ready() -> void:
 	$Area2D.hide()
 	mentor_state = MentorStates.HIDDEN
 
-func start_intro_sequence() -> void:
+func intro_sequence() -> void:
 	mentor_state = MentorStates.SCRIPTED
 	show()
 	modulate = Color(1, 1, 1, 1)
 	for sentence in intro_dialogue:
 		await say_line_and_wait(sentence)
+
+func tutorial(save_state :bool = true) -> void:
+	var info :Dictionary
+	if save_state:
+		info = pause_lingering()
+	
 	for sentence in tutorial_dialogue:
 		await say_line_and_wait(sentence)
 	scripted_dialogue_finished.emit()
-	start_random_behavior()
+	
+	if save_state:
+		unpause_lingering(info)
+
+func do_action(action :Dictionary) -> void:
+	
+	speech_bubble.say_sentence(load(action["sentence"]))
+	
+	for i in action["callables"].size():
+		if action["variables"][i]: #if there is a variable, use it
+			action["callables"][i].call(action["variables"][i])
+		else: #if not, call it without any variables
+			action["callables"][i].call()
+	
+	await action["signal_to_wait"]
 
 func say_line_and_wait(sentence: Sentence_Resource) -> void:
 	speech_bubble.say_sentence(sentence)
 	await speech_bubble.dialogue_finished
-
-# New function to replace the random behavior
-func start_random_behavior() -> void:
-	# Moved show up further down, so we can intro first.
-	show_up()
 
 func _process(delta: float) -> void:
 	if mentor_state == MentorStates.LINGERING_WAVE:
@@ -291,6 +321,7 @@ func pause_lingering() -> Dictionary: #pause the random stuff he's doing
 	modulate = Color(1, 1, 1, 1)
 	info["visible"] = visible
 	visible = true
+	info["position"] = position
 	
 	return info
 
@@ -301,3 +332,4 @@ func unpause_lingering(info :Dictionary) -> void: #continue the random stuff he'
 	mentor_state = info["state"]
 	modulate = info["modulate"]
 	visible = info["visible"]
+	position = info["position"]

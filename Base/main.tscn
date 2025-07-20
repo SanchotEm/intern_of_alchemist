@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=62 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
@@ -15,11 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
 [ext_resource type="AudioStream" uid="uid://dxyohaxcot578" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Gameplay-Loop__Render-01.mp3" id="13_hokyh"]
-[ext_resource type="Script" path="res://UI/MusicControl.gd" id="14_48dpn"]
+[ext_resource type="Script" uid="uid://c41kgvuuck1eu" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="PackedScene" uid="uid://b0rtlv5hi3qu" path="res://Base/Potioncrafting/Items/flask1.tscn" id="19_hokyh"]
-[ext_resource type="Script" uid="uid://ce3j7b6r4hvg5" path="res://Base/to_left.gd" id="21_wph0v"]
-[ext_resource type="Script" uid="uid://dxf5ubl5qlhrc" path="res://Base/to_right.gd" id="22_33wbd"]
+[ext_resource type="Script" path="res://Base/to_left.gd" id="21_wph0v"]
+[ext_resource type="Script" path="res://Base/to_right.gd" id="22_33wbd"]
 [ext_resource type="Script" uid="uid://bo0fbbiqxf55r" path="res://Base/Grimoire/grimoire.gd" id="22_l6o11"]
 [ext_resource type="Script" uid="uid://canvqw4mgtnhj" path="res://Base/Potioncrafting/Items/item_spawner.gd" id="22_wph0v"]
 [ext_resource type="Texture2D" uid="uid://xsjx7vsmskus" path="res://Resources/Art/dungeon/table.png" id="23_33wbd"]
@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://qagmb2c0vnpc" path="res://Resources/Art/dungeon/dungeon.png" id="33_33wbd"]
 [ext_resource type="Texture2D" uid="uid://g8mye1njiti5" path="res://Resources/Art/Potions-Ingredients/rock.png" id="33_hokyh"]
 [ext_resource type="PackedScene" uid="uid://bboarkl1nm1uo" path="res://Base/Potioncrafting/Items/item_spawner.tscn" id="33_tdga5"]
-[ext_resource type="Shader" uid="uid://dw552lxuqxphg" path="res://Base/camera_shader.gdshader" id="33_wph0v"]
+[ext_resource type="Shader" path="res://Base/camera_shader.gdshader" id="33_wph0v"]
 [ext_resource type="Texture2D" uid="uid://bo3dmqf6qfdal" path="res://Resources/Art/Potions-Ingredients/feather.png" id="34_0jtdi"]
 [ext_resource type="PackedScene" uid="uid://brfqe3g6gus84" path="res://Base/Potioncrafting/Items/spoon.tscn" id="35_33wbd"]
 [ext_resource type="Texture2D" uid="uid://cnuianx44i0gf" path="res://Resources/Art/Potions-Ingredients/berry.png" id="35_k75nb"]
@@ -135,24 +135,6 @@ metadata/_custom_type_script = "uid://crx8px7laoift"
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_TUTORIAL_004"
 audio = "uid://v7hpe64k0hqw"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_vajpv"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_010"
-audio = "uid://bsjjmacgum8oj"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_chvbj"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_014"
-audio = "uid://cr0r52jlo58yv"
-metadata/_custom_type_script = "uid://crx8px7laoift"
-
-[sub_resource type="Resource" id="Resource_33wbd"]
-script = ExtResource("28_bq4wq")
-txt = "NARRATOR_TUTORIAL_015"
-audio = "uid://cvgtol8snnmkm"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_hyxno"]
@@ -591,7 +573,7 @@ visible = false
 z_index = 6
 position = Vector2(-419, -65)
 intro_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_k75nb"), SubResource("Resource_jyyvj"), SubResource("Resource_ppcoy")])
-tutorial_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_bq4wq"), SubResource("Resource_ksw61"), SubResource("Resource_wph0v"), SubResource("Resource_qninr"), SubResource("Resource_5epor"), SubResource("Resource_n2q5m"), SubResource("Resource_vajpv"), SubResource("Resource_chvbj"), SubResource("Resource_33wbd"), SubResource("Resource_hyxno")])
+tutorial_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_bq4wq"), SubResource("Resource_ksw61"), SubResource("Resource_wph0v"), SubResource("Resource_qninr"), SubResource("Resource_5epor"), SubResource("Resource_n2q5m"), SubResource("Resource_hyxno")])
 
 [node name="ItemSpawner" parent="." instance=ExtResource("33_tdga5")]
 position = Vector2(256, -363)

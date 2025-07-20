@@ -16,10 +16,24 @@ var current_state := ItemStates.NONE
 @onready var pin: PinJoint2D = $PinJoint2D
 @onready var input_shape: CollisionShape2D = $input_collision/CollisionShape2D
 @export var data : ItemData = load("uid://dbhko3ik5pxgr")
-
+@export var effect: Callable
 
 var drag_mode: bool = false
 var pressed_pos: Vector2
+
+func set_potion(recipe, flaws):
+	print(recipe)
+	sprite.texture=load(recipe["icon_path"])
+	effect = Callable.create(self, recipe["method"])
+	effect.call()
+	
+	pass
+func applyGlowmeltEffect():
+	Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://c35c6x6gq48a0"))
+	%Speech_bubble._on_player_finished()
+	%Speech_bubble.disappear()
+	%flash.show()
+	get_tree().create_timer(1).timeout.connect(get_tree().quit)
 
 func _ready() -> void:
 	center_of_mass_mode=RigidBody2D.CENTER_OF_MASS_MODE_CUSTOM

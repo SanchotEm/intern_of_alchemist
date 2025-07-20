@@ -9,7 +9,7 @@
 size = Vector2(283.41, 70.6693)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmvmp"]
-size = Vector2(257, 69)
+size = Vector2(257, 186.719)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s6ci"]
 size = Vector2(47, 152)
@@ -73,6 +73,19 @@ shape = SubResource("RectangleShape2D_xmvmp")
 [node name="fire_timer" type="Timer" parent="fire"]
 wait_time = 10.0
 
+[node name="fill" type="Area2D" parent="."]
+unique_name_in_owner = true
+z_index = 6
+scale = Vector2(1.36988, 1.36988)
+collision_layer = 0
+collision_mask = 16
+priority = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fill"]
+z_index = 7
+position = Vector2(2.18997, -18.9798)
+shape = SubResource("RectangleShape2D_xmvmp")
+
 [node name="left" type="Area2D" parent="."]
 scale = Vector2(1.36988, 1.36988)
 collision_layer = 0
@@ -106,3 +119,6 @@ energy = 8.62
 range_item_cull_mask = 31
 texture = SubResource("GradientTexture2D_5bbjp")
 height = 117.0
+
+[connection signal="body_entered" from="fill" to="." method="flask"]
+[connection signal="input_event" from="fill" to="." method="flask"]

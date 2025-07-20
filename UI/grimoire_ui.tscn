@@ -45,37 +45,14 @@ offset_top = 127.0
 offset_right = 919.0
 offset_bottom = 541.0
 
-[node name="StatsPageVBoxContainer" type="VBoxContainer" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-alignment = 1
-
-[node name="StatsPageLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Game Stats"
-horizontal_alignment = 1
-
-[node name="StatsVBoxContainer" type="VBoxContainer" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer"]
-layout_mode = 2
-
-[node name="StatsLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/StatsPageVBoxContainer/StatsVBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Recipe Name"
-horizontal_alignment = 1
-
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer"]
 layout_mode = 2
+alignment = 2
 
 [node name="Page_odd" type="VBoxContainer" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 0
-alignment = 1
 
 [node name="RecipePageLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_odd"]
 unique_name_in_owner = true
@@ -103,37 +80,6 @@ horizontal_alignment = 1
 
 [node name="RecipeTagsLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_odd/RecipeVBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
-text = "Tags or not"
-horizontal_alignment = 1
-
-[node name="Page_even" type="VBoxContainer" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 0
-alignment = 1
-
-[node name="RecipePageLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Scroll of Recipes"
-horizontal_alignment = 1
-
-[node name="RecipeVBoxContainer" type="VBoxContainer" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even"]
-layout_mode = 2
-
-[node name="RecipeNameLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even/RecipeVBoxContainer"]
-layout_mode = 2
-text = "Recipe Name"
-horizontal_alignment = 1
-
-[node name="RecipeInstructionsLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even/RecipeVBoxContainer"]
-layout_mode = 2
-text = "Instructions"
-horizontal_alignment = 1
-
-[node name="RecipeTagsLabel" type="Label" parent="ScrollMarginContainer/ScrollBackgroundTexture/MarginContainer/HBoxContainer/Page_even/RecipeVBoxContainer"]
 layout_mode = 2
 text = "Tags or not"
 horizontal_alignment = 1

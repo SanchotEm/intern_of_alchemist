@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://blnydnqk036lx"]
+[gd_scene load_steps=81 format=3 uid="uid://blnydnqk036lx"]
 
 [ext_resource type="Script" uid="uid://bcksdnsnmqud2" path="res://Base/main.gd" id="1_hljll"]
 [ext_resource type="AudioStream" uid="uid://hth7u6yhs7lq" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Early-Draft.mp3" id="2_ekk2t"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
 [ext_resource type="Script" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
+[ext_resource type="PackedScene" uid="uid://b0rtlv5hi3qu" path="res://Base/Potioncrafting/Items/flask1.tscn" id="19_hokyh"]
 [ext_resource type="Script" uid="uid://ce3j7b6r4hvg5" path="res://Base/to_left.gd" id="21_wph0v"]
 [ext_resource type="Script" uid="uid://dxf5ubl5qlhrc" path="res://Base/to_right.gd" id="22_33wbd"]
 [ext_resource type="Script" uid="uid://bo0fbbiqxf55r" path="res://Base/Grimoire/grimoire.gd" id="22_l6o11"]
@@ -28,11 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://ddm5evh3tet3g" path="res://Resources/Art/Book/open book down.png" id="26_wsile"]
 [ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="28_bq4wq"]
 [ext_resource type="Script" uid="uid://f35ukopor4pw" path="res://Base/IntroManager.gd" id="29_tk4b4"]
-[ext_resource type="Texture2D" uid="uid://dpd8thke4k7tu" path="res://Resources/Art/placeholder_kit_rectangles/64x64_yellow.png" id="32_wph0v"]
+[ext_resource type="Texture2D" uid="uid://bcugwapjwaa18" path="res://Resources/Art/Potions-Ingredients/lavender_herb.png" id="32_wsile"]
 [ext_resource type="Texture2D" uid="uid://qagmb2c0vnpc" path="res://Resources/Art/dungeon/dungeon.png" id="33_33wbd"]
+[ext_resource type="Texture2D" uid="uid://g8mye1njiti5" path="res://Resources/Art/Potions-Ingredients/rock.png" id="33_hokyh"]
 [ext_resource type="PackedScene" uid="uid://bboarkl1nm1uo" path="res://Base/Potioncrafting/Items/item_spawner.tscn" id="33_tdga5"]
 [ext_resource type="Shader" uid="uid://dw552lxuqxphg" path="res://Base/camera_shader.gdshader" id="33_wph0v"]
+[ext_resource type="Texture2D" uid="uid://bo3dmqf6qfdal" path="res://Resources/Art/Potions-Ingredients/feather.png" id="34_0jtdi"]
 [ext_resource type="PackedScene" uid="uid://brfqe3g6gus84" path="res://Base/Potioncrafting/Items/spoon.tscn" id="35_33wbd"]
+[ext_resource type="Texture2D" uid="uid://cnuianx44i0gf" path="res://Resources/Art/Potions-Ingredients/berry.png" id="35_k75nb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nedf"]
 bg_color = Color(0.298075, 0.298075, 0.298074, 1)
@@ -273,7 +277,6 @@ color = Color(0.156863, 0.156863, 0.156863, 0.321569)
 [node name="GrimoireUI" parent="UI" instance=ExtResource("2_tdga5")]
 
 [node name="TopBarUIMarginContainer" type="MarginContainer" parent="UI"]
-visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 60.0
@@ -548,12 +551,27 @@ size_flags_horizontal = 10
 theme_override_styles/panel = SubResource("StyleBoxEmpty_33wbd")
 script = ExtResource("22_33wbd")
 
+[node name="flash" type="ColorRect" parent="Player/CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+z_index = 1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1862.0
+offset_top = -1862.0
+offset_right = -1862.0
+offset_bottom = -1862.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.59468, 4.78948)
+
 [node name="Scene" type="Node2D" parent="."]
 position = Vector2(-581, -316)
 
 [node name="Dungeon2" type="Sprite2D" parent="Scene"]
 z_index = -1
-position = Vector2(1123, 1.00001)
+position = Vector2(1131, 2.00001)
 scale = Vector2(0.491095, 0.491095)
 texture = ExtResource("33_33wbd")
 
@@ -566,6 +584,7 @@ texture = ExtResource("24_wsile")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene/Environment"]
 position = Vector2(-581, -205)
+collision_mask = 17
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene/Environment/StaticBody2D"]
 visible = false
@@ -590,6 +609,9 @@ position = Vector2(2331, 0)
 position = Vector2(1328, 126)
 scale = Vector2(0.226939, 0.226939)
 texture = ExtResource("25_hokyh")
+
+[node name="base_item" parent="Scene" instance=ExtResource("19_hokyh")]
+position = Vector2(-12, -53)
 
 [node name="Wood" type="Node2D" parent="Scene"]
 position = Vector2(2100, 133)
@@ -669,11 +691,54 @@ intro_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_sulbg"), 
 tutorial_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_bq4wq"), SubResource("Resource_ifa6y"), SubResource("Resource_dcyn6"), SubResource("Resource_n2q5m"), SubResource("Resource_fexjs"), SubResource("Resource_c5v3s"), SubResource("Resource_ksw61"), SubResource("Resource_qninr"), SubResource("Resource_5epor"), SubResource("Resource_vajpv"), SubResource("Resource_rn58w"), SubResource("Resource_si6kl"), SubResource("Resource_qo28y"), SubResource("Resource_chvbj"), SubResource("Resource_4l2nq"), SubResource("Resource_unwff"), SubResource("Resource_hyxno")])
 
 [node name="ItemSpawner" parent="." instance=ExtResource("33_tdga5")]
-position = Vector2(-503, -537)
-item = "uid://dsjertmptbxpt"
+position = Vector2(256, -363)
+item = "uid://dpfpaajds0tco"
 
 [node name="Sprite2D" type="Sprite2D" parent="ItemSpawner"]
-texture = ExtResource("32_wph0v")
+position = Vector2(1.20899, 3.41096)
+rotation = -0.349728
+scale = Vector2(0.0554427, 0.0554427)
+texture = ExtResource("32_wsile")
+
+[node name="ItemSpawner2" parent="." instance=ExtResource("33_tdga5")]
+position = Vector2(506, -241)
+item = "uid://mcbgerf3x6ut"
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemSpawner2"]
+position = Vector2(1.20899, 3.41096)
+rotation = -0.349728
+scale = Vector2(0.0554427, 0.0554427)
+texture = ExtResource("33_hokyh")
+
+[node name="ItemSpawner3" parent="." instance=ExtResource("33_tdga5")]
+position = Vector2(-493, -344)
+item = "uid://cfulbsywjh8ti"
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemSpawner3"]
+position = Vector2(1.20899, 3.41096)
+rotation = -0.349728
+scale = Vector2(0.315992, 0.227957)
+texture = ExtResource("23_wsile")
+
+[node name="ItemSpawner4" parent="." instance=ExtResource("33_tdga5")]
+position = Vector2(-921, -315)
+item = "uid://ct3qtarxnux3y"
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemSpawner4"]
+position = Vector2(1.20899, 3.41096)
+rotation = 1.01362
+scale = Vector2(0.0554427, 0.0554427)
+texture = ExtResource("34_0jtdi")
+
+[node name="ItemSpawner5" parent="." instance=ExtResource("33_tdga5")]
+position = Vector2(-125, -272)
+item = "uid://bhci6oodruc7h"
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemSpawner5"]
+position = Vector2(1.20899, 3.41096)
+rotation = 1.01362
+scale = Vector2(0.0554427, 0.0554427)
+texture = ExtResource("35_k75nb")
 
 [node name="IntroManager" type="Node" parent="."]
 script = ExtResource("29_tk4b4")

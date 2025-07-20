@@ -8,7 +8,7 @@ var test_count : int = 0
 
 
 func _ready() -> void:
-	TranslationServer.set_locale("en")
+	
 	Interface.register_player(Interface.AudioPlayerType.SFX, %SFXPlayer)
 	Interface.register_player(Interface.AudioPlayerType.MUSIC, %MusicPlayer)
 

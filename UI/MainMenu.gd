@@ -6,6 +6,7 @@ extends Control
 
 
 func _ready() -> void:
+	TranslationServer.set_locale(OS.get_locale())
 	play_button.pressed.connect(_on_play_button_pressed)
 
 

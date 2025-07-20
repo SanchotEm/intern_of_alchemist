@@ -1,68 +1,78 @@
 id,en,ru
 NARRATOR_INTRO_001,It was meant to be my masterpiece. The pinnacle of my craft… a potion unlike any before it.,Это должен был быть мой Магнум Опус. Зелье - вершина алхимичиского исскуства.
-NARRATOR_INTRO_002,"Every ingredient, every measure… balanced on a knife’s edge. One slip, and—","Каждый ингредиент был отмерен мной с точностью до песчинки, и поэтому даже малая оплошность."
+NARRATOR_INTRO_002,"Every ingredient, every measure… balanced on a knife’s edge. One slip, and—","Каждый ингредиент был отмерен мной с точностью до песчинки. Но, одна оплошность и... Пуф!"
 NARRATOR_INTRO_003,Well. You can guess where this is going.,"Да ты и сам видишь, как всё вышло."
 NARRATOR_INTRO_004,"The fly. Some meddling, buzzing speck… thought it wise to dance past my face right at the wrong moment.",Муха! Мелкая жужжащая тварь посмела мешатся в самый важный момент.
 NARRATOR_INTRO_005,And me? I swatted. Knocked the wrong ingredient straight in.,"И я прихлопнул её, обронив лишний ингредиент."
 NARRATOR_INTRO_006,"They’ll call it the Potion of Death, I expect. Bit on the nose… but accurate.","Называлось бы оно Зельем Смерти - пафосное, но точное название."
 NARRATOR_INTRO_007,Should’ve kept the blasted windows shut…,Стоило держать окно на замке...
 NARRATOR_INTRO_008,Now look at me. Not quite dead. Not quite alive. And you— poking your nose in like you’ve got business here.,"А теперь погляди на меня, ни жив, ни мёртв. А ещё и ты, залез сюда в поисках не пойми чего."
-NARRATOR_INTRO_009,Hmph. Thought I’d seen the last of meddling apprentices.,Я поклялся больше не брать себе учеников до конца жизни.
-NARRATOR_INTRO_010,Would’ve still been alive… if not for one sodding fly.,Но вот он конец. От ничтожной мухи.
-NARRATOR_INTRO_011,Still… since you’re here. Might as well make yourself useful.,"Раз ты и так уже здесь, поможешь мне."
+NARRATOR_INTRO_009,Hmph. Thought I’d seen the last of meddling apprentices.,"Хмм. Я думал, что уже не увижу непутёвых учеников на своём веку."
+NARRATOR_INTRO_010,Would’ve still been alive… if not for one sodding fly.,И век бы мой длился ещё долго... Если не ничтожная муха.
+NARRATOR_INTRO_011,Still… since you’re here. Might as well make yourself useful.,"И раз ты уж здесь, поможешь мне."
 NARRATOR_INTRO_012,Hobson Crane. Most talented alchemist this world’s ever seen. Or was. Not planning to stay this way.,Хобсон Крэин. Величайший алхимик из ныне живущих... Если меня к ним можно ещё причислить
-NARRATOR_TUTORIAL_001,So. Don’t just stand there gawping. The grimoire’s right there.,"Ну, не стой как истукан. Открывай фолиант."
+NARRATOR_TUTORIAL_001,So. Don’t just stand there gawping. The grimoire’s right there.,"Ну, не стой как истукан. Открывай гримуар."
 NARRATOR_TUTORIAL_002,You do know how to read… right?,"Ты же умеешь читать, ведь так?"
-NARRATOR_TUTORIAL_003,Hah. Thought so. But don’t go pawing at it just yet.,"Да, вот так. Но сильно пока не углубляйся."
-NARRATOR_TUTORIAL_004,And fetch the spoon. Can’t stir a potion with your bare hands… unless you fancy joining me in this mess.,"И возьми ложку, мы не будем мешать зелье пальцем, это плохо кончится"
-NARRATOR_TUTORIAL_005,“Clockwise to make. Counterclockwise to break. Even you should manage that.”,"По часовой - создаём, против - уничтожаем. Простой закон"
-NARRATOR_TUTORIAL_006,"“First, a simple test. That scroll on the table. Pick it up. If you can manage that without setting the place on fire… maybe you’re worth trusting with the real work.”","Итак, подними свиток не порвав его."
-NARRATOR_TUTORIAL_007,“Not bad. You’ve passed the grand test of picking up paper. Congratulations. You’re practically a scholar. Now… follow along with the recipe.”,"Поздравляю, вы прошли вступительный экзамен. А теперь пойдём по рецепту!"
-NARRATOR_TUTORIAL_008,“First… Wild Lavender. Pick it up and drop it in. Try not to confuse the cauldron with your own head.”,"Сначала, дикая лаванда. Возьми и опусти её в котёл и поокуратнее."
-NARRATOR_TUTORIAL_009,“Well done. You’ve mastered basic herb chucking.”,"Неплохо, но мы только начали."
-NARRATOR_TUTORIAL_010,“Now… Whisper Shell. And mind you don’t break it. Or do. I don’t care.”,"Теперь, шепчущая ракушка. Не разбей её."
-NARRATOR_TUTORIAL_011,Next comes stirring. Clockwise. You do know your clock faces… right?,"Далее, надо размешать по часовой стрелко. Я надеюсь ты понимаюеш что это значит."
-NARRATOR_TUTORIAL_012,“Hah. Wasn’t sure you’d get that one.”,"Ух, надо же, правильно!"
-NARRATOR_TUTORIAL_013,"“Now throw some firewood on the hearth. No fire, no brew. Shocking, I know.”","Подкинь немного дровишек под котёл, зелье должно вскипеть."
-NARRATOR_TUTORIAL_014,“Good. Now… Paper Shred. In the pot. Before you forget what we’re doing.”,"Хорошо идёт, осталось лишь добавить клочки бумаги"
-NARRATOR_TUTORIAL_015,“And one last bit of firewood. Unless you fancy serving up a cold sludge.”,И ещё раз хорошенько вскипятить. Добавь больше дров!
-NARRATOR_TUTORIAL_016,"“There. Wasn’t so hard, was it? Now keep to that order… unless you fancy starting over.”","Да, вот так. Солгасись, было не сложно. Теперь, следуя рецепту, сделай ещё одно."
-NARRATOR_TUTORIAL_017,“Hmph. Didn’t expect you to get that right. Maybe you’re worth letting near the grimoire after all.”,Если честно я в тебя не верил. Но да ладно. Бери фолиант и за работу!
-NARRATOR_IDOL_001,Hmph. Would’ve been done hours ago… if I’d done it myself.,
-NARRATOR_IDOL_002, Should’ve brewed a patience potion while I was at it.,
-NARRATOR_IDOL_003,Clockwise. It’s not difficult. Even a turnip could manage it.,
-NARRATOR_IDOL_004,"Tch. I said stir, not stand there gawping like a halfwit.",
-NARRATOR_IDOL_005,Rule one. Always know what you’re adding… before you add it.,
-NARRATOR_IDOL_005,Oh. Another pebble. How thrilling… Wait. No. It’s a seed. Typical. Useless.,
-NARRATOR_IDOL_006,“Every fool thinks they’re an alchemist… right up until they explode.”,
-NARRATOR_INGREVEAL_001,“Lavender’s a fair old thing for keeping the mind quiet. Had a PocketPuff by the bed once… before I gave up sleeping.”,
-NARRATOR_INGREVEAL_002,"“They say if you listen close, you’ll hear the sea. I hear my patience giving out. That’s why it finds its way into Tattle Tonic and Bat’s Bother. Can’t trust anything else to behave.”",
-NARRATOR_INGREVEAL_003,"“Funny thing about invisibility… apparently any scrap of old paper’ll do the job. Got the stuff clogging up every corner, and now it’s making potions? Ridiculous.”",
-NARRATOR_INGREVEAL_004,"“Takes a pebble to speed up your hands. Obvious, right? No. No, it isn’t.”",
+NARRATOR_TUTORIAL_003,Hah. Thought so. But don’t go pawing at it just yet.,Не сомневался в тебе. Но сильно пока не углубляйся.
+NARRATOR_TUTORIAL_004,And fetch the spoon. Can’t stir a potion with your bare hands… unless you fancy joining me in this mess.,"И возьми ложку. Мы не будем мешать зелье пальцем... Если, конечно, не хочешь закончить как я. "
+NARRATOR_TUTORIAL_005,Clockwise to make. Counterclockwise to break. Even you should manage that.,"По часовой - создаём, против - уничтожаем. Даже ты разберёшся с этим."
+NARRATOR_TUTORIAL_006,"First, a simple test. That grimoire on the table. Pick it up. If you can manage that without setting the place on fire… maybe you’re worth trusting with the real work.","Итак, вступительный экзамен. Подними гримуар. Сможешь сделать это не устроив пожар, и я подумаю доверить тебе реальную работу."
+NARRATOR_TUTORIAL_007,Not bad. You’ve passed the grand test of picking up a book. Congratulations. You’re practically a scholar. Now… follow along with the recipe.,"Поздравляю, ты преодолел это наислоижнейшее испытание. Ты практически студент. А теперь... пойдём по рецепту."
+NARRATOR_TUTORIAL_008,First… Wild Lavender. Pick it up and drop it in. Try not to confuse the cauldron with your own head.,Сначала... Дикая лаванда. Возьми и опусти её в котёл. И неперепутай его со своим ртом.
+NARRATOR_TUTORIAL_009,Well done. You’ve mastered basic herb chucking.,Неплохо. Ты познал основы травнечиства.
+NARRATOR_TUTORIAL_010,Now… Whisper Shell. And mind you don’t break it. Or do. I don’t care.,Теперь... Шепчущая ракушка. Не разбей её.
+NARRATOR_TUTORIAL_011,Next comes stirring. Clockwise. You do know your clock faces… right?,"Далее, надо размешать по часовой стрелке. Ты ведь... Знаешь что это значит?"
+NARRATOR_TUTORIAL_012,Hah. Wasn’t sure you’d get that one.,"Ух, надо же, правильно!"
+NARRATOR_TUTORIAL_013,"Now throw some firewood on the hearth. No fire, no brew. Shocking, I know.","Подкинь немного дровишек под котёл. Нет огня, нет варева."
+NARRATOR_TUTORIAL_014,Good. Now… Paper Shred. In the pot. Before you forget what we’re doing.,"Хорошо идёт. Следующее — клочок бумаги. В котёл, а то вдруг забыл уже."
+NARRATOR_TUTORIAL_015,And one last bit of firewood. Unless you fancy serving up a cold sludge.,И ещё немного дров. Мы не хотим сделать из зелья холодную муть
+NARRATOR_TUTORIAL_016,"There. Wasn’t so hard, was it? Now keep to that order… unless you fancy starting over.","Да, вот так. Солгасись, было не сложно. Теперь, следуя рецепту, сделай ещё одно."
+NARRATOR_TUTORIAL_017,Hmph. Didn’t expect you to get that right. Maybe you’re worth letting near the grimoire after all.,"Хммм. Если честно, я в тебя не верил. Может ты действительно достоин прикасатся к моему гримуару."
+NARRATOR_IDOL_001,Hmph. Would’ve been done hours ago… if I’d done it myself.,Хммм. Сам бы я уже давно со всем управился.
+NARRATOR_IDOL_002, Should’ve brewed a patience potion while I was at it.,"Мне стоило сварить зелье терпения, пока ещё мог."
+NARRATOR_IDOL_003,Clockwise. It’s not difficult. Even a turnip could manage it.,Мешать по часовой стрелке. Даже обезьяна это выучила.
+NARRATOR_IDOL_004,Be careful. You brew potions... Not a homebrew.,"Аккуратней. Мы варим зелья, а не самогон."
+NARRATOR_IDOL_005,Rule one. Always know what you’re adding… before you add it.,Первое правило алхимии. Смотри что ты добавляешь... прежде чем это добавить.
+NARRATOR_IDOL_005,Oh. Another pebble. How thrilling… Wait. No. It’s a seed. Typical. Useless.,"Ох, ещё камешек. Какая прелесть... Погодите. Нет. Это семечко. Скучное. Бесполезное."
+NARRATOR_IDOL_006,Every fool thinks they’re an alchemist… right up until they explode.,Каждый дурак считает себя алхимиком... до тех пор пока не взорвётся.
+NARRATOR_INGREVEAL_001,Lavender’s a fair old thing for keeping the mind quiet. Had a PocketPuff by the bed once… before I gave up sleeping.,Лаванда успокоивает нервы и разум. Её пучок раньше висел над моей кроватью. Пока я не отказался от сна.
+NARRATOR_INGREVEAL_002,"They say if you listen close, you’ll hear the sea. I hear my patience giving out. That’s why it finds its way into Tattle Tonic and Bat’s Bother. Can’t trust anything else to behave.","Говорят, что из ракушки можно услышать как волнуется море. Я же слышал лишь надоедливый шум. Поэтому ракушка часть Болтуньи и Летучей суеты. "
+NARRATOR_INGREVEAL_003,"Funny thing about invisibility… apparently any scrap of old paper’ll do the job. Got the stuff clogging up every corner, and now it’s making potions? Ridiculous.","Интересный факт о невидимости: оказалось любой клочок бумаги идеален для синтеза. У меня всё забито этим мусором, а теперь из него делаются зелья. Нелепость"
+NARRATOR_INGREVEAL_004,"Takes a pebble to speed up your hands. Obvious, right? No. No, it isn’t.",Камни могут ускорить твои движения. Очевидно? Нет. Совсем не очевидно.
 GLOWMELT_NAME,Glowmelt,Озарение
 GLOWMELT_DESCRIPTION,"A faint, stubborn glow meant to shove back the dark. Don't expect it to light your whole bloody workshop!","Слабый робкий свет, способный озарить темноту. Даже не смей тратить вместо свеч просто, чтобы осветить мастерскую!"
-GLOWMELT_INSTRUCTIONS,"1. Combine Wild Lavender, Ember Twig, and a Flicker Berry.\n2. Stir gently.","1. Добавить дикую лаванду, тлеющий сучок и ягоду-светяшку. \n2. Аккуратно перемешать."
-SWIFTHAND_NAME,Swift hand,
+GLOWMELT_INSTRUCTIONS,"1. Combine Wild Lavender,  Flicker Berry.\n2. Stir gently.\n3.Now heat a bit, add Amber twig and heat again","1. Добавить дикую лаванду, ягоду-светяшку. \n2. Аккуратно перемешать.\n3.Подогреть, добавить тлеющий сук и опять подогреть"
+SWIFTHAND_NAME,Swift hand,Быстрые руки
 SWIFTHAND_DESCRIPTION,A quick tap sends your ingredients straight into the cauldron. Saves your hands the extra work!,По щелчку все ингредиенты уходят в котёл. Практично!
 SWIFTHAND_INSTRUCTIONS,,
 INVISIBILITY_NAME,Invisibility,Невидимость
 INVISIBILITY_DESCRIPTION,Makes you fade just enough to slip by unnoticed.,"Не полная невидимость, но достаточно, чтобы быть незамеченным"
 INVISIBILITY_INSTRUCTIONS,,
 TATTLETONIC_NAME,Tattle Tonic,Болтунья
-TATTLETONIC_DESCRIPTION,"Catch whispers lurking in the air, if you've got the senses to listen to them!",Витает шёпот тут и там - пора услышат ьправду нам!
+TATTLETONIC_DESCRIPTION,"Catch whispers lurking in the air, if you've got the senses to listen to them!",Витает шёпот тут и там - пора услышат правду нам!
 TATTLETONIC_INSTRUCTIONS,,
 ingrefients:,,
-LAVANDER_NAME,Wild Lavender,Лаванда Дикая
-LAVANDER_DESCRIPTION,A common herb that shows up in nearly every useless old recipe. Smells nice. Does very little,
+LAVANDER_NAME,Wild Lavender,Дикая лаванда
+LAVANDER_DESCRIPTION,A common herb that shows up in nearly every useless old recipe. Smells nice. Does very little.,"Трава, использующаяся почти в каждом рецепте. На полянах её много. Толку от неё мало "
 FEATHER_NAME,Stray Feather,Перо с улицы
-FEATHER_DESCRIPTION,Found in every corner of this place. Means nothing. Probably,
+FEATHER_DESCRIPTION,Found in every corner of this place. Means nothing. Probably,Можно найти где угодно. Особой значимости не имеет.
 PEBBLE_NAME,Pebble Heart,Камушек-сердечко
-PEBBLE_DESCRIPTION,Just a stone with a crack down the middle. Folk love to make up stories about it. I don’t,
+PEBBLE_DESCRIPTION,Just a stone with a crack down the middle. Folk love to make up stories about it. I don’t,Булышник с трещенной. Люд любит придумывать истории о нём. Я — нет.
 SHELL_NAME,Whisper Shell,Шепчущая ракушка
-SHELL_DESCRIPTION,A hollow shell that hums when the wind’s right. Harmless noise — most of the time,
+SHELL_DESCRIPTION,A hollow shell that hums when the wind’s right. Harmless noise — most of the time,"Полая ракушка, что издаёт красивые звуки под ветром. Безвредная, но надоедливая."
 BERRY_NAME,Flicker Berry,Ягода мерцелки
-BERRY_DESCRIPTION,Little berry that won’t sit still on the branch. Spoils fast. Useless unless you know what you’re doing,
+BERRY_DESCRIPTION,Little berry that won’t sit still on the branch. Spoils fast. Useless unless you know what you’re doing,"Маленькие ягоды, которые всегда наровят сбежать. Быстро портится. Бесполезны вне зельяварения."
 PAPER_NAME,Paper Shred,Клочок бумаги
-PAPER_DESCRIPTION,Scrap from some forgotten note. Doubt it was worth much when it was whole.,
+PAPER_DESCRIPTION,Scrap from some forgotten note. Doubt it was worth much when it was whole.,"Обрывок старого свитка. Сомневаюсь, что целиком он был-бы ценнее."
 TWIG_NAME,Ember Twig,Тлеющий сук
-TWIG_DESCRIPTION,"A burnt-out stick that won’t quit glowing. Old ember, no real fire left in it.",
+TWIG_DESCRIPTION,"A burnt-out stick that won’t quit glowing. Old ember, no real fire left in it.","Сгоревная ветка, которая ни как не погаснет. Огня не осталось, только умирающий уголёк."
+game stuff,,
+GAME_NAME,Alchemic Internship,Стажировка алхимии
+COMMAND_CLICK,Click here,Нажми здесь
+COMMAND_HOLD,Hold and move,"Зажми, а потом двигай"
+COMMAND_LMB,Use Left Mouse Button,Используй Левую Кнопку Мыши
+COMMAND_RMB,Use Right Mouse Button,Используй Правую Кнопку Мыши
+MUSIC,Music,Музыка
+NARRATOR,Narrator,Рассказчик
+SFX,SFX,Эффекты
+MASTER,Master,Общее

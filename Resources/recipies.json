@@ -3,7 +3,7 @@
 		"name": "GLOWMELT_NAME",
 		"description": "GLOWMELT_DESCRIPTION",
 		"instructions": "GLOWMELT_INSTRUCTIONS",
-		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Glowmelt.png",
+		"icon_path": "uid://jkoq5iruhsx7",
 		"ui_effects": {
 			"positive": "Room brightens slightly & saturation increase.",
 			"negative": "Room darkens & interactables become difficult to see."

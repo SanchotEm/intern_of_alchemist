@@ -49,6 +49,7 @@ folder_colors={
 spoon="spoon group"
 item="item"
 wood=""
+flask=""
 
 [gui]
 
@@ -118,6 +119,7 @@ locale/translations=PackedStringArray("res://Resources/localization.en.translati
 2d_physics/layer_2="cauldron"
 2d_physics/layer_3="ingredients"
 2d_physics/layer_4="wood"
+2d_physics/layer_5="flask"
 
 [rendering]
 

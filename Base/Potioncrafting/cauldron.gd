@@ -18,6 +18,7 @@ var ingredients :Array[String] = []
 var stirring: bool = false
 var stir_count:int=0
 var current_side_spoon
+@onready var fill: Area2D = %fill
 
 @onready var hardlock_recipe = Interface.get_recipe("glowmelt")
 
@@ -29,7 +30,7 @@ func _ready() -> void:
 	fire_timer.timeout.connect(_reduce_fire)
 	fire_timer.start(Fire_Time)
 	soup.body_exited.connect(_remove_from_soup)
-  
+	fill.mouse_entered.connect(flask)
 func _process(delta: float) -> void:
 	if ingredients.size()>3:
 		if !is_following_recipe(hardlock_recipe):
@@ -52,21 +53,19 @@ func _add_fire(object):
 		applied_heat = true
 		ingredients.append("heat")
 		ligth.show()
-		bubbles = Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://cq286il84saac"))
+		bubbles = Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://by7e1pfgyevys"))
 	pass
 func _add_to_soup(ingredient: Node2D):
 	if ingredient.is_in_group("item"):
 		ingredients.append_array(ingredient.data.tags)
 		ingredient.queue_free()
 		Interface.player.clear_hand()
-		_check_soup()
 	
 	elif ingredient.is_in_group("spoon"):
 		stirring = true
 		ingredient.call_deferred("set_lock_rotation_enabled", true)
 	pass
 	
-	_check_soup()
 func _remove_from_soup(body: Node2D):
 	if body.is_in_group("spoon"):
 		stirring = false
@@ -85,31 +84,39 @@ func _stir(body, side):
 			var last = ingredients.back()
 			match last:
 				"light_stir":
-					ingredients[ingredients.size()-1] = "medium_stir"
+					ingredients[ingredients.size()-1] = "medium_stirring"
 					
 				"medium_stir":
-					ingredients[ingredients.size()-1] = "hard_stir"
+					ingredients[ingredients.size()-1] = "hard_stirring"
 					
 				"hard_stir":
 					pass
 				_:
-					ingredients.push_back("light_stir")
+					ingredients.push_back("light_stirring")
 					
 			stir_count=0
 			Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://bgm1xts2v75dy"))
 		pass
-
+func flask(body):
+	print("Sssss")
+	if body.is_in_group("flask"):
+			var check = _check_soup()
+			if check:
+				Interface.player.hand.set_potion(check[0],check[1])
+					
+				
+		
+	pass
 func _check_soup():
 	var recipe = Interface.match_recipe(ingredients)
 	if recipe:
-			_create(recipe[0],recipe[1])
-	pass
+			ingredients.clear()
+			return recipe
+
 
 func _create(recipe, flaws):
-	print(flaws)
-	print(recipe)
 	
-	ingredients.clear()
+	
 	var outcome = Callable.create(self, recipe["method"])
 	if outcome.is_valid():
 		outcome.call()

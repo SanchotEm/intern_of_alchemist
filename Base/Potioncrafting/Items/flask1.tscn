@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsjertmptbxpt"]
+[gd_scene load_steps=8 format=3 uid="uid://b0rtlv5hi3qu"]
 
-[ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/Potioncrafting/Items/base_item.gd" id="1_r6ri3"]
-[ext_resource type="Texture2D" uid="uid://cs0qcrbr4k7hn" path="res://Resources/hallo.png" id="2_l10xi"]
-[ext_resource type="Shader" uid="uid://b8byuil7avwoh" path="res://Base/Potioncrafting/Items/outline.gdshader" id="3_t88by"]
+[ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/Potioncrafting/Items/base_item.gd" id="1_x1wwg"]
+[ext_resource type="Shader" uid="uid://b8byuil7avwoh" path="res://Base/Potioncrafting/Items/outline.gdshader" id="2_anrcr"]
+[ext_resource type="Texture2D" uid="uid://d174wm10mtjbi" path="res://Resources/Art/Potions-Ingredients/flask2.png" id="3_x1wwg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t88by"]
-shader = ExtResource("3_t88by")
+shader = ExtResource("2_anrcr")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.0
 shader_parameter/pattern = 0
@@ -16,7 +16,7 @@ shader_parameter/add_margins = true
 size = Vector2(54, 66)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ybrr"]
-shader = ExtResource("3_t88by")
+shader = ExtResource("2_anrcr")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.674
 shader_parameter/pattern = 0
@@ -26,25 +26,27 @@ shader_parameter/add_margins = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_new0r"]
 size = Vector2(55, 69)
 
-[node name="base_item" type="RigidBody2D" groups=["item"]]
+[node name="base_item" type="RigidBody2D" groups=["flask"]]
 physics_interpolation_mode = 2
-collision_layer = 4
-collision_mask = 3
+z_index = 6
+collision_layer = 16
 mass = 1000.0
 linear_damp_mode = 1
-script = ExtResource("1_r6ri3")
+script = ExtResource("1_x1wwg")
 
 [node name="item_sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_t88by")
-scale = Vector2(0.625, 0.625)
-texture = ExtResource("2_l10xi")
+scale = Vector2(0.427373, 0.427373)
+texture = ExtResource("3_x1wwg")
 
 [node name="Item_collision" type="CollisionShape2D" parent="."]
+scale = Vector2(1.22676, 2.62467)
 shape = SubResource("RectangleShape2D_56rss")
 debug_color = Color(0, 0.6, 0.701961, 0.843137)
 
 [node name="input_collision" type="Area2D" parent="."]
 material = SubResource("ShaderMaterial_0ybrr")
+scale = Vector2(1.22676, 2.62467)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="input_collision"]

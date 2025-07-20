@@ -19,6 +19,7 @@ func pick(item: Item):
 	hand_status = HandStatus.WITH_ITEM
 	item.current_state = item.ItemStates.HOLDED
 	SignalBus.stat_incremented.emit("items_picked_up",1)
+	SignalBus.item_grabbed(item.data.item_id)
 	pass
 
 func release(_item: Item) -> Item:

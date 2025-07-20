@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var base_scale :Vector2 = scale
+
 @onready var narrator_audio_player: AudioStreamPlayer = %NarratorPlayer
 
 @onready var camera_2d: Camera2D = %Camera2D
@@ -17,18 +19,27 @@ signal scripted_dialogue_finished
 #signal_to_wait = signal it will wait for before continuing
 @onready var speech_bubble: ColorRect = %Speech_bubble
 @onready var intro_actions :Array[Dictionary] = [
-	{"sentence": "res://Base/main.tscn::Resource_sulbg",\
-	 "callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
 @onready var tutorial_actions :Array[Dictionary] = [
-	{"sentence": "res://Base/main.tscn::Resource_bq4wq",\
-	"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
+	{"callables": [move_to], "variables": [Vector2(-950, -320)], "signal_to_wait": SignalBus.grimoire_opened},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.increased_heat},
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.placed_wild_lavander},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.light_stirr},
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.placed_whisper_shell},
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.placed_paper_shred},
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.medium_stirr},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
 
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
- LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM}
+ LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM, JUMPSCARE}
 var mentor_state :MentorStates = MentorStates.HIDDEN
-var state_chances :Array[int] = [20, 20, 20, 0, 0]
+var state_chances :Array[int] = [20, 20, 16, 0, 0, 3]
 #HIDDEN = not visible or doing anything
 #MOVING = travelling across the screen, therefore not interactable
 #LINGERING = On the screen, in the way, halfway transparent
@@ -59,6 +70,11 @@ var mouse_last_pos :Vector2 #last position the mouse was seen at
 var mouse_on_top_lf :bool #if the mouse was On Top Of the Mentor Last Frame
 var i_t_wave_rate :float = 2.5 * pow(10, -7) #rate at wich the master will grow transparent while bein waved at
 
+#JUMPSCARE
+var time_before_fading :float = 0.8 #time before the mentor will start fading after a jumpscare, in seconds
+var fading_rate :float = 1 #how much it will fade per second once it starts fading
+var time_jumpscare :float #the moment the current jumpscare happened
+
 @export var cryptic_hints: Array[Sentence_Resource]
 @export var gibberish_lines: Array[Sentence_Resource]
 @export var normal_hints: Array[Sentence_Resource]
@@ -78,24 +94,27 @@ func intro_sequence() -> void:
 	mentor_state = MentorStates.SCRIPTED
 	show()
 	modulate = Color(1, 1, 1, 1)
-	for sentence in intro_dialogue:
-		await say_line_and_wait(sentence)
+	for i in intro_actions.size():
+		var wait_for_bubble = intro_actions[i]["signal_to_wait"] == speech_bubble.dialogue_finished
+		speech_bubble.say_sentence(intro_dialogue[i], wait_for_bubble)
+		await do_action(intro_actions[i])
 
 func tutorial(save_state :bool = true) -> void:
 	var info :Dictionary
 	if save_state:
 		info = pause_lingering()
 	
-	for sentence in tutorial_dialogue:
-		await say_line_and_wait(sentence)
-	scripted_dialogue_finished.emit()
+	for i in tutorial_actions.size():
+		var wait_for_bubble = tutorial_actions[i]["signal_to_wait"] == speech_bubble.dialogue_finished
+		speech_bubble.say_sentence(tutorial_dialogue[i], wait_for_bubble)
+		await do_action(tutorial_actions[i])
+	if !save_state:
+		scripted_dialogue_finished.emit()
 	
 	if save_state:
 		unpause_lingering(info)
 
 func do_action(action :Dictionary) -> void:
-	
-	speech_bubble.say_sentence(load(action["sentence"]))
 	
 	for i in action["callables"].size():
 		if action["variables"][i]: #if there is a variable, use it
@@ -122,6 +141,12 @@ func _process(delta: float) -> void:
 		else: #if mouse isn't on top, just saves that it wasn't
 			mouse_on_top_lf = false
 		mouse_last_pos = mouse_current_pos
+	elif mentor_state == MentorStates.JUMPSCARE:
+		if Time.get_ticks_msec() >= time_jumpscare + time_before_fading * 1000:
+			modulate = Color(modulate.r, modulate.g, modulate.b, modulate.a - fading_rate * delta)
+			if modulate.a <= minimum_trans_to_disappear: #once transparent enought, it is gone!
+				scale = base_scale
+				disappear()
 
 func is_mouse_on_top(mouse_pos :Vector2) -> bool: #returns true is the mouse is on top, false otherwise
 	
@@ -163,8 +188,6 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 
 func show_up() -> void: #Appears in a random position, then enters a LINGERING state
 	
-	
-	
 	await move_to_random_position(true) #will allways show up on a random position
 	#Might move to speciic position later, such as if it rolls LINGERING_GRAB_ITEM
 	show()
@@ -181,6 +204,7 @@ func show_up() -> void: #Appears in a random position, then enters a LINGERING s
 	var chance_2 :int = chance_1 + state_chances[2]
 	var chance_3 :int = chance_2 + state_chances[3]
 	var chance_4 :int = chance_3 + state_chances[4]
+	var chance_5 :int = chance_4 + state_chances[5]
 	
 	var i :int = randi_range(1, sum)
 	if i <= chance_0: #LINGERING
@@ -199,6 +223,12 @@ func show_up() -> void: #Appears in a random position, then enters a LINGERING s
 		mentor_state = MentorStates.LINGERING_WAVE_ITEM
 	elif i <= chance_4: #LINGERING_GRAB_ITEM
 		mentor_state = MentorStates.LINGERING_GRAB_ITEM
+	elif i <= chance_5:
+		mentor_state = MentorStates.JUMPSCARE
+		scale = base_scale * 5
+		move_to_center()
+		time_jumpscare = Time.get_ticks_msec()
+		show()
 	#else:
 		#else:
 		#print("'show_up' on mentor didn't work propery. i = ", str(i))
@@ -249,8 +279,12 @@ func move_to_random_position(instant: bool = false) -> void: # Mentor moves to a
 	else:
 		await move_to(pos)
 
+func move_to_center() -> void:
+	var view_rect: Rect2 = get_camera_view_rect()
+	if view_rect.size != Vector2.ZERO:
+		global_position = view_rect.position + view_rect.size/2 + Vector2(0, get_size_sprite().y/4)
+
 func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
-	
 	var starting_state: MentorStates = mentor_state
 	mentor_state = MentorStates.MOVING
 	
@@ -288,7 +322,7 @@ func disappear() -> void:
 
 
 func get_size_sprite() -> Vector2:
-	return Vector2($Sprite.texture.get_width(), $Sprite.texture.get_height()) * $Sprite.scale
+	return Vector2($Sprite.texture.get_width(), $Sprite.texture.get_height()) * $Sprite.scale * scale
 
 
 func _on_faliure() -> void: #called when a potion fails
@@ -322,6 +356,8 @@ func pause_lingering() -> Dictionary: #pause the random stuff he's doing
 	info["visible"] = visible
 	visible = true
 	info["position"] = position
+	info["sacle"] = scale
+	scale = base_scale
 	
 	return info
 
@@ -333,3 +369,4 @@ func unpause_lingering(info :Dictionary) -> void: #continue the random stuff he'
 	modulate = info["modulate"]
 	visible = info["visible"]
 	position = info["position"]
+	scale = info["scale"]

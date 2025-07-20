@@ -1,7 +1,7 @@
 extends ColorRect
 
 signal dialogue_finished
-enum SpeechBubbleStates {HIDDEN, SHOWING, ALL_VISIBLE}
+enum SpeechBubbleStates {HIDDEN, SHOWING, ALL_VISIBLE, NOT_DISAPPEARING}
 var speech_bubble_state :SpeechBubbleStates = SpeechBubbleStates.HIDDEN
 
 var visible_characters_true :float = 0 #true amount of visible characters
@@ -26,11 +26,13 @@ func _process(delta: float) -> void:
 			if !get_player_active():
 				$Timer.start(GameConstants.TEXT_TIME_TO_DISAPPEAR)
 
-func say_sentence(sentence :Sentence_Resource) -> void:
+func say_sentence(sentence :Sentence_Resource, disappear_naturaly :bool = true) -> void:
 	if not sentence:
 		push_error("No sentences to say")
 		return
 	show_text(sentence.txt if "txt" in sentence else "PLACEHOLDER TEXT")
+	if !disappear_naturaly:
+		speech_bubble_state = SpeechBubbleStates.NOT_DISAPPEARING
 	if sentence.audio:
 		for each in Interface.audio_players:
 			if each != Interface.AudioPlayerType.NARRATOR:

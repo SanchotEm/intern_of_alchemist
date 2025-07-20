@@ -41,7 +41,7 @@ func pick(item: Item):
 	hand_status = HandStatus.WITH_ITEM
 	item.current_state = item.ItemStates.HOLDED
 	SignalBus.stat_incremented.emit("items_picked_up",1)
-	print(tr(hand.data.item_name)," ",hand.data.description," " ,TranslationServer.get_locale())
+	SignalBus.item_grabbed(item.data.item_id)
 	pass
 
 func release(_item: Item) -> Item:

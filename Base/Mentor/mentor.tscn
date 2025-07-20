@@ -21,6 +21,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ej568"]
 
 [node name="Mentor" type="Node2D"]
+position = Vector2(567, 324)
+scale = Vector2(2, 2)
 script = ExtResource("2_37jcg")
 cryptic_hints = Array[ExtResource("2_ej568")]([ExtResource("3_eg76k"), ExtResource("4_xiy78"), ExtResource("5_ry6n8")])
 gibberish_lines = Array[ExtResource("2_ej568")]([ExtResource("6_ej568"), ExtResource("7_qgj5k"), ExtResource("8_bxk4y")])
@@ -36,14 +38,13 @@ max_polyphony = 5
 bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(3.44867, 3.44867)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(4.8, 5.85637)
 shape = SubResource("CapsuleShape2D_ej568")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.689734, 0.689734)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_7cqvm")
 region_enabled = true
 region_rect = Rect2(556.027, 137.464, 750.941, 922.128)

@@ -7,7 +7,7 @@
 script = ExtResource("1_nhnun")
 item_id = "wild_lavender"
 item_name = "Wild Lavender"
-description = ""
+description = "A common herb that shows up in nearly every useless old recipe. Smells nice. Does very little."
 Icon = ExtResource("1_bwq24")
 sprite = ExtResource("1_bwq24")
 tags = Array[String](["aromatic"])

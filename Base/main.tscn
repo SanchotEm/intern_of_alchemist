@@ -197,6 +197,12 @@ txt = "NARRATOR_TUTORIAL_007"
 audio = "uid://ctjn1rse866rs"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
+[sub_resource type="Resource" id="Resource_wph0v"]
+script = ExtResource("28_bq4wq")
+txt = "Now before you go touching my ingredients, add some fuel to the fire. Now throw some firewood on the hearth. No fire, no brew. Shocking, I know."
+audio = null
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
 [sub_resource type="Resource" id="Resource_qninr"]
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_TUTORIAL_008"
@@ -207,6 +213,12 @@ metadata/_custom_type_script = "uid://crx8px7laoift"
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_TUTORIAL_009"
 audio = "uid://ba5belaolfuvk"
+metadata/_custom_type_script = "uid://crx8px7laoift"
+
+[sub_resource type="Resource" id="Resource_n2q5m"]
+script = ExtResource("28_bq4wq")
+txt = "And fetch the spoon. Can’t stir a potion with your bare hands… unless you fancy joining me in this mess. Stir it clockwise four times... gently."
+audio = null
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
 [sub_resource type="Resource" id="Resource_vajpv"]
@@ -239,7 +251,7 @@ txt = "NARRATOR_TUTORIAL_014"
 audio = "uid://cr0r52jlo58yv"
 metadata/_custom_type_script = "uid://crx8px7laoift"
 
-[sub_resource type="Resource" id="Resource_4l2nq"]
+[sub_resource type="Resource" id="Resource_33wbd"]
 script = ExtResource("28_bq4wq")
 txt = "NARRATOR_TUTORIAL_015"
 audio = "uid://cvgtol8snnmkm"
@@ -487,7 +499,7 @@ offset_top = -1.46399
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("2_ekk2t")
+stream = ExtResource("19_wph0v")
 bus = &"Music"
 parameters/looping = true
 script = ExtResource("3_fx5w4")
@@ -685,10 +697,9 @@ position = Vector2(239, -110)
 unique_name_in_owner = true
 visible = false
 z_index = 6
-position = Vector2(2171, 37)
-scale = Vector2(0.86858, 0.86858)
-intro_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_sulbg"), SubResource("Resource_ck8li"), SubResource("Resource_tdga5"), SubResource("Resource_wph0v"), SubResource("Resource_33wbd"), SubResource("Resource_wsile"), SubResource("Resource_hokyh"), SubResource("Resource_0jtdi"), SubResource("Resource_k75nb"), SubResource("Resource_ndbks"), SubResource("Resource_jyyvj"), SubResource("Resource_ppcoy")])
-tutorial_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_bq4wq"), SubResource("Resource_ifa6y"), SubResource("Resource_dcyn6"), SubResource("Resource_n2q5m"), SubResource("Resource_fexjs"), SubResource("Resource_c5v3s"), SubResource("Resource_ksw61"), SubResource("Resource_qninr"), SubResource("Resource_5epor"), SubResource("Resource_vajpv"), SubResource("Resource_rn58w"), SubResource("Resource_si6kl"), SubResource("Resource_qo28y"), SubResource("Resource_chvbj"), SubResource("Resource_4l2nq"), SubResource("Resource_unwff"), SubResource("Resource_hyxno")])
+position = Vector2(-419, -65)
+intro_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_k75nb"), SubResource("Resource_jyyvj"), SubResource("Resource_ppcoy")])
+tutorial_dialogue = Array[ExtResource("28_bq4wq")]([SubResource("Resource_bq4wq"), SubResource("Resource_ksw61"), SubResource("Resource_wph0v"), SubResource("Resource_qninr"), SubResource("Resource_5epor"), SubResource("Resource_n2q5m"), SubResource("Resource_vajpv"), SubResource("Resource_chvbj"), SubResource("Resource_33wbd"), SubResource("Resource_hyxno")])
 
 [node name="ItemSpawner" parent="." instance=ExtResource("33_tdga5")]
 position = Vector2(256, -363)

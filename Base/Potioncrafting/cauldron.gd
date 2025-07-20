@@ -55,6 +55,7 @@ func _add_fire(object):
 	if fire_power >=3 and !applied_heat:
 		applied_heat = true
 		ingredients.append("heat")
+		SignalBus.increased_heat
 	pass
 func _add_to_soup(ingredient: Node2D):
 	if ingredient.is_in_group("item"):
@@ -63,6 +64,7 @@ func _add_to_soup(ingredient: Node2D):
 			print("Tag added: %s. Current ingredients: %s" % [ingredient.data.tags, ingredients])
 		ingredient.queue_free()
 		Interface.player.clear_hand()
+		SignalBus.item_placed(ingredient.data.item_id)
 		_check_soup()
 	
 	elif ingredient.is_in_group("spoon"):
@@ -95,15 +97,17 @@ func _stir(body, side):
 			match last:
 				"light_stir":
 					ingredients[ingredients.size()-1] = "medium_stir"
+					SignalBus.medium_stirr
 					
 				"medium_stir":
 					ingredients[ingredients.size()-1] = "hard_stir"
+					SignalBus.hard_stirr
 					
 				"hard_stir":
 					pass
 				_:
 					ingredients.push_back("light_stir")
-					
+					SignalBus.light_stirr
 			print("Last ingredient after stir: ", ingredients.back())
 			stir_count=0
 		pass

@@ -9,13 +9,16 @@ var hand_status: HandStatus = HandStatus.EMPTY
 @onready var point_table: Marker2D = $"../Scene/PointTable"
 @onready var point_cauldron: Marker2D = $"../Scene/PointCauldron"
 @export var camera_speed: float = 50
-
+var hand_help: bool = false
 var direction: String
 func _input(event: InputEvent) -> void:
-	if hand_status == HandStatus.WITH_ITEM:
-		if event.is_action_pressed("LMB") and hand.drag_mode:
+	if hand_status == HandStatus.WITH_ITEM and hand_help:
+		if event.is_action_released("LMB") and hand.drag_mode:
+			
 			release(hand)
+			
 		elif event.is_action_pressed("RMB") and !hand.drag_mode:
+			hand.pressed_pos = Vector2(0,0)
 			release(hand)
 			
 
@@ -38,6 +41,7 @@ func pick(item: Item):
 	hand_status = HandStatus.WITH_ITEM
 	item.current_state = item.ItemStates.HOLDED
 	SignalBus.stat_incremented.emit("items_picked_up",1)
+	print(tr(hand.data.item_name)," ",hand.data.description," " ,TranslationServer.get_locale())
 	pass
 
 func release(_item: Item) -> Item:

@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_w6s4a")
 item_id = "ember_twig"
-item_name = "Ember Twig"
-description = ""
+item_name = "TWIG_NAME"
+description = "TWIG_DESCRIPTION"
 Icon = ExtResource("1_wmp81")
 sprite = ExtResource("1_wmp81")
 tags = Array[String](["ember_twig"])

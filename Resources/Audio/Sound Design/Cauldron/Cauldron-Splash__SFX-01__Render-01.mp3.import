@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dyc1sj3ss16wu"
+path="res://.godot/imported/Cauldron-Splash__SFX-01__Render-01.mp3-6ae26ab07bf6b7f6bb3eb0b5a81b80af.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/Sound Design/Cauldron/Cauldron-Splash__SFX-01__Render-01.mp3"
+dest_files=["res://.godot/imported/Cauldron-Splash__SFX-01__Render-01.mp3-6ae26ab07bf6b7f6bb3eb0b5a81b80af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

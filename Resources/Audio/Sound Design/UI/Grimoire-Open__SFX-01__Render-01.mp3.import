@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4blfi73ujmoq"
+path="res://.godot/imported/Grimoire-Open__SFX-01__Render-01.mp3-b582eac7da4c6269585aab90514ff839.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/Sound Design/UI/Grimoire-Open__SFX-01__Render-01.mp3"
+dest_files=["res://.godot/imported/Grimoire-Open__SFX-01__Render-01.mp3-b582eac7da4c6269585aab90514ff839.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

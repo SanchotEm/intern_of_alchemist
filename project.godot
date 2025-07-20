@@ -12,7 +12,7 @@ config_version=5
 
 config/name="intern_of_alchemist"
 config/tags=PackedStringArray("gamejam", "разработка")
-run/main_scene="uid://blnydnqk036lx"
+run/main_scene="uid://cexs31bnrv43r"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -79,6 +79,37 @@ Settings={
 
 [internationalization]
 
+locale/translation_remaps={
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_001.ogg": PackedStringArray("res://Resources/Dialogue-Scripts/Recordings/Tutorial/Dialogue__Tutorial-Ingredients-01__Render-01.mp3:en"),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_002.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_003.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_004.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_005.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_006.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_007.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_008.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_009.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_010.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_011.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/IDLE/NARRATOR_INTRO_012.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_001.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_002.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_003.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_004.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_005.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_006.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_007.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_008.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_009.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_010.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_011.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_012.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_013.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_014.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_015.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_016.ogg": PackedStringArray(),
+"res://Resources/Dialogue-Scripts/Recordings/RU/TUTORIAL/NARRATOR_TUTORIAL_017.ogg": PackedStringArray()
+}
 locale/translations=PackedStringArray("res://Resources/localization.en.translation", "res://Resources/localization.ru.translation")
 
 [layer_names]

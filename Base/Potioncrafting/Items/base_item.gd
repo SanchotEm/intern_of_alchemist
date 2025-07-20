@@ -29,7 +29,8 @@ func _ready() -> void:
 	give_me_up.connect(player.pick.bind(self))
 	let_me_down.connect(player.release.bind(self))
 	input_collision.input_event.connect(got_input)
-
+	input_collision.mouse_entered.connect(no_help)
+	input_collision.mouse_exited.connect(help)
 func _process(_delta: float) -> void:
 	if !drag_mode and pressed_pos:
 		
@@ -49,6 +50,7 @@ func got_input(_viewport: Node, event: InputEvent, _shape_idx: int):
 				pass
 	else:
 		if event.is_action_released("LMB"):
+			if current_state == ItemStates.HOLDED:
 				pressed_pos = Vector2(0,0)
 		if event.is_action_pressed("LMB"):
 			#print("LMB pressed - Current state: ", ItemStates.find_key(current_state))
@@ -76,12 +78,18 @@ func attach_to(target:Node2D, connection_point: Vector2 = get_global_mouse_posit
 
 func _is_attached() -> bool:
 	return !pin.node_b.is_empty()
-
+func help():
+	if current_state == ItemStates.HOLDED:
+		player.hand_help = true
+func no_help():
+	player.hand_help = false
 func detach():
 	current_state = ItemStates.PLACED
 	pin.set_node_b("")
-	Interface.play_audio(Interface.AudioPlayerType.SFX, data.item_sound)
-	pass
+	if linear_velocity.length()>1000:
+		Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://bra7h0xnivnj7"))
+	else:
+		Interface.play_audio(Interface.AudioPlayerType.SFX, data.item_sound)
 
 
 func set_data(d :ItemData) -> void:

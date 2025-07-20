@@ -1,8 +1,8 @@
 {
 	"glowmelt": {
 		"name": "GLOWMELT_NAME",
-		"description": "A faint, stubborn glow meant to shove back the dark. Don't expect it to light your whole bloody workshop!",
-		"instructions": "1. Combine Wild Lavender, Ember Twig, and a Flicker Berry.\n2. Stir gently.",
+		"description": "GLOWMELT_DESCRIPTION",
+		"instructions": "GLOWMELT_INSTRUCTIONS",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Glowmelt.png",
 		"ui_effects": {
 			"positive": "Room brightens slightly & saturation increase.",
@@ -13,8 +13,8 @@
 		"method": "applyGlowmeltEffect"
 	},
 	"swift_hand": {
-		"name": "Swift Hand",
-		"description": "A quick tap sends your ingredients straight into the cauldron. Saves your hands the extra work!",
+		"name": "SWIFTHAND_NAME",
+		"description": "SWIFTHAND_DESCRIPTION",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Swift_Hand.png",
 		"ui_effects": {
 			"positive": "Selecting ingredients automatically adds them to the current recipe.",

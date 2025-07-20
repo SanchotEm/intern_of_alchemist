@@ -10,4 +10,4 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_packed(load("uid://blnydnqk036lx"))
+	hide()

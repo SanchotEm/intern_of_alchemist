@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://canvqw4mgtnhj" path="res://Base/Potioncrafting/Items/item_spawner.gd" id="1_m7ue8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7ue8"]
-radius = 145.88
+radius = 88.0227
 
 [node name="ItemSpawner" type="Node2D"]
 script = ExtResource("1_m7ue8")

@@ -7,12 +7,7 @@ var speech_bubble_state :SpeechBubbleStates = SpeechBubbleStates.HIDDEN
 var visible_characters_true :float = 0 #true amount of visible characters
 
 var player :AudioStreamPlayer #current audio player, if there is one
-var saved_volume = {}
-var muted = {
-	0:false,
-	1:false,
-	2:false,
-}
+
 func _ready() -> void:
 	pass
 	#show_text("LOREM IPSUM [i]TEST[/i] [b]TEST[/b] TEST")
@@ -32,21 +27,11 @@ func say_sentence(sentence :Sentence_Resource) -> void:
 		return
 	show_text(sentence.txt if "txt" in sentence else "PLACEHOLDER TEXT")
 	if sentence.audio:
-		for each in Interface.audio_players:
-			if each != Interface.AudioPlayerType.NARRATOR:
-				if !muted[each]: 
-					saved_volume[each]=Interface.audio_players[each].volume_db
-					muted[each] = true
-				create_tween().tween_property(Interface.audio_players[each], "volume_db", saved_volume[each]-20, 0.5)
 		player = Interface.play_audio(Interface.AudioPlayerType.NARRATOR, load(sentence.audio))
-		if player and !player.finished.is_connected(_on_player_finished):
+		if player:
 			player.finished.connect(_on_player_finished)
 
 func _on_player_finished() -> void:
-	for each in Interface.audio_players:
-			if each != Interface.AudioPlayerType.NARRATOR:
-				Interface.audio_players[each].volume_db = saved_volume[each]
-				muted[each] = false
 	if speech_bubble_state == SpeechBubbleStates.ALL_VISIBLE:
 		$Timer.start(GameConstants.TEXT_TIME_TO_DISAPPEAR)
 

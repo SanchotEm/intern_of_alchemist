@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wddg6nwtoefo"
-path="res://.godot/imported/spoon.png-f1fa339748ab09d1dde1aa65fe2d6070.ctex"
+uid="uid://dfatuumsj1bym"
+path="res://.godot/imported/cualdron_front.png-9e0c1fb4a4e9b71f2eec8e83f4fc34a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Art/cauldron and spoon/spoon.png"
-dest_files=["res://.godot/imported/spoon.png-f1fa339748ab09d1dde1aa65fe2d6070.ctex"]
+source_file="res://Resources/Art/cauldron and spoon/cualdron_front.png"
+dest_files=["res://.godot/imported/cualdron_front.png-9e0c1fb4a4e9b71f2eec8e83f4fc34a2.ctex"]
 
 [params]
 

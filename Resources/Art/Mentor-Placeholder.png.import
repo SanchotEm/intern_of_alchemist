@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wddg6nwtoefo"
-path="res://.godot/imported/spoon.png-f1fa339748ab09d1dde1aa65fe2d6070.ctex"
+uid="uid://bmq0wgn3qcfi4"
+path="res://.godot/imported/Mentor-Placeholder.png-b3a6e2ae32dbb5f298c11124d8995217.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Art/cauldron and spoon/spoon.png"
-dest_files=["res://.godot/imported/spoon.png-f1fa339748ab09d1dde1aa65fe2d6070.ctex"]
+source_file="res://Resources/Art/Mentor-Placeholder.png"
+dest_files=["res://.godot/imported/Mentor-Placeholder.png-b3a6e2ae32dbb5f298c11124d8995217.ctex"]
 
 [params]
 

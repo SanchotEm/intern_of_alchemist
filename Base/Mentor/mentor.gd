@@ -29,11 +29,7 @@ signal scripted_dialogue_finished
 	{"callables": [], "variables": [], "signal_to_wait": SignalBus.increased_heat},
 	{"callables": [], "variables": [], "signal_to_wait": SignalBus.placed_wild_lavander},
 	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
-	{"callables": [], "variables": [], "signal_to_wait": SignalBus.light_stirr},
-	{"callables": [], "variables": [], "signal_to_wait": SignalBus.placed_whisper_shell},
-	{"callables": [], "variables": [], "signal_to_wait": SignalBus.placed_paper_shred},
-	{"callables": [], "variables": [], "signal_to_wait": SignalBus.medium_stirr},
-	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.light_stirr}
 ]
 
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\

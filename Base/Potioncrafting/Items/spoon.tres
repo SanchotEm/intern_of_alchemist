@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dluypacfui4h" path="res://Base/Potioncrafting/Items/item_data.gd" id="1_g0ykr"]
 [ext_resource type="Texture2D" uid="uid://he2l4jgdgxox" path="res://Resources/Art/cauldron and spoon/spoon.png" id="1_imijp"]
-[ext_resource type="AudioStream" uid="uid://xxanksxoq6wy" path="res://Resources/Audio/MenuSFX by hitrison.itch.io/MP3/Abstract/abs-cancel-1.mp3" id="2_x71re"]
+[ext_resource type="AudioStream" uid="uid://dn860qydk3h3v" path="res://Resources/Audio/Sound Design/Ingredients/Pick-up/Ingredient-Grab__SFX-01__Render-01.mp3" id="2_x71re"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x71re"]
 atlas = ExtResource("1_imijp")

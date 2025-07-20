@@ -118,3 +118,7 @@ locale/translations=PackedStringArray("res://Resources/localization.en.translati
 2d_physics/layer_2="cauldron"
 2d_physics/layer_3="ingredients"
 2d_physics/layer_4="wood"
+
+[rendering]
+
+lights_and_shadows/use_physical_light_units=true

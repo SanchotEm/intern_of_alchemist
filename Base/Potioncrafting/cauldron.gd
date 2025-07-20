@@ -6,7 +6,9 @@ extends Node2D
 @onready var fire_timer: Timer = $fire/fire_timer
 @onready var left: Area2D = $left
 @onready var right: Area2D = $right
-
+@onready var ligth: Sprite2D = $ligth
+@onready var point_light_2d: PointLight2D = $ligth/PointLight2D
+var bubbles :AudioStreamPlayer
 # Use this export variable to toggle debug in the console
 @export var debug_mode: bool = true
 @export var Fire_Time:int = 10
@@ -41,7 +43,7 @@ func _reduce_fire():
 	fire_power=maxi(0,fire_power-1)
 	if fire_power<3:
 		applied_heat=false
-	
+		ligth.hide()
 func _add_fire(object):
 	fire_power +=1
 	object.queue_free()
@@ -49,6 +51,8 @@ func _add_fire(object):
 	if fire_power >=3 and !applied_heat:
 		applied_heat = true
 		ingredients.append("heat")
+		ligth.show()
+		bubbles = Interface.play_audio(Interface.AudioPlayerType.SFX, load("uid://cq286il84saac"))
 	pass
 func _add_to_soup(ingredient: Node2D):
 	if ingredient.is_in_group("item"):
@@ -77,7 +81,6 @@ func _stir(body, side):
 		stir_count += 1
 		if stir_count > 3:
 			if ingredients.is_empty():
-				if debug_mode: print("Stirred an empty pot.")
 				return
 			var last = ingredients.back()
 			match last:

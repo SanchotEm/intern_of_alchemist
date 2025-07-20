@@ -23,6 +23,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2262, 0.253847, 0.29, 1)
 
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 225.0
+offset_top = 19.0
+offset_right = -205.0
+offset_bottom = 210.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "GAME_TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Cualdron" type="Sprite2D" parent="."]
 light_mask = 3
 visibility_layer = 2

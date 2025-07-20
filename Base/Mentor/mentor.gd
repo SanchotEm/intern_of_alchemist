@@ -19,12 +19,21 @@ signal scripted_dialogue_finished
 #signal_to_wait = signal it will wait for before continuing
 @onready var speech_bubble: ColorRect = %Speech_bubble
 @onready var intro_actions :Array[Dictionary] = [
-	{"sentence": "res://Base/main.tscn::Resource_sulbg",\
-	 "callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
 @onready var tutorial_actions :Array[Dictionary] = [
-	{"sentence": "res://Base/main.tscn::Resource_bq4wq",\
-	"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
+	{"callables": [move_to], "variables": [Vector2(-820, -300)], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
 
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
@@ -82,6 +91,7 @@ func _ready() -> void:
 	mentor_state = MentorStates.HIDDEN
 
 func intro_sequence() -> void:
+	print("intro started")
 	mentor_state = MentorStates.SCRIPTED
 	show()
 	modulate = Color(1, 1, 1, 1)
@@ -90,13 +100,14 @@ func intro_sequence() -> void:
 		await do_action(intro_actions[i])
 
 func tutorial(save_state :bool = true) -> void:
+	print("tutorial started")
 	var info :Dictionary
 	if save_state:
 		info = pause_lingering()
 	
 	for i in tutorial_actions.size():
 		speech_bubble.say_sentence(tutorial_dialogue[i])
-		await do_action(intro_actions[i])
+		await do_action(tutorial_actions[i])
 	if !save_state:
 		scripted_dialogue_finished.emit()
 	
@@ -274,7 +285,7 @@ func move_to_center() -> void:
 		global_position = view_rect.position + view_rect.size/2 + Vector2(0, get_size_sprite().y/4)
 
 func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
-	
+	print("moving to: ", pos)
 	var starting_state: MentorStates = mentor_state
 	mentor_state = MentorStates.MOVING
 	

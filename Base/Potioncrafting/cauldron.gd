@@ -32,12 +32,13 @@ func _ready() -> void:
 	soup.body_exited.connect(_remove_from_soup)
 	fill.mouse_entered.connect(flask)
 func _process(delta: float) -> void:
-	if ingredients.size()>3:
+	if ingredients.size()>5:
 		if !is_following_recipe(hardlock_recipe):
-			get_tree().quit()
+			print("SSSS")
+			get_tree().change_scene_to_file("uid://cexs31bnrv43r")
 func is_following_recipe(recipe)->bool:
 	for i in ingredients:
-		if !recipe["required_tags"].has(i):
+		if recipe["required_tags"][ingredients.find(i)] != i:
 			return false
 	return true
 func _reduce_fire():

@@ -15,11 +15,12 @@ signal scripted_dialogue_finished
  #if no variale necessary put null and no variable will be used
  #each callable can only have one variable, and it will be the first one used
 #signal_to_wait = signal it will wait for before continuing
-var intro_actions :Array[Dictionary] = [
+@onready var speech_bubble: ColorRect = %Speech_bubble
+@onready var intro_actions :Array[Dictionary] = [
 	{"sentence": "res://Base/main.tscn::Resource_sulbg",\
 	 "callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
-var tutorial_actions :Array[Dictionary] = [
+@onready var tutorial_actions :Array[Dictionary] = [
 	{"sentence": "res://Base/main.tscn::Resource_bq4wq",\
 	"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished}
 ]
@@ -61,7 +62,6 @@ var i_t_wave_rate :float = 2.5 * pow(10, -7) #rate at wich the master will grow 
 @export var cryptic_hints: Array[Sentence_Resource]
 @export var gibberish_lines: Array[Sentence_Resource]
 @export var normal_hints: Array[Sentence_Resource]
-@onready var speech_bubble: ColorRect = %Speech_bubble 
 
 @export var faliure_barks: Array[Sentence_Resource] #Things he says on a failed potion
 @export var success_barks: Array[Sentence_Resource] #Things he says on a successful potion

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chh72rphihqi2" path="res://Base/Potioncrafting/Items/base_item.gd" id="1_no0oa"]
 [ext_resource type="Resource" uid="uid://hiy0lb7hjnt2" path="res://Base/Potioncrafting/Items/spoon.tres" id="2_r5seu"]
-[ext_resource type="Texture2D" uid="uid://435bimvr07j5" path="res://Resources/Art/spoon.png" id="3_r5seu"]
+[ext_resource type="Texture2D" uid="uid://he2l4jgdgxox" path="res://Resources/Art/cauldron and spoon/spoon.png" id="3_r5seu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56rss"]
 size = Vector2(26, 133)

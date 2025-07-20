@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://csgcw8ndkwkyy"]
 
 [ext_resource type="Script" uid="uid://c1ughd7f1mndp" path="res://Base/Potioncrafting/cauldron.gd" id="1_fhhbu"]
-[ext_resource type="Texture2D" uid="uid://bdssxsaq3hyas" path="res://Resources/Art/cualdron back.png" id="2_xmvmp"]
-[ext_resource type="Texture2D" uid="uid://cgh4q6vp5ywej" path="res://Resources/Art/cualdron front.png" id="3_2s6ci"]
+[ext_resource type="Texture2D" uid="uid://5hoo8knkw5dl" path="res://Resources/Art/cauldron and spoon/cualdron back.png" id="2_wtsw0"]
+[ext_resource type="Texture2D" uid="uid://dmvdwqomjim01" path="res://Resources/Art/cauldron and spoon/cualdron front.png" id="3_xmvmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mkoy"]
 size = Vector2(283.41, 70.6693)
@@ -19,13 +19,13 @@ script = ExtResource("1_fhhbu")
 [node name="sprite_back" type="Sprite2D" parent="."]
 position = Vector2(10, 0)
 scale = Vector2(1.36988, 1.36988)
-texture = ExtResource("2_xmvmp")
+texture = ExtResource("2_wtsw0")
 
 [node name="sprite_front" type="Sprite2D" parent="."]
 z_index = 5
 position = Vector2(10, 0)
 scale = Vector2(1.36988, 1.36988)
-texture = ExtResource("3_2s6ci")
+texture = ExtResource("3_xmvmp")
 
 [node name="soup" type="Area2D" parent="."]
 scale = Vector2(1.36988, 1.36988)

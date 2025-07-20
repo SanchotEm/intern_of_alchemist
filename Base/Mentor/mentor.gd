@@ -25,7 +25,7 @@ signal scripted_dialogue_finished
 ]
 @onready var tutorial_actions :Array[Dictionary] = [
 	{"callables": [move_to], "variables": [Vector2(-950, -320)], "signal_to_wait": SignalBus.grimoire_opened},
-	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
+	{"callables": [], "variables": [], "signal_to_wait": SignalBus.grabbed_wild_lavander},
 	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
 	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},
 	{"callables": [], "variables": [], "signal_to_wait": speech_bubble.dialogue_finished},

@@ -92,7 +92,7 @@
 	},
 	"bat_brother": {
 		"name": "Bat Brother",
-		"description": "",
+		"description": "Summons a single bat to chase off flying pests. Handy… until it isn’t.",
 		"instructions": "Kindle a decent flame beneath your cauldron — none of this timid flicker nonsense.
 		Once your brew greets a proper boil, toss in a shred of Paper (yes, even that bit you meant to throw out).
 		Stir twice to the right — steady hands, no flapping.
@@ -101,8 +101,8 @@
 		Stir thrice to the left. If it hisses, you’re on the right track.",
 		"icon_path": "res://Resources/Placeholders/Potions-Ingredients/RenamedPotions/Tattle_Tonic.png",
 		"ui_effects": {
-			"positive": "",
-			"negative": ""
+			"positive": "A bat swoops in and chases off whatever’s buzzing about.",
+			"negative": "The bat circles your workspace, flapping wildly before vanishing."
 		},
 		"strict": true,
 		"required_tags": ["heat","burnt","unstable","aromatic","light_stir"],

@@ -7,7 +7,7 @@
 script = ExtResource("1_g5e3d")
 item_id = "stray_feather"
 item_name = "Stray Feather"
-description = ""
+description = "Found in every corner of this place. Means nothing. Probably."
 Icon = ExtResource("1_v2sbr")
 sprite = ExtResource("1_v2sbr")
 tags = Array[String](["lightweight"])

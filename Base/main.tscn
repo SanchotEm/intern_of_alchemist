@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://hth7u6yhs7lq" path="res://Resources/Audio/Music/Godot-Wild-Jam-83__Early-Draft.mp3" id="2_ekk2t"]
 [ext_resource type="Script" uid="uid://c023ln1fco718" path="res://Base/player.gd" id="2_n3y37"]
 [ext_resource type="PackedScene" uid="uid://d2rofwrkj4n1m" path="res://UI/grimoire_ui.tscn" id="2_tdga5"]
-[ext_resource type="Script" uid="uid://bji3c6bc4krp2" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
+[ext_resource type="Script" path="res://Base/MusicPlayer.gd" id="3_fx5w4"]
 [ext_resource type="PackedScene" uid="uid://csgcw8ndkwkyy" path="res://Base/Potioncrafting/cauldron.tscn" id="3_mrrah"]
 [ext_resource type="Texture2D" uid="uid://ds4grqw5m5exs" path="res://Resources/Icons/VolumeSprite-0001.png" id="4_1h10i"]
 [ext_resource type="Script" uid="uid://7ahbhb8ok21u" path="res://UI/VolumeControl.gd" id="4_otdql"]
@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bebplufyd55gp" path="res://Base/Speech_bubble/speech_bubble.tscn" id="12_87cgt"]
 [ext_resource type="Texture2D" uid="uid://b84yt3uailgu2" path="res://Resources/Icons/XButtonSprite-0001.png" id="12_wxmdi"]
 [ext_resource type="Texture2D" uid="uid://c1hsar2u0e2rg" path="res://Resources/Icons/PauseButtonSprite-0002.png" id="13_gj25o"]
-[ext_resource type="Script" uid="uid://cehqcenuffuh8" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
-[ext_resource type="Script" uid="uid://c41kgvuuck1eu" path="res://UI/MusicControl.gd" id="14_48dpn"]
+[ext_resource type="Script" path="res://UI/DevModeControl.gd" id="14_4dgd5"]
+[ext_resource type="Script" path="res://UI/MusicControl.gd" id="14_48dpn"]
 [ext_resource type="Texture2D" uid="uid://bcwmfvlut2sau" path="res://Resources/Icons/MusicIconSprite-0004.png" id="14_oqvj5"]
 [ext_resource type="Script" uid="uid://ce3j7b6r4hvg5" path="res://Base/to_left.gd" id="21_wph0v"]
 [ext_resource type="Script" uid="uid://dxf5ubl5qlhrc" path="res://Base/to_right.gd" id="22_33wbd"]
@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://xsjx7vsmskus" path="res://Resources/Art/dungeon/table.png" id="23_33wbd"]
 [ext_resource type="Script" uid="uid://r0wv7h8mkyxp" path="res://Base/DevModeCenterContainer.gd" id="24_4dgd5"]
 [ext_resource type="Texture2D" uid="uid://ddm5evh3tet3g" path="res://Resources/Art/Book/open book down.png" id="26_wsile"]
-[ext_resource type="Script" uid="uid://g3trio6l0800" path="res://UI/MainMenu.gd" id="27_l6o11"]
+[ext_resource type="Script" path="res://UI/MainMenu.gd" id="27_l6o11"]
 [ext_resource type="Script" uid="uid://crx8px7laoift" path="res://Base/Mentor/Sentences/Sentence_resource.gd" id="28_bq4wq"]
 [ext_resource type="Script" uid="uid://f35ukopor4pw" path="res://Base/IntroManager.gd" id="29_tk4b4"]
 [ext_resource type="Texture2D" uid="uid://dpd8thke4k7tu" path="res://Resources/Art/placeholder_kit_rectangles/64x64_yellow.png" id="32_wph0v"]
@@ -711,7 +711,6 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Grimoire/grimoir_sprite/HoldArea2D"]
 position = Vector2(-10, 12.8572)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wxmdi")
 
 [node name="HoldTimer" type="Timer" parent="Level/Grimoire/grimoir_sprite"]

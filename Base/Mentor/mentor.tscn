@@ -21,6 +21,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ej568"]
 
 [node name="Mentor" type="Node2D"]
+position = Vector2(567, 324)
 scale = Vector2(2, 2)
 script = ExtResource("2_37jcg")
 cryptic_hints = Array[ExtResource("2_ej568")]([ExtResource("3_eg76k"), ExtResource("4_xiy78"), ExtResource("5_ry6n8")])

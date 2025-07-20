@@ -30,7 +30,7 @@ signal scripted_dialogue_finished
 enum MentorStates {HIDDEN, MOVING, SCRIPTED,\
  LINGERING, LINGERING_CLICK, LINGERING_WAVE, LINGERING_WAVE_ITEM, LINGERING_GRAB_ITEM, JUMPSCARE}
 var mentor_state :MentorStates = MentorStates.HIDDEN
-var state_chances :Array[int] = [20, 20, 20, 0, 0, 5]
+var state_chances :Array[int] = [20, 20, 16, 0, 0, 3]
 #HIDDEN = not visible or doing anything
 #MOVING = travelling across the screen, therefore not interactable
 #LINGERING = On the screen, in the way, halfway transparent
@@ -61,6 +61,11 @@ var mouse_last_pos :Vector2 #last position the mouse was seen at
 var mouse_on_top_lf :bool #if the mouse was On Top Of the Mentor Last Frame
 var i_t_wave_rate :float = 2.5 * pow(10, -7) #rate at wich the master will grow transparent while bein waved at
 
+#JUMPSCARE
+var time_before_fading :float = 0.8 #time before the mentor will start fading after a jumpscare, in seconds
+var fading_rate :float = 1 #how much it will fade per second once it starts fading
+var time_jumpscare :float #the moment the current jumpscare happened
+
 @export var cryptic_hints: Array[Sentence_Resource]
 @export var gibberish_lines: Array[Sentence_Resource]
 @export var normal_hints: Array[Sentence_Resource]
@@ -80,24 +85,25 @@ func intro_sequence() -> void:
 	mentor_state = MentorStates.SCRIPTED
 	show()
 	modulate = Color(1, 1, 1, 1)
-	for sentence in intro_dialogue:
-		await say_line_and_wait(sentence)
+	for i in intro_actions.size():
+		speech_bubble.say_sentence(intro_dialogue[i])
+		await do_action(intro_actions[i])
 
 func tutorial(save_state :bool = true) -> void:
 	var info :Dictionary
 	if save_state:
 		info = pause_lingering()
 	
-	for sentence in tutorial_dialogue:
-		await say_line_and_wait(sentence)
-	scripted_dialogue_finished.emit()
+	for i in tutorial_actions.size():
+		speech_bubble.say_sentence(tutorial_dialogue[i])
+		await do_action(intro_actions[i])
+	if !save_state:
+		scripted_dialogue_finished.emit()
 	
 	if save_state:
 		unpause_lingering(info)
 
 func do_action(action :Dictionary) -> void:
-	
-	speech_bubble.say_sentence(load(action["sentence"]))
 	
 	for i in action["callables"].size():
 		if action["variables"][i]: #if there is a variable, use it
@@ -124,6 +130,12 @@ func _process(delta: float) -> void:
 		else: #if mouse isn't on top, just saves that it wasn't
 			mouse_on_top_lf = false
 		mouse_last_pos = mouse_current_pos
+	elif mentor_state == MentorStates.JUMPSCARE:
+		if Time.get_ticks_msec() >= time_jumpscare + time_before_fading * 1000:
+			modulate = Color(modulate.r, modulate.g, modulate.b, modulate.a - fading_rate * delta)
+			if modulate.a <= minimum_trans_to_disappear: #once transparent enought, it is gone!
+				scale = base_scale
+				disappear()
 
 func is_mouse_on_top(mouse_pos :Vector2) -> bool: #returns true is the mouse is on top, false otherwise
 	
@@ -165,8 +177,6 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 
 func show_up() -> void: #Appears in a random position, then enters a LINGERING state
 	
-	
-	
 	await move_to_random_position(true) #will allways show up on a random position
 	#Might move to speciic position later, such as if it rolls LINGERING_GRAB_ITEM
 	show()
@@ -185,7 +195,7 @@ func show_up() -> void: #Appears in a random position, then enters a LINGERING s
 	var chance_4 :int = chance_3 + state_chances[4]
 	var chance_5 :int = chance_4 + state_chances[5]
 	
-	var i :int = 65#randi_range(1, sum)
+	var i :int = randi_range(1, sum)
 	if i <= chance_0: #LINGERING
 		mentor_state = MentorStates.LINGERING
 		remaining_linger_amount = randi_range(linger_amount_range[0], linger_amount_range[1])
@@ -204,8 +214,9 @@ func show_up() -> void: #Appears in a random position, then enters a LINGERING s
 		mentor_state = MentorStates.LINGERING_GRAB_ITEM
 	elif i <= chance_5:
 		mentor_state = MentorStates.JUMPSCARE
+		scale = base_scale * 5
 		move_to_center()
-		scale = base_scale * 10
+		time_jumpscare = Time.get_ticks_msec()
 		show()
 	#else:
 		#else:
@@ -260,7 +271,7 @@ func move_to_random_position(instant: bool = false) -> void: # Mentor moves to a
 func move_to_center() -> void:
 	var view_rect: Rect2 = get_camera_view_rect()
 	if view_rect.size != Vector2.ZERO:
-		position = view_rect.size/2
+		global_position = view_rect.position + view_rect.size/2 + Vector2(0, get_size_sprite().y/4)
 
 func move_to(pos :Vector2) -> void: #Moves toward pos with an animation
 	
@@ -301,7 +312,7 @@ func disappear() -> void:
 
 
 func get_size_sprite() -> Vector2:
-	return Vector2($Sprite.texture.get_width(), $Sprite.texture.get_height()) * $Sprite.scale
+	return Vector2($Sprite.texture.get_width(), $Sprite.texture.get_height()) * $Sprite.scale * scale
 
 
 func _on_faliure() -> void: #called when a potion fails
